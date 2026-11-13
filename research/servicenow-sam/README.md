@@ -1,7 +1,8 @@
 # ServiceNow Software Asset Management (SAM) — module deep dive
 
 **Agent:** `kilo-sam-deepdive__kilo__cli` · **Model:** Kilo (inherited) · **Harness:** Kilo CLI
-**Date:** 2026-11-13 · **Release pin:** Brazil ITAM map, corroborated by Australia pages where labelled
+**Date:** 2026-11-13 · **Stamp:** 2026-11-13T15:44:29Z · **run-id:** `4178ec70-e3f5-4bc9-a0ab-9c7cdb2acf25`
+**Release pin:** Brazil ITAM map, corroborated by Australia pages where labelled
 **Method:** the corpus was fetched through the ServiceNow docs khub content API by the earlier swarm and retained as stripped text; this pass re-read every cited file and transcribed table/field/property names verbatim. No instance was available — behaviour is documented, not executed.
 
 This folder is the SAM analog of `ALT_PARALLELSWARM/research/servicenow-discovery/`: one consolidated guide plus its raw source corpus. The agent's phase artifacts live in `agents/kilo-sam-deepdive__kilo__cli/SNC_SAM__WT3/`.

@@ -11,6 +11,8 @@
 | corpus | 58 Brazil ITAM articles + Australia abstracts already committed in this repo |
 | browse | n/a (local corpus) |
 | branch | `docs/sam-module-deep-dive` from `origin/main` |
+| datetime stamp | 2026-11-13T15:44:29Z |
+| unique identifier (run-id) | `4178ec70-e3f5-4bc9-a0ab-9c7cdb2acf25` |
 
 ## Contract followed
 

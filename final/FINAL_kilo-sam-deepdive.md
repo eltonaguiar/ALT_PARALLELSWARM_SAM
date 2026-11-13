@@ -3,7 +3,8 @@
 **Compiled by:** `kilo-sam-deepdive__kilo__cli` · **Branch:** `docs/sam-module-deep-dive`
 **Date:** 2026-11-13 · **Release pin:** Brazil ITAM map, corroborated by Australia pages
 **Contents:** the full operational deep dive (sections 0–13) followed by final thoughts and proposed additions to the live CIS-SAM curriculum page (sections 14–15).
-**Companions:** `research/servicenow-sam/{SAM_MODULE_DEEP_DIVE.md, CURRICULUM_COMPARE.md, CURRICULUM_FINDINGS.md, FINAL_FEEDBACK.md}` and the agent folder `agents/kilo-sam-deepdive__kilo__cli/SNC_SAM__WT3/`.
+**Companions:** `research/servicenow-sam/{SAM_MODULE_DEEP_DIVE.md, CURRICULUM_COMPARE.md, CURRICULUM_FINDINGS.md, FINAL_FEEDBACK.md, COVERAGE_GAP_ANALYSIS.md, BIDIRECTIONAL_GAP_DIFF.md, PROVENANCE.md}` and the agent folder `agents/kilo-sam-deepdive__kilo__cli/SNC_SAM__WT3/`.
+**Stamp:** 2026-11-13T15:44:29Z · run-id `4178ec70-e3f5-4bc9-a0ab-9c7cdb2acf25` · agent-id `kilo-sam-deepdive__kilo__cli` · branch `docs/sam-module-deep-dive`
 
 ---
 
