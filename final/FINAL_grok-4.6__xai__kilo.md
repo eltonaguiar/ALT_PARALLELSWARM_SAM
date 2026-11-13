@@ -579,3 +579,85 @@ Brazil ITAM map `PMOYmdGTPDs40EbYh10h4g`. Content URL pattern:
 | S42 | `7jeRdsPcmLzk6ET2NaQFWw` Impact of license types on reconciliation | `research/raw/impact_license_types_on_recon.txt` |
 
 Topic index: `research/topics_brazil_itam_sam.json` (299 titles).
+
+---
+
+## 24. Final thoughts (this swarm)
+
+`final/` already had **beam**’s `FINAL_SAM_MODULE_REFERENCE.md` (Australia, Discovery-contract when SAM is on). This file is the **grok-4.6 / xAI / Kilo** Brazil-pinned counterpart. Do not merge the two into one filename — different agent, different release pin.
+
+What held up:
+
+- SAM’s insert/update story is **four layers** (install, discovery model, software model, entitlement), not IRE-on-CIs. Teaching it as “Discovery writes the CMDB” is how people create a second Office model.
+- **Catalog item ≠ software model ≠ discovery model.** Path A (Product Catalog publish) is purchasing UX. Path C is discover → normalize → recon. Collapsing them is the #1 curriculum hole.
+- Official recon is **weekly, three tiers** (Product / Software Model / `samp_license_metric_result`). Not a nightly single `sam_sw_reconciliation_result`.
+- Usage is **`samp_sw_usage`**. SA/Maintenance **without a linked perpetual is not reconciled**.
+- Crawl: Content Service on, auto-create software models **off**, EUC first, published-products scope freeze.
+
+What we still cannot claim without an instance: named OOB business rules / UI policies / ACLs; IRE keys on `cmdb_sam_sw_install`; Zurich vs Brazil menu drift.
+
+---
+
+## 25. What to add to the SAM learning guide
+
+Target: [sam-guide.md](https://eltonaguiar.github.io/ServiceNow_Learning_TSOM-_CSM_FSM_SalesCRM_HAM_ITSM/docs/modules/sam/sam-guide/)  
+Source of truth for names: Brazil/Australia product docs, not sam-buffy.
+
+Keep LG’s CIS-SAM map, lab, quiz, publisher traps, “unknown ≠ compliant,” “never overwrite entitlement qty.” **Patch these concepts in:**
+
+### A. Fix names (exam-lethal if wrong)
+
+| Guide today | Change to |
+|---|---|
+| Recon default **nightly** | **Weekly or on-demand** |
+| Table `cmdb_sam_sw_usage` | **`samp_sw_usage`** (product-level, not version/edition) |
+| Table `sam_sw_reconciliation_result` | Three tiers: Product Results → Software Model Results → **`samp_license_metric_result`**. License Position status = Compliant / Not Compliant |
+| Plugin `com.snc.sams` as “Foundation/Pro” | **Foundation/Basic = `com.snc.sams`**. **Pro = `com.sn_samp_master_ws` / `com.snc.samp`**. SaaS LM = `sn_sam_saas_int` |
+| Jargon **SUMN** | Content Library + job `SAM - Normalize discovery models using content library rules` (+ wide-net, ML, pattern rules) |
+| Sample BR `current.software_model` on install | OOB BR matches **publisher + product + version** to a **discovery model** (unnamed in docs) |
+| Breadcrumb only `All > Software Asset Management > SAM Workspace` | Add `Workspaces > Software Asset Workspace`; Brazil hides classic menus that moved |
+
+Add a **do-not-teach** box: `alm_software`, `alm_software_installation`, `sam_license_manager`, `sn_sam.admin` (sam-buffy). Roles are `sam_admin` / `sam_user` / `sam_developer` / `sam_integrator`.
+
+### B. New section: four paths (catalog vs discovery)
+
+After “Three record types you must never confuse,” add a fourth object (**software catalog item**) and four procedures:
+
+1. **Publish to software catalog** — Product Catalog, `model_manager` / `catalog_admin`; `glide.model.catalog_item_currency`. Not created by Discovery.
+2. **Create before discovery** — custom product → software model → entitlement (contract exists, nothing installed).
+3. **Discover and link** — install → discovery model → normalize → `SAM – Discovery Model to Software Model matching` → recon.
+4. **Block / exclude** — hardware boolean + `com.snc.samp.exclude_device_flag`; published-products (`com.snc.samp.manage.published.products`); exclude-from-content-service; leave `automaticsmrcreation` off.
+
+### C. New section: implementation Crawl / Walk / Run
+
+Lift from Success portal maturity + Path to Value (label community vs product docs):
+
+- Foundational data: healthy CMDB computers, owners/location/dept if recon grouping, users, discovery coverage, entitlement/PPN source, in-scope publishers, exclude-CI decision.
+- Crawl: CMDB health → EUC (SGC SCCM/Intune/Jamf) → Content Service opt-in → **auto-create models off** → entitle EUC → recon as data-quality loop.
+- Walk: DC Discovery patterns, publisher packs, ILMT v2, reclamation, health check.
+- Run: standard catalog onboarding, joiner/leaver, Success Goals.
+- Metric to steal: ~85%+ normalized OOTB / 95%+ after Content Service (Path to Value, not an SLA).
+
+### D. New section: properties + jobs worth memorizing
+
+`All > Software Asset > Administration > Properties`. Short table: `recon.group`, `automaticsmrcreation` / `automaticsmcreation` / `unlicensed_smr_creation`, `exclude_device_flag`, `manage.published.products`, `wide_net_normalization.enabled`, `enable.ml_normalization`, `sam_reclamation_flow_error_timeout`.  
+Jobs: `Name starts with SAM` — Normalize discovery models; Discovery Model Normalization; **Discovery Model to Software Model matching**; Deduplicate Install Table; Adjust Installs for excluded CIs; weekly downgrade/upgrade content.
+
+There is **no** `glide.cmdb.sam.*` family.
+
+### E. Tighten entitlements / recon
+
+- Entitlement state **build → Publish → in use**.
+- Allocations: `alm_entitlement_user` vs `alm_entitlement_asset` (metric picks one).
+- **Maintenance ≠ license** — SA/Maintenance not reconciled unless linked to perpetual.
+- Uninstalls **not** auto-deleted from `cmdb_sam_sw_install` (3rd-party must DELETE). Retired/Stolen CI **does** delete related installs.
+- 3rd-party IRE: `com.snc.samp.ire.datasource.integration`; payload `publisher`, `version`, `display_name`.
+- Dedup: Brazil version levels Exact / Major (default) / Any; IBM Discovery preferred over authorized provider.
+
+### F. Lab extras
+
+After LG lab step 6: (a) publish the model to software catalog and show it is still a separate `sc_cat_item`; (b) set exclude-from-SAM on one CI and wait for `SAM — Adjust Installs for excluded CIs`; (c) create a Maintenance-only entitlement and show it does not move compliance until linked to perpetual.
+
+### G. Leave in the guide
+
+CIS-SAM weights, publisher traps, suite roll-up, “unknown ≠ compliant,” true-up not overwrite, 60–90 day reclaim *practice* (mark as practice, not a property), HAM vs SAM table, Ask-a-Ranger videos.
