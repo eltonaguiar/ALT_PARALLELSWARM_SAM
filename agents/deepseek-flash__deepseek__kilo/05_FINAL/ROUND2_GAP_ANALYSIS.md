@@ -395,3 +395,55 @@ The first review said *"CMDB establishes what exists; SAM establishes what was p
 - Technical gaps: **mostly already covered**; the genuine additions are the vendor metric matrix, SaaS lifecycle, role duties, and the ops layer.
 - Programme gaps: **real and now documented** in `MODULE_IMPLEMENTATION_PLAN.md` + `SAM_IMPLEMENTATION_CHECKLIST.md`.
 - Nothing in either review contradicts a ServiceNow-documented fact in `SAM_MODULE_REFERENCE.md`; where the reviews use practice figures (60–90-day reclaim window, 85–95% normalisation hit rate) they remain **P**, not product defaults.
+
+---
+
+## 9. Round 2c — sibling delta (`grok-4.6__xai__kilo` WT4) and remaining items
+
+WT4's `COVERAGE_VS_MODULE_PLAN.md` (pushed during this pass) independently reached the same conclusion: the technical half is mature; the purchased-rights operations half was thin. Its "still open" list is now covered by `MODULE_IMPLEMENTATION_PLAN.md` + `SAM_IMPLEMENTATION_CHECKLIST.md` except for four specifics, closed here.
+
+**Already closed by this pass:** source-system contracts (§4.4), change control (§4.8), audit evidence (§4.9), numeric tests (§4.5), acceptance thresholds (§4.6), rollback (§4.7), hypercare/operating cadence (MIP §14), optimisation owners (§4.3), SaaS lifecycle (§4.10), vendor metric matrix (§4.11). WT4's own checklist lives in its folder (`agents/grok-4.6__xai__kilo/SNC_SAM__WT4/05_FINAL/SAM_IMPLEMENTATION_CHECKLIST.md`); this pass's checklist is broader (10 phases, evidence, owners) and does not overwrite it.
+
+### 9.1 Entitlement import — minimum column map (closes WT4 "import format M")
+
+The docs describe PPN resolution but not a spreadsheet schema; this is the minimum defensible transform map (**P**, derived from the documented fields in §2.5/§10):
+
+| Column | Target | Required | Rule |
+|---|---|---|---|
+| `publisher` | resolve `samp_sw_publisher` | if no PPN | canonical publisher |
+| `product` | resolve product | if no PPN | canonical product |
+| `version` | entitlement/model match | if no PPN | exact, then major |
+| `edition` | entitlement/model match | if no PPN | canonical edition |
+| `platform` | entitlement/model match | no | any-platform relaxed match allowed |
+| `language` | entitlement/model match | no | any-language relaxed match allowed |
+| `publisher_part_number` | `alm_license` PPN | preferred | must exist/active in `samp_sw_product_definition`; else exact search, then auto-create or error |
+| `license_type` | `alm_license` | yes | one of §7.3; step-up Microsoft-only |
+| `license_metric` | `alm_license` | yes | must match contract basis (§4.11) |
+| `rights` | `alm_license` | yes | > 0 |
+| `start_date` / `end_date` | `alm_license` | yes for Contractual/Subscription | Microsoft Contractual requires both |
+| `license_duration` | `alm_license` | conditional | |
+| `company` | `alm_license` | yes if multi-entity | |
+| `cost` / `currency` | `alm_license` | no | else average-cost fallback |
+| `agreement_type` / `subscription_period` | `alm_license` | conditional | MLS/EA |
+| `maintenance_or_sa_link` | base perpetual reference | if type SA/Maintenance | otherwise not reconciled |
+
+**Import controls:** dry-run on 10 rows; reconcile row count vs accepted vs rejected; every rejected row lands in `samp_entitlement_import`/`samp_bulk_import` with a reason; financial total of imported rights matches the contract before publish.
+
+### 9.2 Dead SaaS connector monitoring (closes WT4 "dead connector M")
+
+SAM has no documented "connector heartbeat" KPI. Programme control (**P**):
+
+- Alert when `samp_sw_unrecognized_subscription_identifier` grows for a connector's publisher;
+- alert when subscription count is unchanged for N days while the portal shows churn;
+- compare portal seat count vs `alm_license`/subscription records monthly;
+- track `samp_job_log` failures for the integration job;
+- record connector owner, refresh cadence, and last-successful-pull in the feed contract (§4.4).
+
+### 9.3 Consumption summaries (closes WT4 "consumption M")
+
+There is no single "consumption summary" table. Consumption is the combination of:
+`alm_license` (rights) + `alm_entitlement_user|asset` (allocations) + `samp_sw_usage` (installed usage) + subscription records + `samp_license_metric_result` (calculated consumption for the metric). For SaaS, consumption metrics live in the Subscription metric group and are surfaced in License usage/License Workbench, not a separate summary object. Report from the results tier, not by summing raw usage.
+
+### 9.4 Simplest expected-result test (WT4's 1-vs-2 case)
+
+**T0:** one Per Device entitlement, rights **1**; **2** active installs on 2 distinct CIs → rights owned 1, used 2, **unlicensed installs 1**, **Not Compliant**, true-up = 1 × price. If the same 2 installs are on the **same** device and dedup is `Major`/`Any`, used = 1 and the position is Compliant. This single pair distinguishes a linkage problem from an entitlement problem and should be the first UAT case.
