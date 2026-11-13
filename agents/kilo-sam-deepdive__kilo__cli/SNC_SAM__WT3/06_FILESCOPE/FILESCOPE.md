@@ -12,6 +12,7 @@ research/servicenow-sam/
   CURRICULUM_COMPARE.md            # round-2 curriculum/community diff
   CURRICULUM_FINDINGS.md           # round-4 live-page findings register
   COVERAGE_GAP_ANALYSIS.md         # round-5 repo-wide coverage vs implementation practice
+  BIDIRECTIONAL_GAP_DIFF.md        # round-6 repo ↔ live page ↔ learning protocol diff
   FINAL_FEEDBACK.md                # round-3 cross-check + recommendations
   sources/                         # 66 mirrored source files
     *.txt                          # Brazil ITAM corpus (copied verbatim from grok WT1 research/raw/)

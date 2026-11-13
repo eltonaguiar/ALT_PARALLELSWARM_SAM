@@ -1181,3 +1181,17 @@ Cross-referencing every committed SAM document against standard module-implement
 **Recommended additions:** a `SAM_IMPLEMENTATION_CHECKLIST.md` (10 gates with owner + evidence), five new final sections (RACI, source contracts, test-case catalogue, change control, cutover/hypercare/runbook), and committing or removing the untracked outputs.
 
 *End of final.*
+
+---
+
+## 17. Bidirectional gap diff (repo ↔ live SAM guide ↔ learning protocol)
+
+**Full register:** `research/servicenow-sam/BIDIRECTIONAL_GAP_DIFF.md`.
+
+**A. Repo-only, missing from the live sam-guide page (12 items):** OOB component inventory; parameter quick reference; License Position/LMR result fields; normalization mechanics (statuses/rule families/revert/matching); model creation + PPN scenarios; usage & reclamation data (`samp_sw_usage`); duplicate/stale hygiene controls; CMDB/IRE governance cross-ref; Foundation-vs-Pro plugin split + classic-only menus; activity-center alerts + health suites; Content Service toggles; insert/update decision matrix.
+
+**B. Generic items for the ServiceNow_Learning protocol (12 items):** implementation gate checklist; prerequisite/dependency map template; RACI template; source-system contract template; test-case catalogue pattern; change-control procedure; validation/rollback procedures; cutover/hypercare/runbook/training plan; OOB inventory audit recipe; parameter-tiering pattern; breadcrumb verification rule; **SAM entry in `data/modules.json`** (currently absent).
+
+**C. Page-only items to absorb or reject (14 items):** absorb CIS-SAM weights, publisher-trap detail, optimization priority/60–90 day window, day-one reports (with corrected table names), indicative KPIs, SaaS seat guidance, integration protocols, memory aids, lab/quiz/resources; reject the page's naming/cadence/plugin errors as documented corrections.
+
+*End of final.*
