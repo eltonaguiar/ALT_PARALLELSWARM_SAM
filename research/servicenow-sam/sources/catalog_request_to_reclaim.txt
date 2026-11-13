@@ -1,0 +1,46 @@
+Create a catalog request to reclaim assets
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 1 minute to read
+ Create a catalog request to efficiently reclaim software assets when an employee
+ leaves an organization or moves to a different role.
+ Before you begin
+ Role required: sam_admin or sam_user
+ Procedure
+ Navigate to Service Catalog . 
+ In the Service Catalog page, enter Reclaim
+ asset in the Search catalog field on the
+ right-hand side of the page. 
+ Select Reclaim Asset . 
+ On the form, fill in the fields. 
+ Table 1. Reclaim Asset form 
+ Fields 
+ Description 
+ Requested by 
+ The role of the person, such as HR, manager, or employee,
+ who creates this catalog request. 
+ Requested for 
+ Name of the person for who you are submitting the catalog
+ request. 
+ Employee separation 
+ Whether the person for who you are submitting the asset
+ reclamation is leaving the organization or moving to a
+ different role. 
+ Asset 
+ Assets assigned to the person for who you are submitting
+ the asset reclamation. 
+ Reclaim date 
+ The date by which you want the asset reclaimed by. You
+ can enter today's date or a date in the future. 
+ Reclaim method 
+ The method you intend to use to collect the assets from
+ the departing employee. You can pick up the assets, the
+ employee can drop them off, or ship them to the
+ organization. 
+ Legal hold method 
+ If the assets need to be kept on hold because of any
+ legal reasons. 
+ Notes/Special instructions 
+ Any instructions that you may want to mention. 
+ Select Submit . 
+ The asset reclamation request is created. Once the request is created, the sam_user needs to close all the tasks mentioned in the request. For more details, see Close an asset reclamation request .

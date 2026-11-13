@@ -1,0 +1,24 @@
+View all maturity items for Software Asset Management 
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 1 minute to read
+ View the maturity of your Software Asset Management (SAM) program to analyze the status of each maturity stage, where each stage shows the number of maturity items completed.
+ Before you begin
+ Role required: sam_admin, sam_user
+ Note: The sam_user can only view the maturity items. The sam_admin can view and change the state and success goal of the maturity item.
+ About this task
+ The maturity of your SAM program is divided into three stages: 
+ Crawl
+ Walk
+ Run
+ For more information, see Maturity stages of your Software Asset Management program .
+ Note: The maturity level can’t be modified for a required maturity item.
+ Procedure
+ Navigate to Workspaces > Software Asset Workspace > Success portal . 
+ On the Overview page, select View all maturity items . 
+ The All maturity items page opens, which lists all the maturity items included in the stage your SAM program is in.
+ Select a maturity item to view its details. 
+ For a description of the field values, see Maturity item details .
+ If you want to create a Value builder task for the maturity item, select the Value builder tasks tab. 
+ For more information about creating a Value builder task, see Create a Value builder task .
+ Select Save .

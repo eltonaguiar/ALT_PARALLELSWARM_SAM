@@ -1,0 +1,24 @@
+Publish an item to the software catalog
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 1 minute to read
+ After you create a software item for the vendor catalog, publish it to the software
+ catalog for viewing. The software catalog is a section within the service
+ catalog.
+ Before you begin
+ Role required: model_manager
+ About this task
+To see the Publish to Software Catalog Item related link on
+ the Vendor Catalog Item form, add a software model or a consumable model to the
+ Product Model field, and leave the Product Catalog
+ Item field blank. After you publish a vendor catalog item to the
+ software catalog, the Publish to Software Catalog related
+ link is no longer available. Any changes made on the vendor catalog item record are
+ synchronized with the information in the software catalog.
+ Procedure
+ Navigate to All > Product Catalog > Catalog Definition > Vendor Items . 
+ Open a vendor catalog item. 
+ In Related Links , select Publish to Software Catalog . 
+ Select a Category . 
+ Select OK . 
+ The published item is listed in the Vendor catalog Items related list of the Software Catalog form.

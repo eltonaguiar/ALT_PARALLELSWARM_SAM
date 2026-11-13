@@ -1,0 +1,16 @@
+Software Asset Management installation methods
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 1 minute to read
+ Install the Software Asset Management application from Product Hub or ServiceNow Store .
+ Before you can use Software Asset Management capabilities, you must install the application on your ServiceNow instance.
+ Installation methods
+ Choose an installation method based on your needs:
+ Table 1. Installation methods 
+ Method 
+ When to use 
+ Product Hub 
+ You are installing the SAM application for the first time and want a guided installation experience. Product Hub installs your entitled application and displays additional applications and plugins
+ available for your subscription tier. 
+ ServiceNow Store 
+ You are installing the SAM application without using the guided Product Hub experience, or your instance does not have the Setup Hub (sn_ia_base) or ServiceNow Otto for Setup (sn_ia) application installed.

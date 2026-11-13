@@ -1,0 +1,36 @@
+Create a custom deduplication rule
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 1 minute to read
+ Create a custom deduplication rule to define how duplicate software installations are identified and matched within your organization.
+ Before you begin
+ Role required: sam_admin
+ About this task
+ Deduplication rules compare version numbers across installation records on the same device and determine which installation record is retained as primary. Create a custom deduplication rule to identify duplicate installation
+ records on a device when the default Major version comparison doesn't match your organization's duplicate detection requirements. The Software Asset Management application uses this custom rule to match installations of the specified product according to your selected version comparison level. Duplicate installations matching this rule are grouped
+ together, and the Software Asset Management application selects a primary installation based on discovery source reliability and data completeness.
+ Procedure
+ Navigate to Software Asset Workspace > Administration > Deduplication rules . 
+ Select New . 
+ On the Create New Custom Deduplication form, fill in the fields. 
+ Table 1. Deduplication rule fields 
+ Field 
+ Description 
+ Product 
+ The product name to which this rule applies. The rule only matches installations of the selected product. 
+ Active 
+ The option that indicates whether the deduplication rule is active. 
+ Version Level 
+ The version-matching levels that control how strictly the system compares version numbers when identifying duplicates: 
+ Major version : Installs with matching major versions are considered duplicates regardless of minor version differences. For example, versions 19.1 and 19.2 of the same
+ product on the same device are treated as duplicates. Installs with unparseable version strings are skipped and not deduplicated at this level.
+ Exact version : Installs are considered duplicates only if their normalized version and normalized edition match exactly. This is the most conservative level. Use for
+ products where minor version differences represent distinct deployments that must be tracked separately for compliance.
+ Any : Only one install per product and edition combination is kept per device, regardless of version. This is the most aggressive level. Use for products where any
+ version on a device counts as a single installation for compliance purposes.
+ Stale Record Threshold (Days) 
+ Number of days after which an unrefreshed record is considered stale. 
+ Select Save . 
+ Result
+ The deduplication rule record starts showing in the Deduplication rules list.
+ The deduplication rule record is stored in the Custom Deduplication Rules [sam_sw_dedup_rule] table.

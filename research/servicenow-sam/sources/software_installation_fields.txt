@@ -1,0 +1,56 @@
+Software installation fields
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 2 minutes to read
+ Software Installation form and related list field descriptions.
+ The list view for software installations shows the total number of software installation records for your organization based on the value specified in the SAM Workspace License operations list count limit 
+ system property ( sn_sam_workspace.sam_license_operations_list_count ). The default value for the record count is set to 5000000 . However, the SAM administrator can set the value for the
+ count in the system property as required. If there are less than five million records, then the exact count is shown. If there are more than five million records, then the count is shown as 5000000+. For more information on this
+ system property, see Software Asset Management properties .
+ Note: This topic describes only the fields that are available on the Software Installation form. For details on all fields that are available on both the Software Installation form and the Software Installation
+ [cmdb_sam_sw_install] table, see Software Installations Table Attribute Review .
+ Software Installation form
+ Field 
+ Description 
+ Display name 
+ Name of the software installation as it appears in the record lists. Can be a
+ combination of the discovered product name and edition. 
+ Discovery model 
+ Software discovery model that represents the installed software. 
+ Publisher 
+ Publisher of the software. 
+ Version 
+ Version of the software. 
+ Edition Override 
+ Override of the software edition setting. For Office 365 subscriptions, this field is set from the software subscriptions record.
+ If the edition for the software was not discovered, you can edit this field to set the edition if you know it, so that reconciliation can be performed successfully.
+ Installation tab 
+ Prod id Note: This field has been deprecated. However, it still appears on the
+ Installation tab with an empty value.
+ Unique ID for the product assigned by the manufacturer. Found through
+ discovery. 
+ Install location 
+ Path under which the software is installed. 
+ Install date 
+ Date that the software was installed. 
+ Revision Note: This field has been deprecated. However, it still appears on the
+ Installation tab with an empty value.
+ Revision of the software. 
+ Instance key 
+ Unique ID for the instantiation of the software. Automatically generated when
+ the software is installed. 
+ Installed on 
+ Hardware on which the software is installed. 
+ Uninstall string 
+ Identifier used to uninstall the software. 
+ ISO serial number 
+ ISO number of the software. 
+ Reconciliation tab 
+ Entitlement Note: This field has been deprecated. However, it still appears on
+ the Reconciliation tab with an empty value.
+ The entitlement found to use with this installation. 
+ Inferred suite 
+ The inferred suite model this installation belongs to. 
+ Omit from suites 
+ Check box for not counting the software install as a component of a suite
+ during reconciliation.

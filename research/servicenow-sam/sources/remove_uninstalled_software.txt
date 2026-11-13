@@ -1,0 +1,45 @@
+Delete uninstalled software from the Software Installation table
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 1 minute to read
+ Delete installations from the Software Installation [cmdb_sam_sw_install] table if
+ those software installations are also uninstalled from a CI.
+ Before you begin
+ After the discovery process runs and you identify software installations that are
+ uninstalled from a CI, delete those installations from the Software Installation
+ [cmdb_sam_sw_install] table in the CMDB application.
+ Create a script to delete
+ multiple software installation records from the Software Installation
+ [cmdb_sam_sw_install] table. You can use the Table API to query the Software
+ Installation table to get the installation list for the CI.
+Role required:
+ sam_developer 
+ About this task
+ You can also delete software installation records for specific publishers like Oracle , VMware , and Citrix .
+ Procedure
+ Use the REST Table API
+ api/now/table/cmdb_sam_sw_install?sysparm_query=installed_on%3D28c9c3b8c0a8000b009b2d941d7e3ee9 
+ to query and identify the list of software installs on a specific CI. 
+ For more information on the REST endpoint API, see Table
+ API-GET .
+ Specify the table name, Software Installation [cmdb_sam_sw_install] table, and query parameters. 
+ For the query parameters, specify either the sys_id of the CI or a list of fields that are separated by commas such as publisher, version, and product on which you want to perform the delete operation.
+ After entering the query parameters, send the request. 
+ You get a response in a JSON format listing of all the software
+ installations for that specific CI. You can view the sys_id for all the
+ software installations in the response.
+ Based on the response, identify the sys_ids of the software installations that
+ are deleted on a CI. 
+ Only the sys_ids of those software installations must be passed through the Delete API.
+ Use the Delete API 
+ request.setEndpoint('http://xyz/api/now/table/cmdb_sam_sw_install/728e87dafd841010fa9bea491bfdc1ff');
+ request.setHttpMethod('DELETE'); to delete the software installs
+ from the Software Installation [cmdb_sam_sw_install] table. 
+ xyz in the URL refers to your ServiceNow 
+ instance.
+ Specify the table name, Software Installation [cmdb_sam_sw_install]
+ table, and the sys_ids of the software installations that are deleted on
+ the CIs. 
+ Send the request. 
+ The software installations are deleted from the Software
+ Installation [cmdb_sam_sw_install] table.

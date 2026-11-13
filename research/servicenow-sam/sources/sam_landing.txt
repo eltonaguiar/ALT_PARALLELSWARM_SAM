@@ -1,0 +1,23 @@
+Software Asset Management
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 1 minute to read
+ The ServiceNow® 
+ Software Asset Management (SAM) application systematically tracks, evaluates, and manages
+ software licenses, compliance, and optimization. You can reclaim unused software rights,
+ purchase new software rights, and manage allocations for entitlements.
+ Watch this short video for an introduction to the Software Asset Management application.
+ Note: Beginning with the ServiceNow AI Platform 
+ Brazil release, limited support is provided for the Software Asset Management classic user interface. While it remains active in your instance, including when you upgrade to a new ServiceNow AI Platform release, you're encouraged to move to the new workspace experience.
+ For the ITSM Software Asset Management feature of Asset Management , see ITSM Software Asset Management .
+ Explore 
+ Learn the key features and business value that the Software Asset Management application offers. 
+ Configure 
+ Configure the features and components. 
+ Use Use the intuitive and new user interface to manage software licenses, compliance, and optimization. 
+ Integrate Extend the Software Asset Management capabilities by integrating with SaaS applications. 
+ Supported software publisher licenses Get details about publisher packs that can be used to extend functionality between the ServiceNow AI Platform and your third-party software applications. 
+ Reference 
+ Get details about components such as fields, roles, and license agreement types. 
+ Learn
+ What is software asset management (SAM)?

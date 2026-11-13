@@ -1,0 +1,21 @@
+Source: Discovery with Software Asset Management (Australia) — 2026-03-12.
+
+Tables created when the SAM plugin is activated:
+- Software Discovery Model [cmdb_sam_sw_discovery_model]
+- Software Model [cmdb_software_product_model]
+- Software Installation [cmdb_sam_sw_install]
+
+When SAM is not activated the prior schema (Software [cmdb_ci_spkg], Software Model
+[cmdb_software_product_model]) behaviour is unaffected. When active, Discovery populates
+Software Installation [cmdb_sam_sw_install]. A business rule on that table searches
+Software Discovery Model for a matching record; if found it updates it, otherwise creates it.
+When SAM is installed, Software Installation is the appropriate source for all current
+software data; related lists / customized reference fields on CI records must be updated.
+Starting with Kingston, Discovery also populates:
+- VMWare License Key [samp_vmware_license_key]
+- VMWare License Key Usage [samp_vmware_license_key_usage]
+
+To display SAM data: Computer CI form -> Configure -> Related Lists -> add
+Software Installation->Installed on -> Save.
+
+Source: Configure a CI to display Software Asset Management data (Australia).

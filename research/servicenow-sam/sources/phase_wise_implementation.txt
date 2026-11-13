@@ -1,0 +1,6 @@
+Manage phase-wise Software Asset Management implementation
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 1 minute to read
+ Carry out phase-wise Software Asset Management implementation by publishing only on a few software products that you want to manage initially. You can also remove the software products from the published list when you no longer want to manage those
+ products.

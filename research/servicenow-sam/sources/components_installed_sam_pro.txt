@@ -1,0 +1,127 @@
+Components installed with Software Asset Management Professional 
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 5 minutes to read
+ Roles, plugins, and scheduled jobs are installed with the activation of the Software Asset Management Professional application. Demo data is available with this application.
+ Scheduled jobs installed
+ To view the list of scheduled jobs installed with the Software Asset Management Professional application, navigate to your ServiceNow instance, select All , and enter Scheduled jobs in the application navigator. On the Scheduled jobs page, select the Show/hide filter and in the
+ condition builder, enter the filter condition, Name starts with SAM .
+ Roles installed
+ The following roles are installed with the Software Asset Management Professional application.
+ Table 1. Software Asset Management Professional roles 
+ Role name 
+ Description 
+ Contains roles 
+ Software Asset Management administrator [sam_admin]
+ Granular admin role that has full access to the Software Asset Management application. This role is required to import entitlements, manage reclamation rules, run reconciliation, create custom products and pattern normalization rules, set up
+ Content Service, and other administrative features. 
+ sam_user
+ sam_spend_import
+ asset
+ model_manager
+ contract_manager
+ Note: The sam_spend_import role is installed with Software Spend Detection . The it_demand_user role is no longer automatically installed with PPM Standard .
+ Software Asset Management user [sam_user]
+ This role has access to all Software Asset Management features except administrative. If Software Spend Detection is installed, this role has access to all Software Spend Detection features except financial transaction data import and Content Service setup.
+ pa_viewer
+ cmdb_read
+ report_user
+ sn_remote_dir_sync.reader
+ Software Asset Management developer [sam_developer]
+ Writes scripts on the platform, comparable to the script-writing privileges granted to a sys_admin. Users with this role must be trained ServiceNow administrators. 
+ sam_admin
+ SaaS License Management integration administrator [sam_integrator]
+ Granular admin role required to create and manage SaaS integration profiles. 
+ sam_user
+ connection_admin
+ flow_operator
+ Software Spend Detection import user [sam_spend_import]
+ Role required to import financial transaction data into Software Spend Detection . Users with this role have access to all Software Spend Detection features except Content Service setup. Users with this role cannot view Software Asset Management without being granted additional roles. 
+ pa_viewer 
+ Plugins installed
+ The following plugins are installed with the Software Asset Management Professional application.
+ Table 2. 
+ Software Asset Management Professional plugins 
+ Plugin 
+ Location 
+ Description 
+ Activate all Software Asset Management Professional plugins including Software Asset Workspace com.sn_samp_master_ws
+ Now Support Service Portal 
+ Requires subscription. Provides the capability to normalize software discovery information, reconcile entitlements with installs, and reclaiming unused software. Provides additional capabilities to reconcile publisher
+ products. Loads the following plugin and store application in one step: 
+ Software Asset Management Professional (com.sn_samp_master) plugin
+ Software Asset Workspace (sn_sam_workspace) store application. 
+ Activate all Software Asset Management Professional plugins (com.sn_samp_master)
+ Now Support Service Portal 
+ This plugin is for releases prior to Brazil . Loads the following Software Asset Management Professional plugins in one step:
+ Software Asset Management Professional (com.snc.samp) plugin
+ All publisher pack add-on plugins
+ Software Asset Management UI Components (com.sn_samp_workbench)
+ Note: To enable SaaS License Management , you must request the Software Asset Management — SaaS License Management (sn_sam_saas_int) plugin separately from the ServiceNow Store . See Request SaaS License Management for information on how to request and activate this plugin.
+ Integration — Microsoft SCCM 2012 v2 Software Usage (com.snc.samp_usage_sccm)
+ Now Support Service Portal 
+ Required to gather software usage data from Microsoft SCCM (System Center Configuration Manager) 2012 v2. Automatically activates the Integration — Microsoft SCCM 2012 v2 (com.snc.integration.sccm2012v2) plugin if not already active.
+ Important: This plugin will be deprecated in the Tokyo release. If you are integrating with SCCM for the first time, request and install the Service Graph connector for Microsoft SCCM application from the ServiceNow Store instead. If you have already activated this plugin on your ServiceNow instance, use the Migration Readiness Tool for Service Graph Connector for SCCM store application to prepare your instance for migration to the Service Graph
+ connector. See Service Graph connector for Microsoft SCCM for more information on the Service Graph connector.
+ Integration — Microsoft SCCM 2016 Software Usage (com.snc.samp.usage_sccm_2016)
+ Now Support Service Portal 
+ Required to gather software usage data from Microsoft SCCM (System Center Configuration Manager) 2016. Automatically activates the Integration — Microsoft SCCM 2016 (com.snc.integration.sccm2016) plugin if not already active.
+ Important: This plugin will be deprecated in the Tokyo release. If you are integrating with SCCM for the first time, request and install the Service Graph connector for Microsoft SCCM application from the ServiceNow Store instead. If you have already activated this plugin on your ServiceNow instance, use the Migration Readiness Tool for Service Graph Connector for SCCM store application to prepare your instance for migration to the Service Graph
+ connector. See Service Graph connector for Microsoft SCCM for more information on the Service Graph connector.
+ Orchestration — Client Software Distribution (com.snc.orchestration.client_sf_distribution)
+ Now Support Service Portal 
+ Required to activate ServiceNow® 
+ Orchestration application, which enables install and uninstall functionality of software on devices. Note: Users who purchase the Software Asset Management Professional (com.snc.samp) plugin are licensed for software uninstall functionality only, also called software reclamation. Additional licensing is required for software install
+ functionality.
+ Software Asset Management — SaaS License Management (sn_sam_saas_int)
+ ServiceNow Store 
+ See Request SaaS License Management for information on how to request and activate this plugin from the ServiceNow Store .
+ Requires the Software Asset Management Professional (com.snc.samp) plugin. Provides integrations to manage licenses for SaaS products. 
+ Software Asset Management — Spend Detection 
+ (com.sn_sam_spend)
+ Now Support Service Portal 
+ Requires the Software Asset Management Professional (com.snc.samp) plugin. Provides core capabilities to detect software spend from financial transaction data. 
+ File Signature Normalization 
+ (com.snc.file_signature_normalization)
+ Now Support Service Portal 
+ Required to normalize discovered file signatures while creating installed software records. This plugin also gets activated with File-based Discovery. 
+ Mobile Employee Experience My Asset 
+ (com.glide.mobile-employee.myassets)
+ Now Support Service Portal 
+ Provides the capabilities needed for end users to view assigned assets on a mobile device and to create incidents to request service for these assets. 
+ IT Asset Management Mobile (com.sn_itam_mobile)
+ Now Support Service Portal 
+ Provides the capabilities for receiving personnel to receive purchased assets on a mobile device. 
+ Publisher pack add-on plugins 
+ Software Asset Management Professional for Adobe 
+ (com.sn_samp_adobe)
+ Now Support Service Portal 
+ Provides additional capabilities to reconcile Adobe subscription software. 
+ Software Asset Management Professional for Citrix 
+ (com.sn_samp_citrix)
+ Now Support Service Portal 
+ Provides additional capabilities to reconcile Citrix software, such as Virtual Applications and Virtual Desktop. 
+ Software Asset Management Professional for IBM 
+ (com.sn_samp_ibm)
+ Now Support Service Portal 
+ Provides additional capabilities to reconcile IBM products using PVU and RVU license metrics.
+ This plugin also provides additional capabilities to reconcile Red Hat Enterprise Linux software, such as Red Hat Enterprise Linux Server and Red Hat Enterprise Linux for Virtual Datacenters .
+ Software Asset Management Professional for Microsoft 
+ (com.snc.samp.microsoft)
+ Now Support Service Portal 
+ Provides additional capabilities to reconcile Microsoft software such as Microsoft SQL Server. 
+ Software Asset Management Professional for Oracle 
+ (com.snc.samp.oracle)
+ Now Support Service Portal 
+ Provides additional capabilities to reconcile Oracle software, such as Oracle Database. 
+ Software Asset Management Professional for SAP 
+ (com.sn_samp_sap)
+ Now Support Service Portal 
+ Provides additional capabilities to reconcile SAP named user compliance and optimization. 
+ Software Asset Management Professional for VMware 
+ (com.sn_samp_vmware)
+ Now Support Service Portal 
+ Provides additional capabilities to reconcile VMware software, such as vCenter and vSphere. 
+ Software Asset Management Professional for Engineering Applications (com.sn_samp_eng_app)
+ Now Support Service Portal 
+ Requires the Software Asset Management Professional (com.snc.samp) plugin. Provides additional capabilities to reconcile engineering applications such as AutoCAD.

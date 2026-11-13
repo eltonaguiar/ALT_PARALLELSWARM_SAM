@@ -1,0 +1,48 @@
+Maturity item
+ details
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 1 minute to read
+ Fields on the Maturity item details form help you view and update the state and success goal of the maturity item.
+ Table 1. Maturity item details 
+ Field 
+ Description 
+ Name 
+ Name of the maturity item. 
+ Type 
+ Type of the maturity item. 
+ Process
+ End user
+ SaaS 
+ Data center
+ Cloud
+ Short description 
+ A brief summary of the maturity item. 
+ Success goal 
+ Success goal associated to the maturity item. For more information about creating a success goal, see Create success goals for Software Asset Management . 
+ State 
+ Current stage of the maturity item. 
+ New
+ Work in Progress
+ Closed Complete
+ Closed Skipped
+ Maturity level 
+ Current maturity level. 
+ Crawl
+ Walk
+ Run
+ Suggested maturity level 
+ Suggested maturity level for improved value return of your SAM application. 
+ Crawl
+ Walk
+ Run
+ Start date 
+ The start date of the maturity item. 
+ Completed date 
+ Completed date of the maturity item. 
+ Purpose 
+ Description of the purpose and outcome for the maturity item. 
+ Steps to complete 
+ List of steps of how to accomplish the purpose of the maturity item. 
+ Work notes 
+ Notes about the maturity item, which are visible to all users within your organization.

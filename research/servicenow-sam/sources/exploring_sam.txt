@@ -1,0 +1,62 @@
+Exploring Software Asset Management 
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 2 minutes to read
+ The Software Asset Management application's user interface is enhanced to make it
+ more user friendly and intuitive, allowing you to better manage your software
+ installations.
+ Beginning with the ServiceNow AI Platform 
+ Brazil release, we will provide limited support for the Software Asset Management classic user interface. While it will remain active in your
+ instance, including when you upgrade to a new ServiceNow AI Platform release, we encourage you to move
+ to the new workspace experience.
+ The Software Asset Management application's core functionality remains the same in both
+ the user interfaces.
+ Using the Software Asset Workspace
+ The Software Asset Management application is available with activation of the new Activate all Software Asset Management Professional plugins including Software Asset Workspace (com.sn_samp_master_ws). Activating this plugin
+ automatically activates the Activate all Software Asset Management Professional plugin (com.sn_samp_master) and the Software Asset Workspace 
+ (sn_sam_workspace) store
+ application
+ . After the new plugin is activated, you can't access the classic user
+ interface.
+ For releases prior to Brazil , if you activated the older Software Asset Management Professional plugin (com.sn_samp_master), the Software Asset Workspace is available with activation of the Software Asset Workspace plugin (com.sn_sam_workspace). After the Software Asset Workspace Workspace plugin is activated, you can't revert to the classic Software Asset Management application. Note: After the Software Asset Workspace is activated, the menus in the classic Software Asset Management application are hidden for the features that have been moved to the Software Asset Workspace.
+ For detailed information on configuring and using the Software Asset workspace, refer to
+ Configuring Software Asset Management and Software Asset Workspace .
+ Using the classic Software Asset Management application
+ To continue using the classic Software Asset Management application, you need to
+ activate the Software Asset Management Professional (com.sn_samp_master) plugin.
+ If you later decide to use the Software Asset Workspace, you need to activate the Software Asset Workspace 
+ (sn_sam_workspace) store application.
+ For detailed information on configuring and using the classic Software Asset Management application, refer to Configuring Software Asset Management and Using Software Asset Management classic .
+ Menus that continue to reside in Software Asset Management classic
+ Even after you activate the Software Asset Workspace 
+ (sn_sam_workspace) store
+ application, the following menus continue to remain in the classic
+ framework:
+ Software asset 
+ Software Asset Demand 
+ Create New
+ Demands
+ Demand Requirement
+ Administration 
+ Custom Products
+ Custom part Numbers
+ Custom License Metrics
+ Software Asset Demand Actions
+ Pattern Normalization Rules
+ Reclamation Rules
+ Job Results
+ Content Service Setup
+ Refresh Processor Definitions
+ Migrate Software Results
+ Properties
+ Revert Customizations
+ Software Model with De-activated Discovery Maps
+ SaaS License 
+ Unrecognized Subscription Identifier
+ SSO Integration Profiles
+ Direct Integration Profiles
+ SAP Compliance and Optimization 
+ SAP Connections
+ Connection Setup
+ Scheduled Import
+ Transform History

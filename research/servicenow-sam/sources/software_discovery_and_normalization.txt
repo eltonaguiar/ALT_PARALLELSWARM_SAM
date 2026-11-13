@@ -1,0 +1,3 @@
+Software discovery and normalization
+ Identify all software installed within your organization's IT environment, including details such as publisher, product, and version. Then, standardize and validate this discovered data to ensure accuracy and consistency
+ through software normalization.

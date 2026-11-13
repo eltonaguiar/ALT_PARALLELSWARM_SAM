@@ -1,0 +1,9 @@
+Duplicate software installations in the Software Asset Management application
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 1 minute to read
+ Duplicate software installation are created when you discover software installations with the same publisher, product, version, and edition through multiple discovery sources.
+ A software installation record is created for each software record in the Software Installation [cmdb_sam_sw_install] table.
+ By default, the Software Asset Management application prioritizes IBM software installations that are discovered through ServiceNow® discovery. Duplicate entries are initially marked as false in the Active column in the Software Installation [cmdb_sam_sw_install] table. When the SAM - Deduplicate Install Table 
+ scheduled job runs, records for all IBM software installations that are discovered through ServiceNow® discovery are marked as active, while records for the same software installations that are discovered through an authorized Software Asset Management discovery provider are marked as inactive.
+ The SAM - Deduplicate Install Table scheduled job ensures that only one software installation record is marked as active and included in reconciliation.

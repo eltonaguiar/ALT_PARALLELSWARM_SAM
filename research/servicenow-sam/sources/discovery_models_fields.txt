@@ -1,0 +1,130 @@
+Discovery models fields
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 2 minutes to read
+ Discovery Models form and related list field descriptions.
+ Discovery Models form
+ Field 
+ Description 
+ Display name 
+ Name of the discovery model as it appears in record lists. This value is
+ generated automatically using the discovered publisher, discovered product, and
+ discovered version. 
+ Normalization status 
+ Status of the normalization
+ process: 
+ Normalized
+ Partially Normalized
+ Publisher Normalized
+ Match Not Found
+ Manually Normalized
+ New
+ Note: If a normalization suggestion record exists, a caution icon is shown
+ next to the Normalization status field. The caution
+ icon opens the Normalization Suggestion record for the discovery model.
+ Publisher 
+ Normalized publisher of the software. 
+ Product 
+ Normalized product name of the software. 
+ Version 
+ Normalized version of the software product. 
+ Discovered publisher 
+ Discovered publisher of the software. 
+ Discovered product 
+ Discovered name of the software. 
+ Discovered version 
+ Discovered version of the software. 
+ Additional
+ Information 
+ Product type 
+ Child: Subcomponent of main software (not licensable).
+ Driver: Software product that controls a device.
+ Licensable: Software product that is licensable.
+ Not Licensable: Software product that is not licensable.
+ Patch: Software product designed to update, fix, or improve an existing
+ computer program.
+ Unknown: Not discovered. For unknown product types, the product type can
+ be changed to another value.
+ When the product type is changed, the
+ normalization status of the discovery model is updated to Manually
+ Normalized.
+ The reconciliation process only considers software discovery models that are
+ licensable.
+ Platform 
+ Platforms include: 
+ Windows 
+ macOS 
+ UNIX 
+ Language 
+ Languages include: 
+ Dutch
+ English
+ French
+ German
+ Italian
+ Spanish
+ If discovered, more languages are generated.
+ Edition 
+ Normalized edition of the software. 
+ Full version 
+ Normalized full version of the software. 
+ Exclude from content service 
+ Option that excludes the software discovery model details from being
+ transferred to the Software Asset
+ Management Content Service . The value is set on the custom product 
+ form.
+ Note: This field is only shown for custom products when you have opted
+ in to the Software Asset Management Content Service.
+ Additional Information section
+ Field 
+ Description 
+ Product type 
+ Child: Subcomponent of main software (not licensable).
+ Driver: Software product that controls a device.
+ Licensable: Software product that is licensable.
+ Not Licensable: Software product that is not licensable.
+ Patch: Software product designed to update, fix, or improve an existing
+ computer program.
+ Unknown: Not discovered. For unknown product types, the product type can be
+ changed to another value.
+ When the product type is changed, the
+ normalization status of the discovery model is updated to Manually
+ Normalized.
+ The reconciliation process only considers software discovery models that are
+ licensable.
+ Platform 
+ Platforms include: 
+ Windows 
+ macOS 
+ UNIX 
+ Language 
+ Languages include: 
+ Dutch
+ English
+ French
+ German
+ Italian
+ Spanish
+ If discovered, more languages are generated.
+ Edition 
+ Normalized edition of the software. 
+ Full version 
+ Normalized full version of the software. 
+ Exclude from content service 
+ Option that excludes the software discovery model details from being
+ transferred to the Software Asset
+ Management Content Service . The value is set on the custom product 
+ form.
+ Note: This field is only shown for custom products when you have opted in
+ to the Software Asset Management Content Service.
+ Software Installation related list
+ Field 
+ Description 
+ Display name 
+ Name of the software install as it appears in the record lists. 
+ Publisher 
+ Name of the publisher of the software. 
+ Version 
+ Version of the software. 
+ Installed on 
+ Name of the hardware the software is installed on.

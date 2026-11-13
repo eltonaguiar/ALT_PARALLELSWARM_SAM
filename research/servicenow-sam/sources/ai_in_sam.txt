@@ -1,0 +1,33 @@
+AI in Software Asset Management 
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 2 minutes to read
+ ServiceNow Otto for Software Asset Management (SAM) uses AI to automate software asset management operations, improve compliance, and optimize license
+ management.
+ The ServiceNow AI Platform now brings you a new AI experience with three licensing tiers available: 
+ Foundation: AI basics to deliver insights
+ Advanced: AI to boost productivity across relevant use cases
+ Prime: Act autonomously with all AI assets, and create your own
+ For more information, see ServiceNow product tiers .
+ AI capabilities in ServiceNow Otto for Software Asset Management (SAM) 
+ ServiceNow Otto for Software Asset Management (SAM) enhances the capabilities of the Software Asset Management application. It automates complex tasks, provides intelligent insights, and enables organizations to manage software assets, maintain compliance, and reduce costs.
+ With ServiceNow Otto for Software Asset Management (SAM) AI agent collection, organizations gain the following benefits:
+ Reduce software request processing time by automating software request fulfillment.
+ Identify and create reclamation rules for software products that lack reclamation rules but are viable candidates.
+ Identify and reclaim unused licenses to reduce waste and accelerate license reclamation.
+ With ServiceNow Otto for Software Asset Management (SAM) generative AI skills, organizations gain the following benefits:
+ Generate detailed publisher and product summaries to enhance software estate visibility and streamline compliance evaluation.
+ Generate recommended actions to manage software license compliance and optimize licensing spend.
+ Generate user resolution rules to support accurate mapping of incoming subscription data to SAM users.
+ Create entitlements by extracting information from software contracts, reducing manual effort.
+ Resolve entitlement import errors by normalizing the unresolved Publisher and Product field value.
+ Identify software purchases in imported spend transactions, extract raw publisher and raw product values, and match them to existing publisher and product records in Software Asset Management 
+ Content Library for accurate spend reporting.
+ For more information about AI capabilities in ServiceNow Otto for Software Asset Management (SAM) , see the following:
+ Agentic workflows in ServiceNow Otto for Software Asset Management (SAM) 
+ Generative AI skills in ServiceNow Otto for Software Asset Management (SAM) 
+ For information about AI assets that are available on the ServiceNow AI Platform , see the following topics: 
+ Generative AI skills 
+ Agentic workflows 
+ You can use Now LLM Service , Azure OpenAI , Google Gemini or Anthropic Claude as the AI model provider for all generative AI skills and AI agents. Use the Configuration Controls in AI Control Tower to define which options are available, then set the skill-level preferences in the AI Admin Hub console . For more information, see Large language models on the ServiceNow AI Platform .
+ Domain separation is supported in ServiceNow Otto for Software Asset Management (SAM) . For details, see Domain separation in the AI Admin Hub console .

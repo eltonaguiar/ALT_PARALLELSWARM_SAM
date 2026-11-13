@@ -1,0 +1,178 @@
+Software asset overview
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 7 minutes to read
+ Enhance your software asset management experience by using the modernized and
+ user-friendly software asset overview view. The software asset overview is a simplified and
+ intuitive environment that helps you use the application more effectively by reducing complexity.
+ Use the software asset overview view to: 
+ Gain insights into key metrics such as compliance trends, true-up costs, potential savings,
+ normalization rates.
+ Execute routine tasks such as running reconciliation or creating entitlements.
+ Get actionable insights into your software assets via alerts and notifications.
+ Sort by product or publisher to narrow down your results.
+ Filter by Published status to view reports and dashboards only related to the software products that you manage in a phase-wise implementation of Software Asset Management . Note: The Published status filter is shown only when the system property com.snc.samp.manage.published.products is enabled on your ServiceNow instance. By default, this filter is set to Published and the following reports show details of published products: 
+ Publishers out of compliance
+ Products out of compliance
+ Over-licensed amount
+ Total true-up cost
+ Top 5 publishers true-up cost
+ Software spend
+ However, you can also view reports related to the products that aren't published by setting this filter to Unpublished . To view reports related to all the products, clear the Published status
+ filter.
+ Figure 1. Software asset overview view 
+ Select any widget to view detailed information. All the widgets are updated whenever a new reconciliation result is available.
+ To narrow down your results, you can filter the workspace by publisher or product. Note: If you select more than one publisher in the filter and then select the Publishers out of compliance widget, all
+ non-compliant publishers are listed. The same is true for products.
+ Table 1. Software asset overview dashboard 
+ Report 
+ Source 
+ Description 
+ Publishers out of compliance 
+ Product Results [samp_product_result]
+ The number of publishers that have at least one software model out of compliance. Select the report to view the results in the License usage view.
+ Products out of compliance 
+ Product Results [samp_product_result]
+ The number of products that have at least one software model out of compliance. Select the report to view the results in the License usage view.
+ Over-licensed amount 
+ Product Results [samp_product_result]
+ Cost of licenses owned but not being used. 
+ Expiring maintenance and subscription 
+ Software Entitlement [alm_license] 
+ End date of the total sum of all entitlements that are going to expire within 6 months.
+ The total sum of entitlements includes: 
+ Perpetual
+ Maintenance
+ Perpetual + Maintenance
+ Upgrade
+ SA
+ Perpetual +SA
+ Step-up
+ Select the report to view details about the specific entitlements that are going to expire. Note: Maintenance and SA entitlements aren’t displayed as the Perpetual entitlements associated with them are
+ displayed.
+ Total true-up Cost 
+ Product Results [samp_product_result]
+ Cost to be compliant based on the average prices in entitlements for the rights by
+ publisher. 
+ Top 5 publishers true-up cost 
+ Product Results [samp_product_result]
+ The top 5 publishers illustrated in a pie chart in order of true-up cost. 
+ Potential Savings 
+ Product Results [samp_product_result]
+ Cost saved if removal candidates are reclaimed. Hover on the donut chart to view the number of removal candidates for a specific justification along with the cost. Removal candidates are grouped by
+ justification. Select on a justification on the donut chart to take you to the list of removal candidates with that specific justification.
+ Actual savings 
+ Reclamation Candidate [samp_sw_reclamation_candidate]
+ Sum of potential savings in a given month of closed complete removal
+ candidates. 
+ Software Spend 
+ License Metric Results [samp_license_metric_result]
+ Total software cost of all entitlements that aren’t retired. 
+ Software installs normalization status 
+ Software Discovery Models [cmdb_sam_sw_discovery_model]
+ Count of software installs based on the normalization status.
+ Select a normalization status on the donut chart to view the list of discovery models along with the installation count for each discovery model. You can further select a discovery model to view the list of
+ software installations.
+ The report for this widget is populated only once the following daily scheduled jobs have run: 
+ SAM - Normalize discovery models using content library rules
+ SAM - Daily Job
+ Note: Only the Product filter can be applied to this widget.
+ End of life products 
+ Product Lifecycle [sam_sw_product_lifecycle]
+ Graph of software product lifecycles that are reaching their end of life cycle. Select to drill down to the software installations. 
+ Activity center
+ Get alerts and notifications regarding your software assets. These alerts and notifications are asynchronous in nature. The Activity center displays a pre-defined set of alerts to notify you of actions that require your
+ immediate attention. Notifications about events or activities that you should be aware of also appear in the Activity center. Select an alert or notification for more information.
+ Any user with the role of sam_user can access all alerts and notifications except for the
+ following alerts that require the sam_admin role. 
+ Scheduled jobs failed.
+ Last content download failed.
+ Table 2. Alerts in the Activity center 
+ Alerts 
+ Source 
+ Description 
+ Removal candidates identified 
+ Removal Candidate [samp_sw_reclamation_candidate] 
+ New removal candidates whose active status is true and the state is ready.
+ Select to view the entire list of removal candidates in the License usage view.
+ New normalization suggestions 
+ Normalization Suggestions [samp_normalization_suggestions] 
+ Normalization suggestion records created where the state is new.
+ Select to view the new normalization suggestion records in detail.
+ Unrecognized subscription identifiers 
+ Unrecognized Subscription Identifier
+ [samp_sw_unrecognized_subscription_identifier] 
+ The number of unrecognized subscriptions are identified where the software model column is empty. 
+ New software request 
+ Request [sc_request] 
+ Software requests where the request state is pending approval. Select to view the software request list in the classic Software Asset Management interface.
+ Last reconciliation failure 
+ Reconciliation Result [samp_reconciliation_result] 
+ The latest scheduled job for the reconciliation process failed.
+ Select to view the results in the License usage view.
+ Note: Last reconciliation failed (an alert) or Last reconciliation completed (a
+ notification) is shown depending on the status of the reconciliation process. If the
+ reconciliation process failed, an alert is shown. If the reconciliation process was
+ successful, a notification is shown.
+ Scheduled jobs failed 
+ Software Asset Job Result [samp_job_log] 
+ Scheduled jobs that failed in their latest run within the last one week. Select to open the Software Asset job Logs in a new tab.
+ Note: Only a user with the sam_admin role can access the Software Asset Job result table.
+ Entitlement import errors 
+ Entitlement Import Error [samp_entitlement_import] 
+ Entitlement import errors where the error status column has the value open. 
+ New entitlement import error created via purchase receipts 
+ Entitlement Import Errors [samp_entitlement_import] 
+ The number of entitlement import errors where the purchase orders have an associated procurement integration profile. Note: This alert appears only when the Asset Management - Procurement Integration (app-itam-procurement-integration) store application is installed. For more information, see Install Asset Management - Procurement Integration .
+ Last content download failed 
+ Asset Job Log [asset_job_log]
+ The latest scheduled job for content download failed. Note: Only a user with the sam_admin role can access the Asset Job Log table.
+ Failed - entitlement import of <<.xlsx>> 
+ Entitlement Import [samp_bulk_import]
+ Entitlement import status based on its success or failure. The failed status is
+ displayed as an alert or one of the completed statuses is displayed as a notification: 
+ Completed - entitlement import
+ Completed with errors - entitlement import
+ New CPE normalization suggestion 
+ CPE Normalization Suggestions [sn_samp_vr_cpe_mapping_suggestion]
+ CPE normalization suggestion records created where the state is new.
+ Select to view the new CPE normalization suggestion records in detail.
+ Number of renewals coming up in 90 days 
+ Contract [ast_contract]
+ Software License [alm_license]
+ The number of software contract and entitlement renewals coming up in 90 days.
+ Select the alert to view the upcoming renewals within 90 days from the current date.
+ Table 3. Notifications in the Activity center 
+ Notifications 
+ Source 
+ Description 
+ New SSO applications identified last week 
+ SSO Application [samp_sso_application] 
+ New single sign-on (SSO) applications that have the SSO status as disconnected and
+ were created within the last one week from the current date. 
+ Last reconciliation completed 
+ Reconciliation Result [samp_reconciliation_result] 
+ The latest scheduled job for the reconciliation process was successfully completed. Select to view the results in the License usage view.
+ Products nearing end of life 
+ Software Lifecycle Report [sam_sw_product_lifecycle_report] 
+ Products that are nearing the end of their lifecycle and the install count is greater
+ than 0. 
+ New PPNs added to the library 
+ Software Product Definition [samp_sw_product_definition] 
+ New PPNs added to the Content Service library with the latest content version as
+ compared to the present date. 
+ Software asset demands approved 
+ Software Asset Demand [samp_demand] 
+ Software Asset Demand list view filtered by those that are approved. 
+ Completed - entitlement import
+ or
+ Completed with errors - entitlement import
+ Entitlement Import [samp_bulk_import] 
+ Entitlement import is successfully completed or completed with some errors. Note: If the entitlement import fails, it’s shown as an alert.
+ New entitlement created via purchase receipts 
+ Software Entitlements [alm_license] 
+ Number of entitlements created from purchase orders that have an associated procurement integration profile. Note: This notification appears only when the Asset Management - Procurement Integration (app-itam-procurement-integration) store application is installed. For more information, see Install Asset Management - Procurement Integration .
+ Review CMDB data quality 
+ SAM Workspace Activity Center Items [samp_ws_activity_center_items] 
+ Opens the CMDB success advisor for SAM dashboard to review software install data quality metrics and remediation actions.
+ If the scope isn't configured yet, opens the Edit dashboard scope dialog box instead. For more information, see Using CMDB success advisor for SAM .
