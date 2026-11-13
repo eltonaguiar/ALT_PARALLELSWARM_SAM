@@ -45,7 +45,10 @@ License position / reclamation / (optional) software catalog item
 | Software **catalog item** | Requestable item in the **service catalog** (Product Catalog) `[S27][S28]` | Automatic result of discovery |
 | Entitlement | Rights you bought, linked to a software model `[S9]` | An install |
 
-Foundation vs Professional vs SaaS LM: Professional is activated as `com.sn_samp_master_ws` (Brazil, includes Workspace) or `com.sn_samp_master` (pre-Brazil). SaaS License Management is a **separate Store plugin** `sn_sam_saas_int` `[S1]`.
+Foundation vs Professional vs SaaS LM `[S1][S38]`:
+- **Professional:** Brazil/Australia installer `com.sn_samp_master_ws` (loads `com.sn_samp_master` + Workspace `sn_sam_workspace`). Pre-Australia: `com.sn_samp_master` → `com.snc.samp` + packs + `com.sn_samp_workbench`. Core plugin `com.snc.samp` is activated by ServiceNow personnel and may not appear in the plugin list.
+- **Foundation / Basic (ITSM):** `com.snc.sams` (Australia UI: “Basic Software Asset Management”). Legacy Jakarta- `com.snc.software_asset_management`; upgrade to Pro is **irreversible**. Foundation normalization statuses are only **Manually Normalized** and **New** (no Content Library auto-norm).
+- **SaaS LM:** Store `sn_sam_saas_int` (requires `com.snc.samp`). Creates **subscriptions**, not classic installs.
 
 Brazil: classic SAM UI is limited-support; activating Workspace **hides** classic menus that moved, but several admin menus stay classic-only `[S18]`.
 
@@ -56,12 +59,16 @@ Brazil: classic SAM UI is limited-support; activating Workspace **hides** classi
 | Table | Role |
 |---|---|
 | `cmdb_sam_sw_install` | Software installations `[S14][S16]` |
-| `cmdb_sam_sw_discovery_model` | Discovery models `[S8][S14]` |
+| `cmdb_sam_sw_discovery_model` | Discovery models. **Not** `samp_discovered_model` `[S8][S14][S38]` |
 | `cmdb_software_product_model` | Software models (dedup rules require a normalized row here) `[S12]` |
-| entitlement tables (docs: software entitlement; PPN import) `[S9]` | Rights |
-| `samp_sw_downgrade_model` / `samp_downgrade_model` | Downgrade rights; deleted with the software model `[S9]` |
+| `alm_license` | Entitlements. **Not** `samp_sw_entitlement` `[S9][S38]` |
+| `samp_license_metric_result` | License metric results `[S38]` |
+| `samp_sw_product` / `samp_sw_publisher` | Product / publisher (`samp_sw_publisher` must relate to `core_company`) `[S38]` |
+| `alm_entitlement_user` / `alm_entitlement_asset` | User vs device allocations `[S38]` |
+| `samp_dmap_downgrade_model` / `samp_sw_downgrade_model` | Content vs populated downgrade rights `[S9][S38]` |
 | `sam_sw_dedup_rule` | Custom deduplication rules `[S13]` |
 | `cmdb_ci_hardware` | Optional boolean column to exclude device from SAM `[S7][S4]` |
+| `cmdb_ci_spkg` | Legacy Discovery-without-SAM packages; Foundation migrate copies → `cmdb_sam_sw_install` `[S38]` |
 | Content Library / discovery maps / PPNs | Content Service `[S17]` |
 
 Discovery models are **not** created when the install name contains `Security Update` `[S14]`.
@@ -106,16 +113,17 @@ Discovery models are **not** created when the install name contains `Security Up
 1. Source writes a row to `cmdb_sam_sw_install` `[S16]`.
 2. **Business rule** (unnamed in docs): if publisher+product+version exists on a discovery model, set the reference; else insert a discovery model and set the reference `[S16]`.
 3. Daily `SAM - Normalize discovery models using content library rules` assigns a normalization status `[S8]`. Fallback: wide-net (`com.snc.samp.wide_net_normalization.enabled`, default on) then ML (`com.snc.samp.enable.ml_normalization`, default on) `[S4]`.
-4. Reconciliation matches installs → software models → entitlements; may auto-create software models if properties allow `[S5]`.
-5. Dedup job marks primary vs duplicate installs `[S11][S12]`. IBM special case: `SAM - Deduplicate Install Table` prefers ServiceNow Discovery over authorized provider for IBM `[S11]`.
-6. Reclamation rules flag unused rights `[S15]`.
-7. `SAM — Adjust Installs for excluded CIs` honors the exclude-device flag `[S7]`.
+4. Job **SAM – Discovery Model to Software Model matching** writes the software model onto the discovery model (most specific match wins; manual set ⇒ Automatically matched = false, job will not override) `[S38]`.
+5. Reconciliation matches installs → software models → entitlements; may auto-create software models if properties allow `[S5]`.
+6. Dedup job marks primary vs duplicate installs `[S11][S12]`. IBM special case: `SAM - Deduplicate Install Table` prefers ServiceNow Discovery over authorized provider for IBM `[S11]`.
+7. Reclamation rules flag unused rights `[S15]`.
+8. `SAM — Adjust Installs for excluded CIs` honors the exclude-device flag `[S7]`.
 
 ---
 
 ## 5. Breadcrumbs
 
-**Workspace (Brazil default):** `Workspaces > Software Asset Workspace` `[S18]`
+**Workspace:** `Workspaces > Software Asset Workspace` `[S18]` or `All → Software asset → Software Asset Workspace` `[S38]`. Views: Software asset overview, License usage, License operations, Software asset analytics, Success portal, Renewals calendar, Overlapping usage, Content Library portal `[S38]`.
 
 | View | Path / contents |
 |---|---|
@@ -139,7 +147,11 @@ Discovery models are **not** created when the install name contains `Security Up
 - **SCCM** 2012 v2 / 2016 integration + usage plugins; docs push **Service Graph connector for Microsoft SCCM** for new work; 2012/2016 usage plugins deprecated in Tokyo `[S1][S16]`.
 - Other third-party via CMDB / Store apps; “add it manually” points at Customer Success Center **UNVERIFIED** (not fetched) `[S16]`.
 - SaaS: Store plugin `sn_sam_saas_int`; creating a direct integration profile **auto-creates a reclamation rule** `[S1][S15]`.
-- File Signature Normalization plugin `com.snc.file_signature_normalization` (also with File-based Discovery) `[S1]`.
+- File Signature Normalization plugin `com.snc.file_signature_normalization` (also with File-based Discovery `com.snc.discovery.file_based_discovery`); matched files write `cmdb_sam_sw_install`. Library file-signature rules **beat** custom file rules `[S1][S38]`.
+- **ILMT / BigFix Inventory** via IBM pack; new integrations use **v2** APIs `[S38]`.
+- Generic 3rd-party: IRE REST related `cmdb_sam_sw_install` on a computer CI; enable `com.snc.samp.ire.datasource.integration`; role `sam_developer`. Payload keys: `publisher`, `version`, `display_name` (+ optional edition); parent CI identified by `name`; send `sys_class_name` so the CI is not reclassified `[S38]`.
+- Uninstalls are **not** auto-deleted from `cmdb_sam_sw_install`; 3rd-party must DELETE via Table API (`installed_on` query) `[S38]`.
+- Intune / Jamf are Service Graph CMDB connectors; SAM discovery pages do **not** list them as native SAM install sources `[S38]`.
 - Agent Client Collector / GRC / APM / Contract Management Pro are named as companion products, not sourced in depth here.
 
 ---
@@ -162,7 +174,7 @@ IBM: ServiceNow Discovery rows stay Active; authorized-provider duplicates inact
 
 ## 8. Normalization / Content Service / pattern rules / custom products
 
-**Statuses named in docs** `[S8][S17]`: Normalized, Partially Normalized, Publisher Normalized, Match Not Found, Manually Normalized.
+**Statuses named in docs** `[S8][S17][S38]`: Normalized (publisher+product+version; or publisher+product if type Not Licensable/Child/Driver/Patch), Partially Normalized (publisher+product, version editable), Publisher Normalized (publisher only), Match Not Found, Manually Normalized, **New** (not yet run). Partial/publisher-normalized are **not** later filled to a full version. Recon only considers product type **Licensable**, and **License under management** must be selected `[S38]`.
 
 Daily job: `SAM - Normalize discovery models using content library rules`. Dashboard job: `SAM - Discovery Model Normalization job` `[S8]`.
 
@@ -247,7 +259,11 @@ Do **not** wait for auto-create (`automaticsmrcreation`) if you need downgrade r
 
 ## 11. Entitlements, allocations, license metrics
 
-Entitlement records rights; allocations are user or machine assignments `[S9]`. Role `sam_admin` required to import entitlements `[S1]`.
+Entitlement records rights on **`alm_license`**; allocations are `alm_entitlement_user` or `alm_entitlement_asset` (metric picks one list, not both). Total allocation qty cannot exceed entitlement rights `[S9][S38]`. Role `sam_admin` required to import entitlements `[S1]`. State **build** until **Publish** → **in use** (eligible for recon) `[S38]`.
+
+License types `[S38]`: Perpetual, Perpetual+SA, SA, Subscription, Step-up, Subscription Step-up, Add-on, From SA. SaaS default type Subscription, metric User Subscription. Enterprise/ULA/ELA/ETLA/SCE stay **Compliant** even with unlicensed installs.
+
+Reclamation rule types `[S38]`: Total Usage Time (default), Last Used Date, Peak Concurrent Usage (eng apps), Active Transaction Codes (SAP). Role `sam_admin`. Removal candidates: classic `All → Software Asset → Removal Candidates`; role `sam_user`.
 
 Microsoft-specific: License Duration Contractual needs start/end; step-up license type **Microsoft only** `[S9]`.
 
@@ -291,10 +307,13 @@ Orchestration Client Software Distribution plugin: SAM Pro license covers **unin
 **Find jobs:** Scheduled jobs filter `Name starts with SAM` `[S1]`. Jobs named in this corpus:
 - `SAM - Normalize discovery models using content library rules` (daily) `[S8]`
 - `SAM - Discovery Model Normalization job` (daily, dashboard) `[S8]`
+- `SAM – Discovery Model to Software Model matching` `[S38]`
+- `SAM- Create downgrades/upgrades for a software entitlement` (weekly) `[S38]`
+- `Download software content: Downgrade Rights` (weekly) `[S38]`
 - `SAM - Deduplicate Install Table` `[S11]`
 - `SAM — Adjust Installs for excluded CIs` `[S7]`
 - `SAM - Label Spend Transactions` (spend prediction; `samp.spend_prediction_service.max_label_attempts` default 3) `[S4]`
-- Weekly reconciliation (implied by recon.group “weekly run”) `[S4]`
+- Weekly reconciliation (default; also on-demand) `[S4][S38]`
 
 **Documented business rule (unnamed):** on insert to `cmdb_sam_sw_install`, match or create discovery model by publisher+product+version `[S16]`.
 
@@ -486,15 +505,15 @@ SAM’s Crawl/Walk/Run is the vendor’s module-success pattern `[S21]`. Applied
 ## 22. Open questions (UNVERIFIED)
 
 1. Exact *name* of the install→discovery-model business rule and any UI policies on `cmdb_sam_sw_install`.
-2. Full `glide.cmdb.sam.*` / remaining `samp.*` properties not on the Properties page table `[S4]`.
-3. Install update-vs-insert matching *within the same discovery source* (row key beyond display/publisher/version).
+2. Remaining `samp.*` properties not on the Properties page table `[S4]`. **`glide.cmdb.sam.*` is not an official family** (Australia properties page) `[S38]`.
+3. IRE identifier attributes for `cmdb_sam_sw_install` itself (serial / `instance_key` / `discovery_source` as uniqueness). ISO serial is a form field, not a documented match key `[S38]`.
 4. Discovery-source reliability ranking used by dedup primary selection `[S12]`.
-5. Customer Success Center “integrate a discovery source manually” page `[S16]`.
-6. RHEL threshold property *internal name* `[S4]`.
-7. Whether `com.snc.samp.ml.overrride_ml_model_version` is a docs typo `[S17]`.
-8. Now Create / Success Checklist PDFs (login-gated).
-9. HAM vs SAM catalog publish interaction beyond `[S27][S29]`.
-10. Zurich/Yokohama deltas vs this Brazil pin.
+5. Exact table names for removal candidates / reclamation rules (UI modules only) `[S38]`.
+6. Entitlement unique index (PPN + metric + company, etc.) — docs warn on PPN mismatch, no published unique key `[S38]`.
+7. RHEL threshold property *internal name* `[S4]`.
+8. Whether `com.snc.samp.ml.overrride_ml_model_version` is a docs typo `[S17]`.
+9. Now Create / Success Checklist PDFs (login-gated).
+10. Zurich/Yokohama deltas vs this Brazil pin. A **role named “analyst”** is not documented; use `sam_user` `[S38]`.
 
 ---
 
@@ -536,5 +555,6 @@ Brazil ITAM map `PMOYmdGTPDs40EbYh10h4g`. Content URL pattern:
 | S35 | `NkFF6uEfaBVCY2EASAorGA` License compliance position | `research/raw/license_compliance_position.txt` |
 | S36 | `vvheubQ7n2nV1Nh15QIilA` True-up cost | `research/raw/true_up_cost.txt` |
 | S37 | Path to Value / Quick Start / Office Hours / Starter Kit / Measuring Outcomes (ServiceNow employee Community) | `research/IMPLEMENTATION_SUCCESS.md` |
+| S38 | Australia-family config inventory (tables `alm_license` / `cmdb_sam_sw_discovery_model`, Foundation `com.snc.sams`, matching job, IRE 3rd-party, recon-only Licensable) | `research/CONFIG_INVENTORY_AUSTRALIA.md` |
 
 Topic index: `research/topics_brazil_itam_sam.json` (299 titles).
