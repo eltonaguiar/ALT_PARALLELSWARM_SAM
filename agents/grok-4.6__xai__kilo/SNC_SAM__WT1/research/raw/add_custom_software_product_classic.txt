@@ -1,0 +1,48 @@
+Add a custom software product in Software Asset Management classic
+ Release version: Brazil 
+ Updated November 5, 2026 
+ 1 minute to read
+ If a software product does not exist in the Software
+ Library, you can add a custom product. Custom products enable you to normalize and account
+ for homegrown software, or software that is not yet part of the Software
+ Library.
+ Before you begin
+Role required: sam_admin 
+ About this task
+ The product and publisher combination is used during discovery model normalization.
+ If the custom product exists, a message is shown.
+ Procedure
+ Navigate to All > Software Asset > Administration > Custom Products and create a new record (see table for field descriptions). 
+ Table 1. Custom Software Product form 
+ Field 
+ Description 
+ Publisher 
+ Publisher of the custom software product. If it does not
+ exist, a new one can be created on the Publisher field
+ Companies lookup list. 
+ Product 
+ Name of the custom software product. 
+ Subscription software 
+ Option that indicates that the software has a
+ subscription. 
+ Product type 
+ Product type of the custom software product. 
+ Child: A subcomponent of main software (not
+ licensable).
+ Driver: A software product that controls a
+ device.
+ Licensable: A software product that is
+ licensable.
+ Not Licensable: A software product that is not
+ licensable.
+ Patch: A software product designed to update, fix,
+ or improve an existing computer program.
+ Unknown: A software product that is unknown.
+ Product classification 
+ Official UNSPSC classification. 
+ Exclude from content service 
+ Option that excludes the custom product details from
+ being shared with Software Asset Management Content Service 
+ if opted in. 
+ Active 
+ Option that indicates the rule is active.

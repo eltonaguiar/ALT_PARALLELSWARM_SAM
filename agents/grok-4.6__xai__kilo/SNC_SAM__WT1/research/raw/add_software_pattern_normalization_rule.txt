@@ -1,0 +1,68 @@
+Add a software pattern normalization rule
+ Release version: Brazil 
+ Updated November 5, 2026 
+ 1 minute to read
+ You can add a pattern normalization rule to normalize specific software products in
+ your environment based on a common pattern.
+ Before you begin
+Role required: sam_admin 
+ About this task
+ Note: When creating a pattern normalization rule for custom products and publishers,
+ create the custom product and company records first.
+ Procedure
+ Navigate to All > Software Asset > Administration > Pattern Normalization Rules and create a new record (see table for field descriptions). 
+ Table 1. Pattern Normalization Rule form 
+ Field 
+ Description 
+ Name 
+ Specify a unique name for pattern normalization
+ rule. 
+ Discovered publisher contains 
+ Specify text to search for in the software publisher
+ field. 
+ Discovered product contains 
+ Specify text to search for in the product field. 
+ Active 
+ Option that activates the rule. 
+ Discovered publisher is empty 
+ Option that includes products that have an empty
+ publisher field (the rule applies to discovery models where
+ the publisher is unknown). 
+ Normalized Attributes 
+ Publisher 
+ Specify the normalized name of the publisher of the
+ software. 
+ Product 
+ Specify the normalized name of the product. 
+ Edition 
+ Specify the product edition. 
+ Product type 
+ Choose the product type. 
+ Child: A subcomponent of main software (not
+ licensable).
+ Driver: Software product that controls a
+ device.
+ Licensable: Software product that is
+ licensable.
+ Not Licensable: Software product that is not
+ licensable.
+ Patch: Software product designed to update, fix, or
+ improve an existing computer program.
+ Version 
+ Specify the version of the product. 
+ Platform 
+ Choose the platform. 
+ Windows 
+ macOS 
+ UNIX 
+ Language 
+ Choose the language. 
+ Dutch
+ English
+ French
+ German
+ Italian
+ Spanish
+ Once the rule is created, to apply the rule so applicable discovery models are
+ normalized without delay, click the Apply Rule related
+ link.

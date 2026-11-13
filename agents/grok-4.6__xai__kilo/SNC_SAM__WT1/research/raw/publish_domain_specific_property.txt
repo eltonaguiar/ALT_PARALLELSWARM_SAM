@@ -1,0 +1,31 @@
+Set the domain-specific property to publish your software products
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 1 minute to read
+ Use the domain separation application property of Software Asset Management to set the publish software products property for specific domains.
+ Before you begin
+ To set up domain separation application properties for Software Asset Management , you must activate the Domain Support - Domain Extensions Installer (com.glide.domain.msp_extensions.installer) plugin on your ServiceNow instance.
+ Role required: sam_admin
+ About this task
+ The com.snc.samp.manage.published.product application property enables you to specify the domains for which you want to enable publishing the software products in a phase-wise implementation of Software Asset Management .
+ Procedure
+ Navigate to All > Software Asset Management > Administration > Application Properties . 
+ From the list of available application properties, select com.snc.samp.manage.published.products . 
+ Create or update an application property value. 
+ To create an application property value, select New .
+ To update an existing application property value, select that application property value from the list of available values.
+ On the form, fill in the fields. 
+ Table 1. Application Property Values form 
+ Field 
+ Description 
+ Value 
+ Value of the application property. You can specify one of the following: 
+ true to enable the property.
+ false to disable the property.
+ Domain 
+ Domain that you want the application property value to apply to. 
+ Save the application property values. 
+ To update an existing application property value, select Update. 
+ To save a new application property value, select Submit .
+ What to do next
+ Publish the software products that you want to manage as part of phase-wise implementation of Software Asset Management . For more information, see Publish a specific set of your software products .

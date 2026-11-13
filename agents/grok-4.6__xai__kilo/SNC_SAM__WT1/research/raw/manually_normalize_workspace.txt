@@ -1,0 +1,17 @@
+Manually normalize a software model in the Software Asset Workspace 
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 1 minute to read
+ You can manually normalize a software discovery model that
+ hasn’t been fully normalized
+ (partially normalized, publisher normalized, or match not found)
+ to reconcile it.
+ Before you begin
+ Role required: sam_admin or sam_user
+ Procedure
+ Navigate to All > Software asset > Software Asset Workspace > License operations > Discovery models . 
+ Select a discovery model record that has a normalization status of
+ Partially Normalized , Publisher Normalized , or Match Not Found . 
+ Select the ellipsis icon on the right hand side of the page. 
+ Select Normalize . 
+ The normalization status changes to Manually Normalized .

@@ -1,0 +1,59 @@
+Software license compliance position
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 1 minute to read
+ The Software Asset Management 
+ License Position report shows compliance details for each software model in a single list.
+ You can view and export the software model compliance list for your environment to understand
+ your license position.
+ Two license metric results are generated if a software model has two entitlements, one with a
+ perpetual SA license type and the other with a subscription license type. One license metric
+ result where active maintenance is true and the other where the active maintenance is false. In
+ such a scenario, two license position reports are generated, one with active maintenance true and
+ the other one with active maintenance false.
+ A single license position report is generated if there are any unlicensed installations. A
+ single license position report is also generated if there are any unlicensed subscriptions. If
+ both are present, two license position reports are generated.
+ Figure 1. License Compliance Position report 
+ Table 1. License Position Report list 
+ Field 
+ Description 
+ Software publisher 
+ Software publisher of the software model. 
+ Software product 
+ Software product of the software model. 
+ Edition 
+ Edition of the software product. 
+ Version 
+ Version of the software product. 
+ Software model status 
+ Compliance status of the software model. 
+ Compliant (indicated with a green dot)
+ Not Compliant (indicated with a red dot)
+ License metric 
+ License metric of the software model. 
+ Total spend 
+ Total cost of rights owned. 
+ Rights owned 
+ Sum of all active rights. 
+ Rights used 
+ Sum of rights allocated in use and not allocated in use. 
+ Rights needed 
+ Rights needed to cover the number of unlicensed installs. 
+ Rights available 
+ Rights owned less rights used. 
+ Unlicensed installs 
+ Number of unlicensed software installations that are not covered by any
+ entitlements. 
+ True-up cost 
+ Estimated cost of remediating non-compliance based on the least number of rights
+ needed. 
+ Potential savings 
+ Estimated savings from reclaiming unused installs. 
+ Over-licensed amount 
+ Total cost of unused rights. 
+ Software model 
+ Software model name. 
+ The License Position Report form also contains Group and
+ Subgroup fields that specify the group and subgroup on which
+ reconciliation was run.

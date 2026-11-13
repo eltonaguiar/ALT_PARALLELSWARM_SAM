@@ -1,0 +1,15 @@
+Create success goals for Software Asset Management 
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 1 minute to read
+ Create success goals to track the success of the Software Asset Management 
+ application in your instance.
+ Before you begin
+ Role required: sam_admin
+ Procedure
+ Navigate to Workspaces > Software Asset Workspace > Success Portal . 
+ Select Create success goal . 
+ On the form, fill in the details. 
+ For a description of the field values, see SAM Success Goal Details .
+ Select Save . 
+ The success goal appears in the License operations view under the Success goals list. You can cancel or delete a success goal from the License operations view.

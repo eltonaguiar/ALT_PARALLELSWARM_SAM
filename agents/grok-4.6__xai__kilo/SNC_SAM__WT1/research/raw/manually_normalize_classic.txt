@@ -1,0 +1,25 @@
+Manually normalize a software discovery model in Software Asset Management classic
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 1 minute to read
+ You can edit a software discovery model to manually normalize discovered software
+ that has not been fully normalized (partially normalized, publisher normalized, or match not
+ found) on the Software Discovery Models form so that it can be reconciled.
+ Before you begin
+Role required: sam_user 
+ About this task
+ If the information automatically added to the software discovery model is incomplete,
+ you can add the missing fields to manually normalize the software discovery
+ model.
+ Procedure
+ Navigate to All > Software Asset > Discovery > Discovery models and open a discovery model record that has a normalization status
+ of Partially Normalized, Publisher Normalized, or Match Not Found. 
+ Fill in the Publisher , Product ,
+ and Version fields, as appropriate. 
+ You can create a custom product from the Product lookup list, if desired.
+ Select Save . 
+ The normalization status is set to Manually Normalized. 
+ Optional: 
+ To revert normalization, select Revert Normalization . 
+ Note: Discovery models with a status of Normalized, Partially Normalized, or Publisher Normalized revert to the status of Match Not Found. Discovery models with a status of Manually Normalized and discovery models that have
+ been normalized using pattern rules cannot be reverted. Fields are reset to their original values, and any rules associated with the software discovery model are deactivated.

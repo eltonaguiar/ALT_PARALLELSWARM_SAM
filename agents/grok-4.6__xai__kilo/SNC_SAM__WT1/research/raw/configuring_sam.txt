@@ -1,0 +1,23 @@
+Configuring Software Asset Management 
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 1 minute to read
+ Install and configure the Software Asset Management application to manage your software inventory, track licenses, and support compliance workflows.
+ Configuration overview
+ The following table provides an overview of the process for configuring Software Asset Management .
+ Table 1. Configure Software Asset Management 
+ Step 
+ Action 
+ Resource 
+ Install Software Asset Management 
+ Get the Software Asset Management application from the ServiceNow Store or Install Software Asset Management from the Product Hub . 
+ Software Asset Management installation methods 
+ Use Software Asset Management 
+ Use Software Asset Management to track licenses, monitor compliance, and identify optimization opportunities. 
+ Using Software Asset Workspace 
+ Related configuration tasks
+ Depending on your environment, the following optional tasks might be required:
+ Overwrite customizations for Software Asset Management migration 
+ If you are migrating from an earlier version of Software Asset Management and need to overwrite existing customizations, see Overwrite customizations for Software Asset Management migration . 
+ Configure SCCM for Software Asset Management 
+ If your organization uses Microsoft SCCM as a discovery source for software installations, see Configure SCCM for Software Asset Management .

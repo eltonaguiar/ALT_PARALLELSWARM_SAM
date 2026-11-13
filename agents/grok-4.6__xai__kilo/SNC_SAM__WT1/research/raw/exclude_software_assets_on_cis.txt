@@ -1,0 +1,30 @@
+Exclude software assets on CIs
+ Release version: Brazil 
+ Updated October 19, 2026 
+ 2 minutes to read
+ Exclude specific configuration items (CIs) from Software Asset Management when you don’t need to track license compliance for them, such as third-party leased devices. This lets you scope compliance calculations to only the CIs you choose, and expand that scope later as
+ needed.
+ Before you begin
+ Role required: sam_admin
+ About this task
+ There may be cases where you don’t want certain CIs included in software license compliance tracking. For example, some devices may be leased from a third party, so your organization isn’t responsible for license compliance
+ on the software installed on them. Or, you may want to roll out Software Asset Management gradually, starting with devices at a specific location, such as the New York office, before expanding to other locations.
+ To handle these cases, specify CIs to exclude in the Software Asset Management application. After you exclude, the system leaves out any software installed on those CIs when calculating license compliance.
+ Procedure
+ In the Hardware [cmdb_ci_hardware] table, add a true or false (Boolean) column to exclude a CI from SAM. 
+ For example, Exclude from SAM [u_exclude_from_sam].
+ Set the value of the Exclude from SAM column to true for devices for which you don't need to manage installed software in the application. 
+ Note: The default value of the Exclude from SAM column is false . By default, the system manages installed software on all devices.
+ Navigate to Software Asset > Administration > Properties . 
+ Enter the column name, u_exclude_from_sam , in the field next to the property Enter the name of the true/false field added to cmdb_ci_hardware table to exclude software installed on
+ selected devices from Software Asset Management . 
+ After the scheduled job SAM — Adjust Installs for excluded CIs runs, the system excludes software installed on devices with the Exclude from SAM column set to
+ true .
+ Set the value of the Exclude from SAM column for the device to false . 
+ After the scheduled job SAM — Adjust Installs for excluded CIs runs, the system starts managing software installs on these devices.
+ Complete the following steps to start managing software installs on all previously excluded devices. 
+ Navigate to Software Asset > Administration > Properties . 
+ Delete the column name [u_exclude_from_sam] from the Enter the name of the true/false field added to cmdb_ci_hardware table to exclude software installed on selected devices from Software Asset
+ Management property. 
+ Select Save . 
+ After the scheduled job SAM — Adjust Installs for excluded CIs runs, the system starts managing the software installed on all previously excluded devices.

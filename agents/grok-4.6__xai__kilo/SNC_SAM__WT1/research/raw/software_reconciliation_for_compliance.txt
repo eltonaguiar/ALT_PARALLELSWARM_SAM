@@ -1,0 +1,18 @@
+Software reconciliation for compliance
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 1 minute to read
+ Automated license reconciliation keeps license positions accurate and up-to-date without
+ manual calculations. Reconciliation runs weekly or on demand.
+ Overview of reconciliation
+ Reconciliation is a scheduled job that is run at a specified frequency (default is weekly). It can also be run on demand for specific or all publishers, groups, and subgroups.
+ Group and subgroup values include country, department, company, region, or cost center. Default group and subgroup properties that apply to the weekly reconciliation run can be set in Software Asset > Administration > Properties .
+ When reconciliation runs, a list of reconciliation results is created that shows the compliance status of software products concerning discovery and entitlements. Users with the sam_user role can view reconciliation results.
+ In addition to creating a purchase order for new software licenses, additional remediation options are available in software model results. Use the results to automatically create and remove allocations, remove unallocated
+ installs, and remove unlicensed installs.
+ Review reconciliation results in a simplified License Workbench view, and use the License Position report to see compliance details for each software model in a single list.
+ Upgrade considerations for customized reconciliation script includes
+ Starting from the Yokohama release, all the reconciliation script includes are being moved from the family release to the Software Asset Management store application (com.sn_itam_samp'). Note: When you activate the Software
+ Asset Management Professional (com.sn_samp_master) plugin or the Software Asset Management Foundation (com.snc.sams) plugin, the Software Asset Management store application (com.sn_itam_samp') is automatically
+ activated.
+ When upgrading to Yokohama, if you have made customizations to reconciliation script includes, you need to move your customizations to the new script includes. The old script includes will be deprecated.

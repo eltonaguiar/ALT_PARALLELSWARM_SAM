@@ -1,0 +1,23 @@
+Link an item to the software catalog
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 1 minute to read
+ After you create a vendor catalog item, link the item to the software catalog for
+ viewing.
+ Before you begin
+ Role required: model_manager
+ About this task
+ To see the Link to Software Catalog Item related link on the
+ Vendor Catalog Item form, add a software model or a consumable model to the
+ Product Model field, and leave the Product
+ Catalog Item field blank.
+ Procedure
+ Navigate to All > Product Catalog > Catalog Definition > Vendor Items . 
+ Open a vendor catalog item. 
+ In Related Links , click Link to Software
+ Catalog Item . 
+ Select a Catalog Item . 
+ Click OK . 
+ The page refreshes to the selected software catalog item. The vendor
+ catalog item is listed in the Vendor Catalog Items 
+ related list.

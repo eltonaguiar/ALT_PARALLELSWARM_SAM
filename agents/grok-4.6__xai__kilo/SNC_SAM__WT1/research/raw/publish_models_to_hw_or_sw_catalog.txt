@@ -1,0 +1,21 @@
+Publish models to the hardware or software catalog
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 1 minute to read
+ You can publish models to the hardware or software catalog to make the models
+ available in the service catalog.
+ Before you begin
+ Role required: catalog_admin
+ Procedure
+ Navigate to All > Product Catalog > Product Model > All Models . 
+ Open a product model. 
+ When you publish a catalog item from a model, the property
+ glide.model.catalog_item_currency decides the currency
+ on the catalog item. This property is set to false by default and the value is
+ set to user session currency. If you set this property to true, the value is set
+ to model currency.
+ In Related Links , click Publish to
+ Hardware or Publish to Software
+ Catalog . 
+ Select a category. 
+ Click OK .

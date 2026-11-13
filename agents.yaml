@@ -1,0 +1,11 @@
+task: SNC_SAM_RESEARCH
+max_parallel: 1
+rounds: 1
+
+agents:
+  - id: beam__kilo__cli
+    model: beam
+    provider: kilo
+    harness: cli
+    wt: 1
+    note: "Self-run by the Kilo/beam agent using ServiceNow khub docs API (Australia release)."

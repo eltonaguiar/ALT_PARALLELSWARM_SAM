@@ -1,0 +1,7 @@
+__pycache__/
+*.lock
+*.pyc
+.DS_Store
+updates/
+!updates/.gitkeep
+EOF
