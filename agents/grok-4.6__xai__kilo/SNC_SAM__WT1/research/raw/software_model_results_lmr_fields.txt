@@ -1,0 +1,187 @@
+Software model results license metric results fields
+ Release version: Brazil 
+ Updated September 10, 2026 
+ 6 minutes to read
+ Software model results License Metric Results form and related list field descriptions.
+ You can access this form through the License Metric Results related list in your software model
+ results.
+ License Metric Results form
+ Two license metric results are generated if a software model has two entitlements, one with
+ a perpetual SA license type and the other with a subscription license type. One license
+ metric result where active maintenance is true and the other where the active maintenance is
+ false. In such a scenario, two license position reports are generated, one with active
+ maintenance true and the other one with active maintenance false.
+ Field 
+ Description 
+ License metric 
+ Name of the license metric that the software license is counted against when
+ reconciliation runs. 
+ Software model result 
+ Software model result associated with the license metric results. 
+ Group 
+ Group on which reconciliation was run. 
+ Subgroup 
+ Subgroup on which reconcliation was run. 
+ Rights owned 
+ Sum of all active rights from entitlements that share a license
+ metric. 
+ Rights used 
+ Sum of rights used during reconciliation (allocated + not allocated and
+ installed). 
+ Rights available 
+ Sum of rights not used during reconciliation (rights owned — rights
+ used). 
+ Over-licensed amount 
+ Estimated cost of unused rights. 
+ Right Allocations 
+ Allocated in use 
+ Rights that are allocated and are used to license installations. 
+ Not allocated in use 
+ Number of rights that are used to license installations, but not allocated.
+ When this value is greater than 0, two remediation options (Create Allocations
+ and Remove Unallocated Installs) are automatically created for each unique
+ license metric in the software model that meets this requirement, except User
+ CAL and Device CAL.
+ Allocated not in use 
+ Rights that are allocated but are not being used to license any installations.
+ Note: Allocated not in use reflects rights that are wasted
+ because the user or device for which these rights have been allocated do not
+ have the software installed.
+ When this value is greater than 0, a Remove Allocations remediation option is
+ automatically created for each unique license metric in the software model that
+ meets this requirement.
+ Not allocated 
+ Number of rights that have not been allocated (rights owned — allocated
+ regardless of whether installed or not). 
+ Allocations needed 
+ Number of allocations needed for compliance. Only used for Per Named User and
+ Per Named Device license metrics. 
+ Rights Used By related list
+ Field 
+ Description 
+ Used by 
+ User or device that is using the rights. Note: If your rights are associated with client access records, the Used by field displays the name of each client access record that is using
+ those rights. Select a client access record name to view the corresponding breakdown of users or devices that are using the associated rights. See Add a software client access record in Software Asset Management classic for more information on client access records in the Software Asset Management classic application. See Create a software client access record in workspace for more information on client access records in the Software Asset Workspace.
+ Rights used 
+ Sum of rights used during reconciliation (allocated + not allocated and
+ installed). 
+ Allocated in use 
+ Rights that are allocated and are used to license installations. 
+ Not allocated in use 
+ Number of rights that are used to license installations, but not allocated.
+ When this value is greater than 0, two remediation options (Create Allocations
+ and Remove Unallocated Installs) are automatically created for each unique
+ license metric in the software model that meets this requirement, except User
+ CAL and Device CAL.
+ Allocated not in use 
+ Rights that are allocated but are not being used to license any installations.
+ Note: Allocated not in use reflects rights that are wasted
+ because the user or device for which these rights have been allocated do not
+ have the software installed.
+ When this value is greater than 0, a Remove Allocations remediation option is
+ automatically created for each unique license metric in the software model that
+ meets this requirement.
+ Nontransferable rights 
+ Remaining rights from a core pack that cannot be used to license any
+ additional devices. Nontransferable rights are available only for Microsoft Per
+ Core and Microsoft Per Core with (CAL). 
+ Allocations needed 
+ Number of allocations needed for compliance. Only used for Per Named User and
+ Per Named Device license metrics. 
+ Rights Needed By related list
+ Field 
+ Description 
+ Rights needed by 
+ Unlicensed user or device that requires rights. Note: If rights are needed to cover unlicensed users or devices in an associated client access record, the Rights needed field displays the
+ name of the client access record that requires those additional rights. Select the client access record name to view the corresponding breakdown of unlicensed users or devices that require rights. See Add a software client access record in Software Asset Management classic for more information on client access records in the Software Asset Management classic application. See Create a software client access record in workspace for more information on client access records in the Software Asset Workspace.
+ Rights needed 
+ Number of rights that are required to cover the unlicensed user or
+ device. 
+ Licensed Installs related list
+ Note: This related list is not available for SAP license metrics.
+ Field 
+ Description 
+ Display name 
+ Name of the software installation. 
+ Publisher 
+ Publisher of the software. 
+ Version 
+ Version of the software. 
+ Discovery model 
+ Software discovery model for the installed software. 
+ Installed on 
+ Hardware on which the software is installed. 
+ Assigned to 
+ User or device to which the software is assigned. 
+ Downgrades/Upgrades related list
+ Note: This related list is not available for SAP license metrics.
+ Field 
+ Description 
+ Software model 
+ Software model that is available for upgrade or downgrade. 
+ Rights used 
+ Sum of rights used during reconciliation (allocated + not allocated and
+ installed). 
+ Allocated in use 
+ Rights that are allocated and are used to license installations. 
+ Not allocated in use 
+ Number of rights that are used to license installations, but not allocated.
+ When this value is greater than 0, two remediation options (Create Allocations
+ and Remove Unallocated Installs) are automatically created for each unique
+ license metric in the software model that meets this requirement, except User
+ CAL and Device CAL.
+ Allocated not in use 
+ Rights that are allocated but are not being used to license any installations.
+ Note: Allocated not in use reflects rights that are wasted
+ because the user or device for which these rights have been allocated do not
+ have the software installed.
+ When this value is greater than 0, a Remove Allocations remediation option is
+ automatically created for each unique license metric in the software model that
+ meets this requirement.
+ Allocations needed 
+ Number of allocations needed for compliance. Only used for Per Named User and
+ Per Named Device license metrics. 
+ SAP System Users related list
+ Note: This related list is available only for SAP named user license
+ metrics.
+ Field 
+ Description 
+ Display name 
+ Identifier containing the SAP user ID and SAP 
+ client. 
+ User 
+ Full name of the SAP user. 
+ SAP user id 
+ Unique identifier for the SAP user. 
+ Email 
+ Email address of the SAP user. 
+ First name 
+ First name of the SAP user. 
+ Last name 
+ Last name of the SAP user. 
+ User type 
+ Type of SAP user. 
+ License type 
+ Named user type value assigned to the SAP user. 
+ Named user type 
+ Normalized named user type of the SAP user. 
+ Optimized named user type 
+ Optimized named user type of the SAP user. 
+ SAP client 
+ Organizational subunit to which the SAP user belongs. 
+ Licensed Subscriptions related list
+ Field 
+ Description 
+ Display name 
+ Identifier containing the publisher and product of the software
+ subscription. 
+ User 
+ Name of the subscription user. 
+ User principal name 
+ Email address of the subscription user. 
+ Software model 
+ Software model for the subscription software. 
+ Subscription profile 
+ Direct integration profile for the subscription software. 
+ Subscription type 
+ Type of subscription.
