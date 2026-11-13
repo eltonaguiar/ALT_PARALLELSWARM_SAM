@@ -29,4 +29,4 @@ Supporting sections cover Discovery feed and CI/license insert-update rules, set
 
 ## Round 2
 
-`CURRICULUM_COMPARE.md` diffs this guide against the CIS-SAM curriculum guide, the sam-buffy community pack and the official docs, marking AGREE / CONFLICT / CURRICULUM-ONLY / DOCS-ONLY / CURRICULUM-WRONG.
+`CURRICULUM_COMPARE.md` (also at `research/servicenow-sam/CURRICULUM_COMPARE.md`) diffs this guide against the CIS-SAM curriculum guide and the sam-buffy community pack, marking AGREE / CONFLICT / CURRICULUM-ONLY / DOCS-ONLY / CURRICULUM-WRONG. Headline: reconciliation default is **weekly** (curriculum says nightly), result table is **`samp_reconciliation_result`** (curriculum says `sam_sw_reconciliation_result`), and the community pack is rejected outright. No documented fact was overwritten by curriculum material.

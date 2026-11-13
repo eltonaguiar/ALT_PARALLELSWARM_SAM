@@ -11,6 +11,7 @@ This folder is the SAM analog of `ALT_PARALLELSWARM/research/servicenow-discover
 | file | what it is |
 |---|---|
 | `SAM_MODULE_DEEP_DIVE.md` | the guide: mental model → out-of-box scripts → maintenance (add / normalize a software model) → high-probability items (license position, compliance, reclamation, true-up) → workspaces & dashboards → parameter inventory → insert/update rules → order of operations → verification → anti-patterns → source index → gaps |
+| `CURRICULUM_COMPARE.md` | round-2 diff against the CIS-SAM learning curriculum and the community pack (AGREE / CONFLICT / CURRICULUM-ONLY / DOCS-ONLY / CURRICULUM-WRONG) |
 | `sources/` | raw `.txt` of every cited article (Brazil set + `_australia/` abstracts + implementation-success digest + Australia config inventory) |
 
 ## How to verify / reproduce
