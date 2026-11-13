@@ -14,6 +14,9 @@ Document the ServiceNow SAM module at the same depth and in the same phased fold
 | `05_FINAL/ROUND2_GAP_ANALYSIS.md` | complete — Perplexity audit + 15 closed gaps + new operational content |
 | `05_FINAL/MODULE_IMPLEMENTATION_PLAN.md` | complete — 15 programme dimensions |
 | `05_FINAL/SAM_IMPLEMENTATION_CHECKLIST.md` | complete — 10 phases of gates |
+| `05_FINAL/GUIDE_VS_REPO_DELTA.md` | complete — bidirectional guide↔repo comparison + 18 corrections |
+| `05_FINAL/LEARNING_LAYER.md` | complete — guide pedagogy preserved and corrected |
+| `05_FINAL/LEARNING_PROTOCOL_ADDITIONS.md` | complete — 10 reusable protocol artefacts |
 | `final/FINAL_deepseek-flash__deepseek__kilo.md` | complete — merged fleet compilation |
 | `README.MD` append | complete — separator, identity, timestamp, summary |
 | `plans/` mirror, `06_FILESCOPE`, `research/` | complete |

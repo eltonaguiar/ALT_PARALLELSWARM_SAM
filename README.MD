@@ -45,3 +45,11 @@ Role/duty separation · RACI · source-system feed contracts · numeric test cas
 ### Honest boundary
 
 No live instance was available, so business-rule/UI-policy/ACL names, sys_ids, and label-only column names remain `U` and are listed with verification queries. Container/Kubernetes licensing is an explicit scope exclusion, not a solved capability. This is a documentary reference plus an operable plan — not a tested deployment.
+
+### Round 3 — bidirectional delta with the live SAM guide
+
+- [`GUIDE_VS_REPO_DELTA.md`](agents/deepseek-flash__deepseek__kilo/05_FINAL/GUIDE_VS_REPO_DELTA.md) — what the guide has that the repo lacks, what the repo has that the guide lacks, and 18 corrections the guide needs (wrong usage table, non-existent result table, nightly cadence, plugin names, custom `u_*` fields).
+- [`LEARNING_LAYER.md`](agents/deepseek-flash__deepseek__kilo/05_FINAL/LEARNING_LAYER.md) — the guide's teaching assets (exam map, ELI5, five-record mnemonic, compliance positions, publisher traps, lab, quiz, SLA targets, SaaS waste pattern) preserved and corrected in this repo.
+- [`LEARNING_PROTOCOL_ADDITIONS.md`](agents/deepseek-flash__deepseek__kilo/05_FINAL/LEARNING_PROTOCOL_ADDITIONS.md) — ten reusable artefacts for `ServiceNow_Learning`, mapped to its ORIENT → MODEL → PRACTISE → PROVE → TEACH loop.
+
+The guide is the better teacher; this repo is the better reference. Neither should absorb the other wholesale — the guide keeps its voice and links here for depth.

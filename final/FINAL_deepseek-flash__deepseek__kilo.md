@@ -323,3 +323,17 @@ Business-rule/UI-policy/ACL names and sys_ids; internal columns for label-only f
 ## 17. Source ledger
 
 Brazil corpus: `agents/grok-4.6__xai__kilo/SNC_SAM__WT1/research/raw/` (58 pages, full list in `SAM_MODULE_REFERENCE.md` Appendix B). Australia: `CONFIG_INVENTORY_AUSTRALIA.md`. Discovery boundary: `ALT_PARALLELSWARM/research/servicenow-discovery/DISCOVERY_END_TO_END_GUIDE.md`.
+
+---
+
+## 18. Guide ↔ repo delta (round 3)
+
+Full analysis: [`agents/deepseek-flash__deepseek__kilo/05_FINAL/GUIDE_VS_REPO_DELTA.md`](../agents/deepseek-flash__deepseek__kilo/05_FINAL/GUIDE_VS_REPO_DELTA.md). Pedagogical assets added: `LEARNING_LAYER.md`. Generic module protocol: `LEARNING_PROTOCOL_ADDITIONS.md`.
+
+**The live SAM guide is the better teacher; this repo is the better reference.** The guide has exam alignment, ELI5, lifecycle, quiz, lab, mnemonics, and compliance-state vocabulary that this repo lacked. The repo has six normalisation statuses, correct tables (`samp_sw_usage`, three-tier results), dedup, PPN, Content Service, properties, OOB jobs, reporting map, integrations, and the programme layer that the guide lacks.
+
+**Top guide corrections (must apply before reuse):** `cmdb_sam_sw_usage` → `samp_sw_usage`; `sam_sw_reconciliation_result` → three tiers (`samp_product_result` → Software Model Result → `samp_license_metric_result`); "nightly" → weekly + on demand; `com.snc.iam` → Pro `com.sn_samp_master_ws` / Foundation `com.snc.sams`; `cmdb_sam_sw_install.software_model` → install has `discovery_model`; `u_*` fields are custom, not OOB; Oracle "10% rule" and "audit package export" are unverified.
+
+**Top additions from the guide (now in `LEARNING_LAYER.md`):** exam map, ELI5, SAM-vs-HAM, lifecycle, five-record mnemonic, six compliance positions (with the product's binary-status caveat), publisher audit traps, "what breaks reconciliation", "fields people forget", day-one reports, guided lab, quiz, SLA targets, SaaS waste pattern, optimisation order, corrected code patterns.
+
+**Protocol:** ten reusable artefacts (record chain, state machine, insert/update matrix, quantity algebra, OOB inventory, property inventory, reporting map, integration contract, programme controls, confidence/release discipline) are proposed for `ServiceNow_Learning` in `LEARNING_PROTOCOL_ADDITIONS.md`.
