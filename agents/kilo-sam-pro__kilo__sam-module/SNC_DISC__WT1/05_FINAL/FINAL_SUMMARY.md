@@ -7,5 +7,10 @@
 - **Clarifications needed:** none
 - **Context window:** 128000
 
+## Additional work completed
+- **Completed:** SAM vs Discovery curriculum comparison document
+- **Generated:** `SAM_CURRICULUM_COMPARISON.md` (~960 words, structured analysis)
+
 ## Coverage debt (self-reported)
+
 - none: every planned question returned a usable answer
