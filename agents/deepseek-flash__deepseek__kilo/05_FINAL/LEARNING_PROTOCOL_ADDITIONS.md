@@ -173,6 +173,22 @@ The existing `08-SAM-SETUP.md` already has a build order, prerequisites, ten mis
 
 ---
 
+### 1.11 Closed-loop modules (SAM, HAM, SPM, …)
+
+Some modules reconcile two independent truths (owned vs observed). Add these seven rules to the protocol for them:
+
+1. **Success is not a row insert.** Success = the two truths reconcile and the result is explainable.
+2. **Four object types when a catalog exists:** requestable item (catalog / `sc_cat_item`), master data (model/entitlement), observed data (install/usage), computed result. Never collapse them.
+3. **Pin plugin IDs** for Foundation vs Professional/Pro; mark irreversible upgrades (e.g. Basic SAM → Pro).
+4. **Name the scheduled jobs** and their target fields in the PRACTISE gate; "the module runs jobs" is not enough.
+5. **One numeric test minimum:** 1 right + 2 observations → shortfall 1; same 2 observations on 1 device with dedup → 1.
+6. **Stamp teaching code** `not OOB` / `verify`; never present a custom `u_*` script as product behaviour.
+7. **Sibling-module contrast** in ORIENT (HAM vs SAM vs ITAM), because the shared `alm_*` tables cause most confusion.
+
+**Do not** replace the existing ORIENT → MODEL → PRACTISE → PROVE → TEACH loop (or the 95-minute format) with a configuration encyclopedia. The artefacts above are inputs to the loop, not a new curriculum.
+
+---
+
 ## 2. Proposed files in `ServiceNow_Learning`
 
 | File | Contents |

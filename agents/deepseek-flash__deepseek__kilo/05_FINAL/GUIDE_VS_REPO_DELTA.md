@@ -171,3 +171,23 @@ These slot into the existing `ORIENT → MODEL → PRACTISE → PROVE → TEACH`
 - Optimisation priority order and SaaS waste pattern.
 
 These are the pieces the reference repo cannot replace; they are now preserved in `LEARNING_LAYER.md` so they are not lost when the guide is corrected.
+
+---
+
+## 8. Sibling merge — `grok-4.6__xai__kilo` WT5
+
+WT5 independently produced a 92-line bidirectional delta (`agents/grok-4.6__xai__kilo/SNC_SAM__WT5/05_FINAL/BIDIRECTIONAL_DELTA.md`). It agrees on every conflict and adds seven specifics now folded in:
+
+| WT5 item | Status in this delta | Where |
+|---|---|---|
+| A1 **Four paths** (catalog publish / create-before-discovery / discover-and-link / block-exclude) | **Added** | `SAM_MODULE_REFERENCE.md` §1.3 |
+| A2 Product Catalog nav + `model_manager` / `catalog_admin` + `glide.model.catalog_item_currency` | Already in reference §2.4/§14; now explicit in the path table | reference §1.3 |
+| A3 Foundation vs Pro plugins + irreversible upgrade | Already in §3 conflict #4; add the irreversible note | §3 #4 |
+| A10 Uninstalls not auto-deleted; Retired/Stolen CI **does** delete installs | Already in reference §2.1/§9; now in the guide correction list | `LEARNING_LAYER.md` §8 |
+| A17 No `glide.cmdb.sam.*` family | Already in reference §14.4; keep | reference §14.4 |
+| A18 Entitlement **Build → Publish → In use** | Already in reference §2.5/§10; add to guide correction list | `LEARNING_LAYER.md` §17 |
+| D **Closed-loop module** framing (two independent truths; four object types; plugin pin; named jobs; 1+2 test; teaching code ≠ OOB; sibling contrast) | **Added** | `LEARNING_PROTOCOL_ADDITIONS.md` §1.11 |
+
+**Where this delta is broader than WT5:** six-status transition/revert matrix, full property catalog, reporting widget→table map, three-tier rights algebra, Content Service data types, dedup primary-selection order, model-matching job, OOB customise-vs-leave inventory, and the programme layer (RACI, feed contracts, T0–T10, gates, rollback, change control, audit, cloud/container). WT5's 18 guide additions and 15 protocol items are a subset plus the seven above.
+
+**Do not merge WT5's "do not move" list** into the guide as content; it is a migration guardrail. The combined canonical is this file + `LEARNING_LAYER.md` + `LEARNING_PROTOCOL_ADDITIONS.md`.

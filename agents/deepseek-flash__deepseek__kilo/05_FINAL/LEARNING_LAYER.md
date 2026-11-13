@@ -129,6 +129,7 @@ The guide's Oracle "10% rule" and "audit package export" are **U** — not verif
 - Virtualisation/hosting flags on the CI — required for Microsoft/Oracle per-host rules.
 - `License under management` — a model can exist and never reconcile.
 - `Automatically matched` on the discovery model — tells you whether a human overrode the job.
+- Entitlement state **Build → Published → In use** — only in-use rights are eligible for reconciliation **C**; an imported-but-unpublished entitlement can look like missing coverage.
 
 ---
 

@@ -77,6 +77,17 @@ Consequences that explain most SAM defects:
 8. `SAM — Adjust Installs for excluded CIs` honours the exclude-device flag.
 9. Reclamation rules aggregate usage; candidates are produced.
 
+### 1.3 Four paths (do not collapse)
+
+| Path | When | What you touch | Not the same as |
+|---|---|---|---|
+| **A. Catalog publish** | Software must be requestable | Product Catalog → `sc_cat_item`; roles `model_manager`/`catalog_admin`; `glide.model.catalog_item_currency` **V** | Creating a licence or a model |
+| **B. Create before discovery** | Contract exists, nothing installed yet | Custom product → `cmdb_software_product_model` → `alm_license` | A discovered model |
+| **C. Discover then link** | Installs already exist | `cmdb_sam_sw_install` → discovery model → normalise → match model | Catalog publish |
+| **D. Block/exclude** | Out of scope, blocked source, phased rollout | exclude-CI flag, published-products list, content-service exclusion, dedup `active=false`, `Security Update` skip | Deleting records |
+
+Collapsing A into C is the classic error: a catalog item is not a licence, and discovery does not create one.
+
 ---
 
 ## 2. Record types, tables, and the model-vs-vendor axis
