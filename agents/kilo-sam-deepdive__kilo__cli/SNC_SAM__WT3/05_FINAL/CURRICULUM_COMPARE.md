@@ -36,7 +36,7 @@ Weights are from LG only (Now Learning blueprint not fetched).
 | Discovery Model | `cmdb_sam_sw_discovery_model` | same | **AGREE** |
 | Installation | `cmdb_sam_sw_install` | same | **AGREE** |
 | Entitlement | `alm_license` | same | **AGREE** |
-| Usage | `cmdb_sam_sw_usage` | not named in the fetched docs corpus | **CURRICULUM-ONLY / UNVERIFIED** — plausible; verify via `sys_db_object.list` before use |
+| Usage | `cmdb_sam_sw_usage` | **`samp_sw_usage`** (product-level; reclamation types Total Usage Time / Last Used Date) `[S61]` | **CONFLICT → DD/DOCS win** — LG table name is wrong (round-3 correction) |
 | Reconciliation Result | `sam_sw_reconciliation_result` | **`samp_reconciliation_result`** (Activity center source `[S43]`) | **CONFLICT → DD/DOCS win**; LG name is wrong |
 | Removal candidate | (not named by LG) | `samp_sw_reclamation_candidate` | **DOCS-ONLY** |
 | Product results / metric results | (not named by LG) | `samp_product_result`, `samp_license_metric_result` | **DOCS-ONLY** |
@@ -94,7 +94,7 @@ LG's own footer warns *"verify table names…"* — its `sam_sw_reconciliation_r
 3. Do not change the reconciliation default from weekly to nightly.
 4. Do not adopt "SUMN" as an official product term; keep Content Library + job names.
 5. Do not collapse catalog publish vs software-model creation vs discovery linking — DD keeps them separate.
-6. Do not treat LG's `cmdb_sam_sw_usage` or `cmdb_model` extension claims as fact without an instance check.
+6. Do not teach LG's `cmdb_sam_sw_usage` — the official table is **`samp_sw_usage`** `[S61]`. Do not treat LG's `cmdb_model` extension claim as fact without an instance check.
 
 **SB remains worse than LG** and must not be merged at all: it teaches `alm_software` / `alm_software_installation` as core tables, roles `sam_license_manager` / `sn_sam.admin`, and places SAM under Hardware Asset Management navigation. None of those appear in official docs.
 
@@ -104,7 +104,7 @@ LG's own footer warns *"verify table names…"* — its `sam_sw_reconciliation_r
 
 1. Add a short "exam alignment" appendix mapping DD sections to CIS-SAM domains, citing LG weights as external context.
 2. Absorb LG's optimization priority list and 60–90 day reclaim window as operational guidance in §5.3, clearly labelled as practice guidance rather than vendor-documented defaults.
-3. Verify on an entitled instance: `cmdb_sam_sw_usage`, `samp_reconciliation_result` spelling, and whether usage feeds participate in on-prem reconciliation numerators.
+3. ~~Verify `cmdb_sam_sw_usage`~~ — resolved in round 3: official table is `samp_sw_usage` `[S61]`. Still verify on an entitled instance: `samp_reconciliation_result` spelling and whether usage feeds participate in on-prem reconciliation numerators.
 4. Reconcile LG's "Not counted" compliance state with the documented Compliant/Not Compliant pair — likely an exam simplification of exclusion reporting.
 
 *Compare only; no factual changes were made to the deep dive based on the community pack.*

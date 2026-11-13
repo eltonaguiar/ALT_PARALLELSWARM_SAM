@@ -79,7 +79,8 @@ Classic Software Model creation needs `sam_user` **or** `model_manager` `[S5]`; 
 | `cmdb_sam_sw_discovery_model` | Software Discovery Model | Match key Publisher + Display Name + Version; normalized values + status `[S2][S10]` |
 | `cmdb_software_product_model` | Software Model | Purchased profile connected to entitlements `[S4]` |
 | `alm_license` | Software Entitlement | Rights purchased; allocations reference it `[S4][S27]` |
-| `samp_license_metric_result` | License Metric Results | Rights owned/used + allocation breakdown `[S21][S28]` |
+| `samp_license_metric_result` | License Metric Results | Rights owned/used + allocation breakdown `[S21][S28][S63]` |
+| `samp_sw_usage` | Software Usage | Product-level usage evidence for reclamation rules (Total Usage Time / Last Used Date); manual creation allowed; retiring or stealing the CI deletes related installs `[S61]` |
 | `samp_product_result` | Product Results | Per-product compliance, true-up, over-license, savings `[S21][S43]` |
 | `samp_reconciliation_result` | Reconciliation Result | Parent of the three result tiers `[S43]` |
 | `samp_sw_reclamation_candidate` | Removal Candidate | Reclaim candidates with justification `[S43]` |
@@ -485,6 +486,8 @@ samp_reconciliation_result
 | Software Model Results | Only when a software model or entitlement exists for the product `[S21]` | License Metric Results, Remediation Options, Licensed Installs, Unlicensed Installs, Unlicensed Subscriptions, Unlicensed Consumptions, Unlicensed Options (Oracle), Removal Candidates, Purchase Orders (needs `com.snc.procurement`) |
 | License Metric Results | Per license metric on the model; multiple results possible (multiple licences purchased) `[S21]` | Rights Used By (not for IBM RVU), Licensed Installs, Installs Used (SAP: System Users), Downgrades/Upgrades, Licensed Subscriptions, Cloud Special Rights (AWS/Azure only) |
 
+**License Metric Results allocation fields** `[S63]`: Rights owned, Rights used, Rights available, Over-licensed amount; right allocations = **Allocated in use**, **Not allocated in use**, **Allocated not in use**, **Not allocated**, **Allocations needed** (Per Named User/Device only). When *Not allocated in use* > 0 the platform auto-creates the **Create Allocations** and **Remove Unallocated Installs** remediation options (except User CAL/Device CAL); when *Allocated not in use* > 0 it creates **Remove Allocations**. **Nontransferable rights** apply only to Microsoft Per Core / Per Core with CAL (leftover core-pack rights). Related lists: **Rights Used By** (`Used by`, `Rights used`, cloud `Cloud Provider`/`Dual Use Rights Applied`/`Host Type`/`Edition Flexibility Applied`), **Rights Needed By**, **Licensed Installs**, **Downgrades/Upgrades**, **SAP System Users** (named-user metrics), **Licensed Subscriptions**. Two license metric results are generated when a model has perpetual-SA and subscription entitlements (Active maintenance true/false) `[S18][S63]`.
+
 **Remediation options** available from Software Model Results `[S21][S27]`:
 - Create allocations / remove allocations (lock or free license assignment)
 - Remove unallocated installs
@@ -505,6 +508,8 @@ Reclamation rules aggregate usage over time and flag rights that are allocated b
 | Last Used Date | Most recent usage date | No |
 | Peak Concurrent Usage | Engineering apps | No |
 | Active Transaction Codes | SAP | No |
+
+Usage evidence is tracked at **product level** (not version/edition) in `samp_sw_usage`; records can be created manually from third-party or SCCM integrations (`sam_admin`/`sam_user`) with `Publisher`, `Product`, `Configuration Item`, `User`, plus either monthly metering data (`Month`, `Year`, `Usage count`, `Total seconds used`) or a `Last used time` `[S61]`. When the CI Status/Hardware Status becomes Retired or Stolen, installs related to that CI are deleted `[S61]`. Core UI entry is inactive while the Software Asset Workspace is active.
 
 **Tables/fields:**
 - Removal candidates: `samp_sw_reclamation_candidate` (state, active, justification, cost) `[S43]`
@@ -527,6 +532,18 @@ True-up cost is estimated from the **least number of rights needed** `[S18]`:
 | Neither specified | Falls back to the **average software entitlement cost** — can materially misstate true-up |
 | Entitlement created via a license metric | An **Override License Cost** related-list record is created if none exists for that metric, with license cost and license+maintenance cost set to zero; maintenance licences may override either value |
 | Oracle Employee metric | True-up shown for a one-year subscription period |
+
+**License types change reconciliation behaviour** `[S64]` — load entitlements with the right type:
+
+| License type | Reconciliation impact |
+|---|---|
+| Perpetual | Indefinite use; no maintenance benefits until SA/maintenance entitlements are linked |
+| Perpetual + Software Assurance | Microsoft; SAM auto-applies SA benefits (new-version rights, mobility, unlimited virtualization) |
+| Perpetual + Maintenance | Non-Microsoft (Oracle, VMware); SAM auto-applies maintenance benefits |
+| Subscription | Compliance driven by user subscriptions pulled from portals (Jira, M365, Adobe CC) |
+| Software Assurance / Maintenance alone | **Not reconciled unless linked to a base perpetual licence** — link them |
+| Upgrade / Step-up / Subscription Step-up | Edition upgrades without a new full licence; use the **Upgraded Entitlements** tab on the entitlement |
+| Add on / From SA | Microsoft 365 transition USLs; must be linked to a perpetual Office legacy licence with active SA |
 
 **Publisher traps that distort true-up** `[S60]`:
 - Oracle core-factor / aggregation (`com.snc.samp.oracle.reconlevel` ESX vs ESX cluster vs vCenter(s))
@@ -594,6 +611,7 @@ Other classic entry points still referenced by docs: `All > Software Asset > Adm
 | **Health Check dashboard** | Success portal > Health check | Scan findings + recommendations, downloadable reports | KPI categories from Content Service | `[S38][S39]` |
 | **Success portal** | Workspace > Success portal | SAM maturity; Completed success goals; Total success savings; Projected savings; All goals by status (Draft, In Progress, Pending Review, Completed, Canceled); Health checks passed; Completed value builder tasks; Open activities | Success goals/activities; domain-separated with `com.snc.pa_domain_support` | `[S37]` |
 | **License Position report** | Report inside SAM | One row per software model with rights/spend/unlicensed/true-up/savings/over-license | `samp_product_result`, `samp_license_metric_result` | `[S18]` |
+| **License Workbench** | Workspace > License usage (publisher license overview) | Colour-coded compliance banner; financial calculations on cards; per-user publisher pinning; sort/filter; navigation tree (publisher → product → model → metric); tabs **All Publishers**, **Publishers Out of Compliance**, **Pinned Publishers** | `samp_product_result`, `samp_license_metric_result` | `[S62]` |
 | **Software Lifecycle Report** | Analytics | Products nearing end of life with install count > 0; drill to installs | `sam_sw_product_lifecycle_report` | `[S43]` |
 | **CMDB success advisor for SAM** | Activity center alert "Review CMDB data quality" | Software install data-quality metrics + remediation actions; scope via Edit dashboard scope | `samp_ws_activity_center_items` | `[S43]` |
 | **Renewals calendar** | Workspace | Entitlement/contract expiries within 90 days | `ast_contract`, `alm_license` | `[S43]` |
@@ -851,6 +869,10 @@ Intune/Jamf are Service Graph CMDB connectors, not native SAM install sources `[
 6. Uninstall cleanup via REST `[S23]`
 7. Reconciliation result tiers exposing unlicensed/duplicate counts `[S21]`
 
+### 8.4 CMDB-layer governance that also touches software installs (cross-reference)
+
+SAM's install-level business rule is the primary gate for `cmdb_sam_sw_install`. When software data enters through CMDB integrations rather than SAM-native Discovery, the four IRE mechanisms still apply to the CI payload: **Identification Rule** (`cmdb_identifier` + `cmdb_identifier_entry`), **IRE Data Source Rule** (`cmdb_ire_data_source_rule`, insert-only gate), **Reconciliation Rule** (static `cmdb_reconciliation_definition` / dynamic `cmdb_dynamic_reconciliation_definition`, update-only attribute authority), and **Data Refresh Rule** (staleness-based refresh). Insert is never gated by reconciliation; blocked inserts raise `INSERT_NOT_ALLOWED_FOR_SOURCE` (parked partial under `CreateOrUpdateCIEnhanced()`). Full decision logic, precedence rules and traps: sibling repo `ALT_PARALLELSWARM/final/DISCOVERY_INSERT_VS_UPDATE_GUIDE.md` `[X1]` and the CMDB-focused SAM reference on branch `kilo/sam-module-config-reference` `[X2]`.
+
 ---
 
 ## 9. Order of operations
@@ -1022,6 +1044,13 @@ All Brazil articles were fetched via the ServiceNow docs khub content API (ITAM 
 | S58 | Discovery with Software Asset Management (Australia) + Configure a CI to display SAM data | 2026-03-12 | `agents/beam__kilo__cli/SNC_SAM__WT1/research/servicenow-sam/sources/discovery_with_sam.txt` |
 | S59 | Beam consolidated SAM module reference (Australia-pinned) | 2026-11-13 | `final/FINAL_SAM_MODULE_REFERENCE.md` |
 | S60 | Grok WT1 SAM configuration reference (Brazil-pinned) | 2026-11-13 | `agents/grok-4.6__xai__kilo/SNC_SAM__WT1/05_FINAL/SAM_CONFIG_REFERENCE.md` |
+| S61 | View or create software usage (`samp_sw_usage`) | Brazil, Sep 10 2026 | `raw/view_or_create_software_usage.txt` |
+| S62 | Software license usage (License Workbench) | Brazil, Sep 10 2026 | `raw/software_license_usage.txt` |
+| S63 | Software model results license metric results fields | Brazil, Sep 10 2026 | `raw/software_model_results_lmr_fields.txt` |
+| S64 | Impact of different license types on software reconciliation | Brazil, Sep 10 2026 | `raw/impact_license_types_on_recon.txt` |
+| S65 | Grok WT3 CIS-SAM cheat sheet (quiz grounded in WT1 + docs) | 2026-11-13 | `agents/grok-4.6__xai__kilo/SNC_SAM__WT3/05_FINAL/CIS_SAM_CHEATSHEET.md` |
+| X1 | ALT_PARALLELSWARM Discovery insert-vs-update decision guide (latest findings) | 2026-11-13 | `ALT_PARALLELSWARM/final/DISCOVERY_INSERT_VS_UPDATE_GUIDE.md` |
+| X2 | CMDB-focused SAM config reference (remote branch `kilo/sam-module-config-reference`) | 2026-11-13 | `agents/kilo-sam-pro__kilo__sam-module/SNC_DISC__WT1/05_FINAL/SAM_CONFIG_REFERENCE.md` |
 
 Additional corpus consulted but not individually cited: `raw/sam_overview.txt`, `raw/sam_health_check.txt`, `raw/ai_in_sam.txt`, `raw/software_asset_workspace.txt`, `raw/maturity_*.txt`, `raw/request_software_asset_management.txt`, `raw/publish_domain_specific_property.txt`, `plans/grok-4.6__xai__kilo__WT1/PLAN.md`.
 
@@ -1044,5 +1073,7 @@ Additional corpus consulted but not individually cited: `raw/sam_overview.txt`, 
 13. **Community learning packs are unreliable** — the `sam-buffy/KiloCode` pack (2026-11-04) teaches wrong tables (`alm_software`, `alm_software_installation`), wrong roles (`sam_license_manager`, `sn_sam.admin`) and a wrong navigation parent (SAM → HAM). Official docs win; see `05_FINAL/CURRICULUM_COMPARE.md` for the line-by-line verdict.
 14. **No live instance** — nothing here was executed against an entitled SAM instance. Every procedural step is transcribed from documentation and should be rehearsed in a sub-production instance first.
 15. **`samp_vmware_license_key` / `samp_vmware_license_key_usage`** come from the Australia abstract set (`[S58]`, Kingston+) and were not corroborated in the Brazil corpus; verify presence/usage on your release.
+16. **Usage-table naming corrected in round 3:** the official table is **`samp_sw_usage`** `[S61]` — the curriculum's `cmdb_sam_sw_usage` and any `samp_discovered_model`-style guesses are wrong. Earlier revisions of this guide listed the usage table as UNVERIFIED; that caveat is now closed.
+17. **CMDB-layer IRE behaviour for software installs** (§8.4) is cross-referenced, not re-derived here; treat X1/X2 claims as sibling-corpus evidence until checked against CMDB docs in a future pass.
 
 *End of guide.*

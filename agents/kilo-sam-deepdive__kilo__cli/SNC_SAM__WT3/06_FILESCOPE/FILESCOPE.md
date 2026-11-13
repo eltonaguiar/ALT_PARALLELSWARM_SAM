@@ -10,7 +10,8 @@ research/servicenow-sam/
   README.md
   SAM_MODULE_DEEP_DIVE.md          # canonical guide (1,048 lines)
   CURRICULUM_COMPARE.md            # round-2 curriculum/community diff
-  sources/                         # 61 mirrored source files
+  FINAL_FEEDBACK.md                # round-3 cross-check + recommendations
+  sources/                         # 66 mirrored source files
     *.txt                          # Brazil ITAM corpus (copied verbatim from grok WT1 research/raw/)
     _australia/*.txt               # beam Australia abstracts
     IMPLEMENTATION_SUCCESS.md      # community digest (corroboration only)
@@ -32,6 +33,7 @@ agents/kilo-sam-deepdive__kilo__cli/
     04_QA/QA.md
     05_FINAL/SAM_MODULE_DEEP_DIVE.md   # identical copy of canonical guide
     05_FINAL/CURRICULUM_COMPARE.md      # identical copy of round-2 compare
+    05_FINAL/FINAL_FEEDBACK.md         # identical copy of round-3 feedback
     05_FINAL/FINAL_SUMMARY.md
     06_FILESCOPE/FILESCOPE.md
 
