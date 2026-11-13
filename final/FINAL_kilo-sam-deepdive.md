@@ -1196,3 +1196,15 @@ Cross-referencing every committed SAM document against standard module-implement
 **C. Page-only items to absorb or reject (14 items):** absorb CIS-SAM weights, publisher-trap detail, optimization priority/60–90 day window, day-one reports (with corrected table names), indicative KPIs, SaaS seat guidance, integration protocols, memory aids, lab/quiz/resources; reject the page's naming/cadence/plugin errors as documented corrections.
 
 *End of final.*
+
+---
+
+## 18. Cross-repo comparison
+
+**Full register:** `research/servicenow-sam/CROSS_REPO_COMPARISON.md`.
+
+Three libraries describe SAM: this research repo (exact names/procedures), the learning protocol repo (study method + delivery gates), and the training page (exam story). Research is strongest on exact configuration; protocol is strongest on method/governance; page is strongest on exam alignment, publisher traps and practice guidance. All three lack test cases, acceptance thresholds, ownership/RACI, change control, rollback, UAT/cutover and Success Pack practice.
+
+**Success Pack blind spot:** neither research repo covers version-compatibility matrices, dependency ordering, storage estimates, backup/uninstall limits, post-install smoke tests, entitlement checks, upgrade paths or content ownership. Proposed as a new protocol section.
+
+*End of final.*
