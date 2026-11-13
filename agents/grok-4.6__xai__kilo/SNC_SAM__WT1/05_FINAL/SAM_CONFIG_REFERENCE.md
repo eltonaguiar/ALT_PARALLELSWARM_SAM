@@ -62,7 +62,8 @@ Brazil: classic SAM UI is limited-support; activating Workspace **hides** classi
 | `cmdb_sam_sw_discovery_model` | Discovery models. **Not** `samp_discovered_model` `[S8][S14][S38]` |
 | `cmdb_software_product_model` | Software models (dedup rules require a normalized row here) `[S12]` |
 | `alm_license` | Entitlements. **Not** `samp_sw_entitlement` `[S9][S38]` |
-| `samp_license_metric_result` | License metric results `[S38]` |
+| `samp_license_metric_result` | License metric results (third recon tier) `[S38][S39]` |
+| `samp_sw_usage` | Software usage (product level, not version/edition). **Not** `cmdb_sam_sw_usage` `[S40]` |
 | `samp_sw_product` / `samp_sw_publisher` | Product / publisher (`samp_sw_publisher` must relate to `core_company`) `[S38]` |
 | `alm_entitlement_user` / `alm_entitlement_asset` | User vs device allocations `[S38]` |
 | `samp_dmap_downgrade_model` / `samp_sw_downgrade_model` | Content vs populated downgrade rights `[S9][S38]` |
@@ -275,6 +276,20 @@ Allocation management is its own 8k article `[S32]` — treat as a follow-on wor
 
 ## 12. License reconciliation
 
+Recon runs **weekly or on demand**. Results are **three tiers**, not a single `sam_sw_reconciliation_result` table (that curriculum name is UNVERIFIED) `[S39]`:
+
+| Tier | What it covers | Nav |
+|---|---|---|
+| Product Results | All models/installs for a product+publisher; true-up, over-licensed, potential savings. Generated for licensable products even without software models | Classic: `All > Software Asset > Reconciliation > Historical Results`. Workspace: `License usage` → publisher card `[S39]` |
+| Software Model Results | One row per software model **only if** a software model or entitlement exists | Related list on Product Results `[S39]` |
+| License Metric Results | One row per metric on that model (`samp_license_metric_result`). Two LMRs / two license-position reports if perpetual-SA + subscription on the same model | Related list on Software Model Results `[S39][S41]` |
+
+License Position report software-model status is **Compliant** (green) or **Not Compliant** (red) `[S35]`. Curriculum “Unknown / Over-licensed / Unlicensed” are *interpretations* of rights needed / unlicensed installs / over-licensed amount — not extra status dots on this form.
+
+Rights breakdown on LMR `[S41]`: allocated in use, not allocated in use (remediation: Create Allocations / Remove Unallocated Installs), allocated not in use (Remove Allocations), not allocated, allocations needed (Per Named User/Device only).
+
+**Maintenance ≠ license:** SAM does **not** reconcile Software Assurance or Maintenance entitlements unless they are linked to a base perpetual license `[S42]`. Perpetual alone has no upgrade/BYOL/SA benefits until SA/maintenance is associated.
+
 Properties `[S4]`:
 - `com.snc.samp.recon.group` / `com.snc.samp.recon.subgroup` — default None; Company/Cost Center/Country/Department/Region; group ≠ subgroup
 - `com.snc.samp.recon.enablecustommetrics` — default Yes
@@ -289,6 +304,8 @@ Run recon after changing published-product list or the manage-published-products
 ## 13. Reclamation + request flows
 
 Reclamation rules aggregate usage over time (hours / latest date) `[S15]`. Suite parent pulls components automatically; filter on parent applies to children `[S15]`. SaaS/SSO integration **auto-creates** a reclamation rule — review it `[S15]`.
+
+Usage evidence lives on **`samp_sw_usage`** (product-level). Role `sam_admin` or `sam_user`. Workspace: `License operations > Discovery > Software usage`. Reclamation type Total Usage Time (month/year/count/seconds) or Last Used Date. If the CI Hardware/CI Status becomes **Retired or Stolen**, related **installs are deleted** `[S40]`.
 
 Timeout property: `sam_reclamation_flow_error_timeout` default **30 days** then Closed canceled `[S4]`.
 
@@ -556,5 +573,9 @@ Brazil ITAM map `PMOYmdGTPDs40EbYh10h4g`. Content URL pattern:
 | S36 | `vvheubQ7n2nV1Nh15QIilA` True-up cost | `research/raw/true_up_cost.txt` |
 | S37 | Path to Value / Quick Start / Office Hours / Starter Kit / Measuring Outcomes (ServiceNow employee Community) | `research/IMPLEMENTATION_SUCCESS.md` |
 | S38 | Australia-family config inventory (tables `alm_license` / `cmdb_sam_sw_discovery_model`, Foundation `com.snc.sams`, matching job, IRE 3rd-party, recon-only Licensable) | `research/CONFIG_INVENTORY_AUSTRALIA.md` |
+| S39 | `0L9Tjj4Eybnwnmt5tTu8fg` Software reconciliation results (three tiers) | `research/raw/software_reconciliation_results.txt` |
+| S40 | `grzQLxfnAfqnJM0bO8WA5g` View or create software usage (`samp_sw_usage`) | `research/raw/view_or_create_software_usage.txt` |
+| S41 | `9RI9Xq7062LW5Iqy7n52iw` Software model results LMR fields | `research/raw/software_model_results_lmr_fields.txt` |
+| S42 | `7jeRdsPcmLzk6ET2NaQFWw` Impact of license types on reconciliation | `research/raw/impact_license_types_on_recon.txt` |
 
 Topic index: `research/topics_brazil_itam_sam.json` (299 titles).
