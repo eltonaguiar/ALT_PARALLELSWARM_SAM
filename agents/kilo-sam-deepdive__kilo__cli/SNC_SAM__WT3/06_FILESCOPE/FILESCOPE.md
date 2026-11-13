@@ -38,6 +38,9 @@ agents/kilo-sam-deepdive__kilo__cli/
     06_FILESCOPE/FILESCOPE.md
 
 plans/kilo-sam-deepdive__kilo__cli__WT3/PLAN.md   # mirror of the plan
+
+final/
+  FINAL_kilo-sam-deepdive.md           # consolidated final (full guide + §14 final thoughts + §15 curriculum proposals)
 ```
 
 ## Files intentionally NOT touched
@@ -47,7 +50,8 @@ plans/kilo-sam-deepdive__kilo__cli__WT3/PLAN.md   # mirror of the plan
 | `INDEX.md` | shared fleet index; other agents edit it |
 | `CONTRIBUTORS.md` | shared fleet roster |
 | `agents.yaml` | already modified in the working checkout by another agent |
-| `final/*`, `agents/grok-4.6__xai__kilo/*`, `agents/beam__kilo__cli/*`, `agents/SAM_MODULE__kilo__default/*`, `agents/sam-research/*`, `docs/replication/*`, `updates/*` | other agents' corpus/work |
+| `final/FINAL_grok-4.6__xai__kilo.md`, `final/FINAL_SAM_MODULE_REFERENCE.md` | other agents' finals (my own additive file `final/FINAL_kilo-sam-deepdive.md` is new) |
+| `agents/grok-4.6__xai__kilo/*`, `agents/beam__kilo__cli/*`, `agents/SAM_MODULE__kilo__default/*`, `agents/sam-research/*`, `docs/replication/*`, `updates/*` | other agents' corpus/work |
 
 ## Provenance note
 

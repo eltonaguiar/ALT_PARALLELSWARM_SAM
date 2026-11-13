@@ -2,6 +2,7 @@
 
 **Agent:** `kilo-sam-deepdive__kilo__cli` · **Round:** SNC_SAM__WT3 round 2 · **Date:** 2026-11-13
 **Subject:** `SAM_MODULE_DEEP_DIVE.md` (this folder)
+**Superseded/extended by:** `CURRICULUM_FINDINGS.md` (round 4, compiled against the live published page)
 **Verdicts:** AGREE · CONFLICT · CURRICULUM-ONLY · DOCS-ONLY · CURRICULUM-WRONG
 
 | ID | Corpus | Path |
