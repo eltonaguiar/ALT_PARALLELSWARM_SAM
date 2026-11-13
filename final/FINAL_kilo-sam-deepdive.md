@@ -1154,3 +1154,30 @@ The live page (verified byte-identical to the repo file, 1,074 lines, 2026-11-12
 > SAM is delivered in two navigation generations. Use **Workspaces > Software Asset Workspace** for daily operations (overview, license usage, license operations, analytics, success portal, renewals, overlapping usage, content library portal). Several administration features remain classic-only even after Workspace activation: Custom Products, Custom Part Numbers, Custom License Metrics, Pattern Normalization Rules, Reclamation Rules, Job Results, Content Service Setup, Properties, SaaS integration profiles, SAP connections. Roles: `sam_admin`, `sam_user`, `sam_developer`, `sam_integrator`, `sam_spend_import`.
 
 *End of final.*
+
+---
+
+## 16. Coverage gap analysis (what this repo still overlooks)
+
+**Full register:** `research/servicenow-sam/COVERAGE_GAP_ANALYSIS.md`.
+
+Cross-referencing every committed SAM document against standard module-implementation practice: normalization, Content Library/PPN, duplicate/stale hygiene, IRE usage, inventory sources and reconciliation results are **covered**. Genuinely thin or missing:
+
+| Theme | Status | Missing pieces |
+|---|---|---|
+| Entitlements / SaaS operating process | PARTIAL | Import field templates; seat/renewal/consumption process |
+| Software-model strategy (suites, downgrades) | PARTIAL | Modeling playbook beyond related lists |
+| Success criteria, pilot gates, acceptance thresholds | MISSING | No go-live trust criteria anywhere |
+| Test cases with expected results | MISSING | Zero across all finals |
+| Ownership / RACI | MISSING | No owners for entitlements, models, exceptions, recon review |
+| Source-system contracts | MISSING | Frequency/fields/error handling for SCCM, Jamf, Intune, ERP, portals |
+| Change control (models/metrics/normalization/recon) | MISSING | Only Revert Customizations named |
+| Audit evidence chain | MISSING | Entitlement↔PO↔contract↔allocation↔result not defined |
+| Rollback / exception procedures | MISSING | Normalization revert exists; no rollback plan |
+| Training, runbooks, UAT, hypercare, performance sizing | MISSING | Day-2 operations undocumented |
+| Metric-selection matrix by publisher | PARTIAL | When Common metrics are insufficient |
+| Untracked agent outputs | RISK | `SAM_MODULE__kilo__default`, `sam-research`, `docs/replication` exist only uncommitted locally |
+
+**Recommended additions:** a `SAM_IMPLEMENTATION_CHECKLIST.md` (10 gates with owner + evidence), five new final sections (RACI, source contracts, test-case catalogue, change control, cutover/hypercare/runbook), and committing or removing the untracked outputs.
+
+*End of final.*

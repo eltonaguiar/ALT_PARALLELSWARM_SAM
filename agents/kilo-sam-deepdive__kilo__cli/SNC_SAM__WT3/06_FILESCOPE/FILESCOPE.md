@@ -10,6 +10,8 @@ research/servicenow-sam/
   README.md
   SAM_MODULE_DEEP_DIVE.md          # canonical guide (1,048 lines)
   CURRICULUM_COMPARE.md            # round-2 curriculum/community diff
+  CURRICULUM_FINDINGS.md           # round-4 live-page findings register
+  COVERAGE_GAP_ANALYSIS.md         # round-5 repo-wide coverage vs implementation practice
   FINAL_FEEDBACK.md                # round-3 cross-check + recommendations
   sources/                         # 66 mirrored source files
     *.txt                          # Brazil ITAM corpus (copied verbatim from grok WT1 research/raw/)

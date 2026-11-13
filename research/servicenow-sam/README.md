@@ -14,6 +14,7 @@ This folder is the SAM analog of `ALT_PARALLELSWARM/research/servicenow-discover
 | `CURRICULUM_COMPARE.md` | round-2 diff against the CIS-SAM learning curriculum and the community pack (AGREE / CONFLICT / CURRICULUM-ONLY / DOCS-ONLY / CURRICULUM-WRONG) |
 | `FINAL_FEEDBACK.md` | round-3 cross-check against the latest findings from other agents plus ranked recommendations |
 | `CURRICULUM_FINDINGS.md` | compiled verdicts against the live published CIS-SAM curriculum page (fetched 2026-11-13), with a consolidated error register and recommended edits |
+| `COVERAGE_GAP_ANALYSIS.md` | cross-reference of every repo SAM document against standard module-implementation practice; coverage matrix, ranked omissions, recommended checklist additions |
 | `sources/` | raw `.txt` of every cited article (Brazil set + `_australia/` abstracts + implementation-success digest + Australia config inventory) |
 
 ## How to verify / reproduce
