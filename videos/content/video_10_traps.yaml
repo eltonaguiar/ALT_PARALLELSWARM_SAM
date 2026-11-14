@@ -1,0 +1,127 @@
+meta:
+  title: "Top 8 SAM Traps — Exam & Real World"
+  number: 10
+  target_duration_sec: 180
+  phase: 1
+  description: "Metric mismatch, duplicate installs, unnormalized titles, maintenance trap, 60-90 day rule, dead connectors, vendor confusion, IT-only ownership"
+
+slides:
+  - id: title
+    type: title
+    duration: 3
+    text: "Top 8 SAM Traps"
+    subtitle: "Exam & Real World — Memorize These"
+    show_number: true
+
+  - id: hook
+    type: statement
+    duration: 5
+    text: |
+      These 8 traps cause 90% of SAM failures.
+      4 are technical, 4 are process.
+      Know them cold for the exam and for real life.
+    emphasis: "90% of failures, 4 technical, 4 process"
+
+  - id: trap1
+    type: key_concept
+    duration: 12
+    title: "Trap 1: Metric Mismatch (Silent Killer)"
+    bullets:
+      - "Model metric: Per Device | Entitlement metric: Per User"
+      - "Reconciliation runs, produces plausible number"
+      - "Result: MEANINGLESS — comparing different counting bases"
+      - "Fix: Enforce metric match at entitlement creation (client script)"
+      - "Exam: #1 silent reconciliation failure"
+
+  - id: trap2
+    type: key_concept
+    duration: 12
+    title: "Trap 2: Duplicate Installs (Inflated Demand)"
+    bullets:
+      - "SCCM + Intune + Discovery = 3x same install"
+      - "Demand inflated → false under-licensed → unnecessary true-up"
+      - "Fix: Configure dedup rules (sam_sw_dedup_rule) — Exact / Major / Any match"
+      - "Tiebreak: Most recent, most complete, or priority source"
+
+  - id: trap3
+    type: key_concept
+    duration: 10
+    title: "Trap 3: Unnormalized Titles (Hidden Unlicensed)"
+    bullets:
+      - "Discovery model 'Office16 ProPlus' unmatched"
+      - "Auto-creates separate software model → separate reconciliation"
+      - "Result: False unlicensed / unknown positions"
+      - "Fix: Normalize BEFORE auto-create (property: com.snc.samp.automaticsmrcreation)"
+
+  - id: trap4
+    type: key_concept
+    duration: 10
+    title: "Trap 4: Maintenance Treated as License"
+    bullets:
+      - "Maintenance-only PO line → entitlement created"
+      - "Reconciliation counts it as usage rights"
+      - "Result: FALSE compliance — audit finding guaranteed"
+      - "Fix: Separate maintenance from license entitlements. License type field!"
+
+  - id: trap5
+    type: key_concept
+    duration: 10
+    title: "Trap 5: Phantom Demand from Retired CIs"
+    bullets:
+      - "Installs on retired/stolen CIs still counted"
+      - "Retired CI (install_status=7) should auto-exclude installs"
+      - "Leased/ignored devices need exclude-CI job"
+      - "Fix: Business rule on install — check CI status, set u_exclude_from_reconciliation"
+
+  - id: trap6
+    type: key_concept
+    duration: 10
+    title: "Trap 6: First Reconciliation = Invoice"
+    bullets:
+      - "First run shows massive under-licensed"
+      - "Panic → emergency true-up at full retail"
+      - "Reality: First run = DATA QUALITY LOOP"
+      - "Normalize → dedup → exclude retired → re-run → THEN true-up"
+      - "Exam: First reconciliation is for data quality, not purchasing"
+
+  - id: trap7
+    type: key_concept
+    duration: 10
+    title: "Trap 7: Dead SaaS Connector (No Waste Illusion)"
+    bullets:
+      - "M365 connector stops syncing silently"
+      - "No new usage data → 'no inactive seats found'"
+      - "Reality: Connector dead, waste invisible"
+      - "Fix: Connector health monitoring + owner + alerting on sync failure"
+
+  - id: trap8
+    type: key_concept
+    duration: 10
+    title: "Trap 8: Vendor/Publisher/PPN/Model Confusion"
+    bullets:
+      - "Vendor (core_company) → Publisher (samp_sw_publisher) → PPN (samp_sw_product_definition)"
+      - "→ Software Model (cmdb_software_product_model) → Discovery Model (cmdb_sam_sw_discovery_model)"
+      - "→ Catalog Item (sc_cat_item) → Entitlement (alm_license)"
+      - "Wrong link at any step = broken reconciliation chain"
+      - "Exam: Disambiguate these 7 entities"
+
+  - id: summary
+    type: comparison_table
+    duration: 15
+    title: "8 Traps Summary"
+    headers: ["#", "Trap", "Type", "Fix"]
+    rows:
+      - ["1", "Metric Mismatch", "Technical", "Enforce match at creation"]
+      - ["2", "Duplicate Installs", "Technical", "Dedup rules (Exact/Major/Any)"]
+      - ["3", "Unnormalized Titles", "Technical", "Normalize before auto-create"]
+      - ["4", "Maintenance = License", "Technical", "Separate license types"]
+      - ["5", "Phantom Demand", "Technical", "Exclude retired CIs"]
+      - ["6", "First Recon = Invoice", "Process", "Data quality loop first"]
+      - ["7", "Dead SaaS Connector", "Process", "Health monitoring + owner"]
+      - ["8", "Entity Confusion", "Process", "Disambiguate 7 entities"]
+
+  - id: cta
+    type: next_video
+    duration: 3
+    text: "Next: CIS-SAM Exam Map — 5 Domains, Weights, What to Memorize"
+    next_video: 11

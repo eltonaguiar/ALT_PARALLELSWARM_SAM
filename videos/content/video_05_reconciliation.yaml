@@ -1,0 +1,102 @@
+meta:
+  title: "Reconciliation Engine Explained"
+  number: 5
+  target_duration_sec: 240
+  phase: 1
+  description: "3 tiers, step-by-step process, what breaks reconciliation, run records"
+
+slides:
+  - id: title
+    type: title
+    duration: 3
+    text: "Reconciliation Engine — The Core"
+    subtitle: "Three Tiers, Step-by-Step, What Breaks It"
+    show_number: true
+
+  - id: hook
+    type: statement
+    duration: 5
+    text: |
+      Reconciliation is just arithmetic:
+      Entitlements − Installs − Usage = Compliance Position
+      But the complexity is in normalization pipeline
+      and publisher-specific rules.
+    emphasis: "just arithmetic, normalization pipeline, publisher rules"
+
+  - id: formula
+    type: statement
+    duration: 8
+    text: |
+      Compliance Position = f(
+        entitlement quantity,
+        normalized installs (de-duped),
+        usage evidence,
+        license metric,
+        publisher rules
+      )
+    emphasis: "entitlement quantity, normalized installs, usage evidence, publisher rules"
+
+  - id: step_by_step
+    type: key_concept
+    duration: 20
+    title: "Reconciliation Step-by-Step"
+    bullets:
+      - "1. Gather ENTITLEMENTS for software model (filter by date validity)"
+      - "2. Gather NORMALIZED INSTALLS (de-duplicated per device/user per metric)"
+      - "3. Apply USAGE EVIDENCE — for reclamation & 'not in use' classification"
+      - "4. Apply PUBLISHER RULES — ignore lists, VM rules, suite roll-ups, downgrade rights"
+      - "5. CALCULATE position per model and per metric"
+      - "6. PERSIST reconciliation result record (timestamped, with inputs)"
+      - "7. ROLL UP to publisher and portfolio dashboards"
+
+  - id: three_tiers
+    type: comparison_table
+    duration: 15
+    title: "Three Reconciliation Tiers (Exam: Know These Tables)"
+    headers: ["Tier", "Table", "Answers"]
+    rows:
+      - ["Product", "samp_product_result", "Is product compliant? Cost/savings?"]
+      - ["Software Model", "Software Model Results", "Which model is the problem?"]
+      - ["License Metric", "samp_license_metric_result", "Rights owned vs used vs available"]
+    highlight_row: 3
+    highlight_text: "Run record: samp_reconciliation_result — NO sam_sw_reconciliation_result table"
+
+  - id: what_breaks
+    type: comparison_table
+    duration: 15
+    title: "What Breaks Reconciliation (Symptom → Root Cause)"
+    headers: ["Symptom", "Likely Root Cause"]
+    rows:
+      - ["Everything shows 'unlicensed'", "No entitlements loaded, or metric mismatch"]
+      - ["Huge duplicate install count", "Two discovery sources without dedup rule"]
+      - ["Installs appear then vanish", "Discovery source rotation or normalization remap"]
+      - ["Compliance fluctuates nightly", "Usage data feed is intermittent"]
+      - ["Specific publisher wildly over-licensed", "Suite/bundle roll-up missing"]
+      - ["Oracle shows impossible numbers", "Core-factor table not configured"]
+
+  - id: reconciliation_job
+    type: statement
+    duration: 8
+    text: |
+      JOB: "SAM - Software License Reconciliation"
+      Default: WEEKLY (configurable)
+      Run record: samp_reconciliation_result
+      Reconciliation is a REPORT, not a correction.
+      Fix underlying model/entitlement/normalization — NEVER edit the result.
+
+  - id: rights_algebra
+    type: key_concept
+    duration: 15
+    title: "Rights Algebra (License Metric Result)"
+    bullets:
+      - "Rights OWNED = active entitlements sharing the metric"
+      - "Rights USED = allocated in use + not allocated in use + installed"
+      - "Rights AVAILABLE = owned − used"
+      - "Allocated NOT in use = WASTED rights → remove allocations"
+      - "Not allocated IN use = UNALLOCATED consumption → create allocations or remove installs"
+
+  - id: cta
+    type: next_video
+    duration: 3
+    text: "Next: Compliance Positions — 6 States, Unknown ≠ Compliant"
+    next_video: 6

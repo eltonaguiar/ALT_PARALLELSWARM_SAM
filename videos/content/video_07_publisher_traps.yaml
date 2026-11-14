@@ -1,0 +1,110 @@
+meta:
+  title: "Publisher Traps — Microsoft, Oracle, IBM, SAP, Adobe"
+  number: 7
+  target_duration_sec: 300
+  phase: 1
+  description: "Core factor, PVU, per-core, indirect access, suite roll-up, exam favorites"
+
+slides:
+  - id: title
+    type: title
+    duration: 3
+    text: "Publisher-Specific Traps"
+    subtitle: "Where SAM Projects Fail Audits — Exam Favorites"
+    show_number: true
+
+  - id: hook
+    type: statement
+    duration: 5
+    text: |
+      Publisher rules are where SAM projects fail audits.
+      Exam questions are conceptual:
+      "Which metric applies?" "Why is Oracle count higher than installs?"
+      Not menu-path trivia.
+    emphasis: "conceptual questions, not menu-path trivia"
+
+  - id: microsoft
+    type: key_concept
+    duration: 20
+    title: "Microsoft Traps"
+    bullets:
+      - "SQL Server: Per-CORE licensing — physical cores × core factor, MIN 4 cores/socket"
+      - "Virtualization: License the HOST, not the VM (unless SA + mobility)"
+      - "M365 Suite Overlap: E3 + E5 + F3 + Apps = double-counting risk"
+      - "Downgrade Rights: EXIST but must be documented on entitlement"
+      - "Core Factor Table: Must be current for SQL Server reconciliation"
+      - "True-Up: Annual true-up window — missing it = full retail pricing"
+
+  - id: oracle
+    type: key_concept
+    duration: 20
+    title: "Oracle Traps (Highest Audit Risk)"
+    bullets:
+      - "Core Factor Table: Per processor family — outdated table = wrong count"
+      - "Server-Level Licensing: License the PHYSICAL SERVER, not the VM"
+      - "Hard Partitioning: Only certified tech (OVM, LPAR) limits scope"
+      - "10% Rule: NOT a rule — soft partitioning = full server licensing"
+      - "Named User Plus: Minimums per processor (usually 25 NUP/processor)"
+      - "LMS Scripts: Oracle's audit instrument — your reconciliation must match"
+      - "Java: Now subscription-based — separate from DB licensing"
+
+  - id: ibm
+    type: key_concept
+    duration: 15
+    title: "IBM Traps"
+    bullets:
+      - "PVU (Processor Value Unit): Table per CPU model — must match exactly"
+      - "Sub-Capacity Licensing: Requires ILMT (IBM License Metric Tool) evidence"
+      - "ILMT: Must be deployed, configured, reporting — no ILMT = full capacity"
+      - "RVU (Resource Value Unit): For some middleware — different metric"
+      - "Bundles: Multiple products in one license — component tracking critical"
+
+  - id: sap
+    type: key_concept
+    duration: 15
+    title: "SAP Traps"
+    bullets:
+      - "Named User Types: Developer, Professional, Limited Professional, ESS — each priced differently"
+      - "Indirect / Digital Access: LIVE audit battleground — non-SAP apps accessing SAP data"
+      - "Engine Metrics: By revenue, employees, orders — not user count"
+      - "Classification: User type must match actual usage — misclassification = audit finding"
+      - "LAW (License Administration Workbench): SAP's audit tool"
+
+  - id: adobe
+    type: key_concept
+    duration: 15
+    title: "Adobe Traps"
+    bullets:
+      - "VIP / ETLA: Named-user subscription model"
+      - "Shared Device License: Different from named user — labs, classrooms"
+      - "Creative Cloud Suite Roll-Up: Components roll up to CC suite"
+      - "Document Cloud: Per-document pricing (not per user)"
+      - "True-Up: Annual — unused licenses don't roll over"
+
+  - id: servicenow
+    type: key_concept
+    duration: 10
+    title: "ServiceNow (Self-Licensing)"
+    bullets:
+      - "Subscription by product line + fulfilled user / approved requester"
+      - "Over-consumption = BILLED, not audited — treat as cost-control"
+      - "Plugin entitlements: com.snc.sams, com.snc.itsm, com.snc.hrsd, etc."
+      - "Instance-level vs user-level metrics — know which applies"
+
+  - id: exam_guidance
+    type: statement
+    duration: 8
+    text: |
+      EXAM GUIDANCE:
+      Expect conceptual questions:
+      • "Which metric applies to SQL Server?" → Per-core
+      • "Why is Oracle count higher than install count?" → Core factor + server licensing
+      • "What evidence does IBM sub-capacity require?" → ILMT
+      • "What is SAP indirect access?" → Non-SAP apps reading SAP data
+      NOT: "Which menu path creates an entitlement?"
+
+  - id: cta
+    type: next_video
+    duration: 3
+    text: "Next: SaaS License Management — Assigned Seats vs Usage, Reclamation Pattern"
+    next_video: 8

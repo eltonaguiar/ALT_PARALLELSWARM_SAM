@@ -1,0 +1,89 @@
+meta:
+  title: "SAM in 60 Seconds"
+  number: 1
+  target_duration_sec: 65
+  phase: 1
+  description: "One-sentence SAM definition, SAM vs HAM vs ITAM, value proposition"
+
+slides:
+  - id: title
+    type: title
+    duration: 3
+    text: "ServiceNow SAM in 60 Seconds"
+    subtitle: "Software Asset Management Essentials for CIS-SAM"
+    show_number: true
+
+  - id: hook
+    type: statement
+    duration: 5
+    text: |
+      SAM is the ONLY IT practice that directly prevents
+      seven-figure audit penalties while finding 5-15%
+      waste in software spend — in year one.
+    emphasis: "audit penalties, waste, year one"
+
+  - id: definition
+    type: definition
+    duration: 8
+    title: "What is SAM? (One Sentence)"
+    text: |
+      SAM reconciles what you OWN (entitlements)
+      against what EXISTS and is USED (installs + usage)
+      per software model and license metric,
+      producing a compliance position.
+    highlight: "reconciles, entitlements, installs, usage, compliance position"
+
+  - id: sam_vs_ham
+    type: comparison_table
+    duration: 12
+    title: "SAM vs HAM vs ITAM"
+    headers: ["Aspect", "HAM (Hardware)", "SAM (Software)", "ITAM (Both)"]
+    rows:
+      - ["Tracks", "Physical assets", "Entitlements, installs, usage", "Full portfolio"]
+      - ["Core Question", "What do we own, where, who?", "Are we compliant?", "Cost & risk"]
+      - ["Key Engine", "Asset lifecycle", "RECONCILIATION", "Both engines"]
+      - ["Primary Risk", "Lost/stolen assets", "Publisher audit fines", "Both"]
+      - ["Exam Focus", "Hardware normalization", "Metric + publisher rules", "Integration"]
+    highlight_row: 2
+    highlight_text: "Reconciliation = SAM's unique engine"
+
+  - id: chain
+    type: diagram_placeholder
+    duration: 10
+    title: "The SAM Chain (Memorize: I-D-S-E-R)"
+    text: |
+      Install → Discovery Model → Software Model → Entitlement → Reconciliation → Compliance Position
+      
+      I - Install (cmdb_sam_sw_install)
+      D - Discovery Model (cmdb_sam_sw_discovery_model)
+      S - Software Model (cmdb_software_product_model)
+      E - Entitlement (alm_license)
+      R - Reconciliation (samp_*_result)
+    mnemonic: "I-D-S-E-R = Install, Discovery, Software, Entitlement, Reconciliation"
+
+  - id: three_records
+    type: key_concept
+    duration: 10
+    title: "Three Records Never to Confuse"
+    bullets:
+      - "Software Model = What it IS (canonical definition from Content Library)"
+      - "Entitlement = What you MAY USE (contract rights, quantity, metric)"
+      - "Installation = What EXISTS (one install on one device)"
+      - "Reconciliation = THE DIFFERENCE (computed nightly/weekly)"
+    rule: "Model ≠ Entitlement ≠ Install. Confusing them = wrong compliance."
+
+  - id: value_prop
+    type: statement
+    duration: 7
+    text: |
+      Business case in one line:
+      SAM returns 5-15% of software spend in year one
+      through reclamation and right-sizing,
+      and removes catastrophic audit exposure
+      on Microsoft, Oracle, IBM — the top three publishers.
+
+  - id: cta
+    type: next_video
+    duration: 3
+    text: "Next: The Chain — Install → Discovery Model → Software Model → Entitlement → Result"
+    next_video: 2

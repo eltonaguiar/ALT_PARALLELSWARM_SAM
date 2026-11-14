@@ -1,0 +1,91 @@
+meta:
+  title: "Compliance Positions — 6 States, Unknown ≠ Compliant"
+  number: 6
+  target_duration_sec: 180
+  phase: 1
+  description: "6 compliance states, financial meaning, actions, Unknown trap"
+
+slides:
+  - id: title
+    type: title
+    duration: 3
+    text: "Compliance Positions Explained"
+    subtitle: "6 States, Financial Meaning, and the Unknown Trap"
+    show_number: true
+
+  - id: hook
+    type: statement
+    duration: 5
+    text: |
+      "Unknown" is NOT "Compliant".
+      A SAM program reporting Unknown as Compliant
+      is why audit penalties appear out of nowhere.
+      Unknown = data quality failure = hidden audit exposure.
+    emphasis: "Unknown ≠ Compliant, data quality failure, hidden audit exposure"
+
+  - id: six_positions
+    type: comparison_table
+    duration: 20
+    title: "Six Compliance Positions"
+    headers: ["Position", "Meaning", "Financial Meaning", "Typical Action"]
+    rows:
+      - ["Compliant", "Entitlements ≥ demand", "Neutral", "Monitor; harvest reclaimed licenses"]
+      - ["Over-licensed", "Entitlements > demand", "Money wasted", "Reclaim, reduce renewal, renegotiate"]
+      - ["Under-licensed", "Entitlements < demand", "Audit exposure", "True-up purchase, or reclaim installs"]
+      - ["Unlicensed", "Installs exist, no entitlement", "HIGHEST audit risk", "Remove, purchase, or reclassify"]
+      - ["Not counted", "Excluded by rule", "Excluded from risk", "Review annually — exclusions creep"]
+      - ["Unknown / Unallocated", "Insufficient data", "UNKNOWN risk", "Fix normalization/feed — do NOT report as compliant"]
+    highlight_row: 6
+    highlight_text: "EXAM CRITICAL: Unknown is not Compliant. Report Unknown explicitly, assign an owner."
+
+  - id: state_transitions
+    type: diagram_placeholder
+    duration: 12
+    title: "Compliance Position State Machine"
+    text: |
+      Unlicensed → Under-licensed → Compliant → Over-licensed
+           ↑                              ↓
+           ←────────────────────────────←
+           (demand increases, no new entitlement)
+           
+      Note: Loop is continuous, not one-pass.
+      Reclamation feeds back into reconciliation.
+      Renewal decisions driven by compliance position.
+    mnemonic: "CUOUU = Compliant, Under, Over, Unlicensed, Unknown"
+
+  - id: financial_impact
+    type: key_concept
+    duration: 12
+    title: "Financial Impact by Position"
+    bullets:
+      - "Compliant: Baseline — no action cost"
+      - "Over-licensed: Direct waste — unit_cost × excess_qty"
+      - "Under-licensed: Audit risk — true-up cost + potential penalties (3-5x)"
+      - "Unlicensed: MAXIMUM risk — full retail + penalties"
+      - "Unknown: Hidden exposure — cannot budget, cannot defend"
+      - "Not counted: Governance gap — review annually"
+
+  - id: common_mistake
+    type: statement
+    duration: 8
+    text: |
+      COMMON MISTAKE: Reporting "Unknown" as "Compliant"
+      Why it happens: Dashboard shows green for "no violations found"
+      Reality: "No violations" ≠ "Compliant" — it means "No data"
+      Fix: Separate "Unknown" column in every dashboard/report.
+      Assign owner to every Unknown position.
+
+  - id: exam_tip
+    type: statement
+    duration: 5
+    text: |
+      CIS-SAM Exam: Expect questions distinguishing
+      "Unlicensed" (installs exist, no entitlement)
+      from "Unknown" (insufficient data to determine).
+      They are NOT the same.
+
+  - id: cta
+    type: next_video
+    duration: 3
+    text: "Next: Publisher Traps — Microsoft, Oracle, IBM, SAP, Adobe"
+    next_video: 7

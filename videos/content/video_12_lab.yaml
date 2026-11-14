@@ -1,0 +1,164 @@
+meta:
+  title: "Lab Walkthrough: Entitlement → Reconciliation → Compliance"
+  number: 12
+  target_duration_sec: 240
+  phase: 1
+  description: "7-step hands-on lab proving the full SAM chain in sub-prod instance"
+
+slides:
+  - id: title
+    type: title
+    duration: 3
+    text: "Lab: Entitlement → Reconciliation → Compliance"
+    subtitle: "7-Step Hands-On Proof of the Full SAM Chain"
+    show_number: true
+
+  - id: hook
+    type: statement
+    duration: 5
+    text: |
+      This lab proves the entire SAM chain works.
+      Run it in a sub-production instance.
+      If you can explain each step, you MASTER SAM.
+    emphasis: "proves the chain, sub-prod, master SAM"
+
+  - id: prerequisites
+    type: key_concept
+    duration: 10
+    title: "Prerequisites"
+    bullets:
+      - "Sub-production ServiceNow instance (PDI or dev)"
+      - "SAM Pro plugin active (com.snc.sams)"
+      - "ITAM plugin active (com.snc.iam)"
+      - "Content Library populated (Microsoft/Adobe publisher packs)"
+      - "Discovery data present (SCCM/Intune/Discovery)"
+      - "sam_admin or sam_user role"
+
+  - id: step1
+    type: key_concept
+    duration: 15
+    title: "Step 1 — Choose and Verify a Software Model"
+    bullets:
+      - "Navigate: All > Software Asset Management > Software Models"
+      - "Pick common product with Content Library data (Microsoft/Adobe)"
+      - "VERIFY it has: publisher, version, license_metric_type, suite membership"
+      - "Record the model's sys_id"
+      - "✓ PASS: Model opens without errors, license metric populated"
+      - "✗ FAIL: Empty metric = reconciliation cannot compute"
+
+  - id: step2
+    type: key_concept
+    duration: 15
+    title: "Step 2 — Create Entitlement Far Below Demand"
+    bullets:
+      - "Navigate: All > Software Asset Management > Licenses > All > New"
+      - "Set: software_model = Step 1 model, license_metric = SAME as model"
+      - "Quantity = 1 (deliberately far below actual installs)"
+      - "Start date = today, End date = today + 1 year"
+      - "Attach contract record (optional for lab)"
+      - "Save, record entitlement number"
+      - "✓ PASS: Entitlement appears in model's related list, metric MATCHES model exactly"
+
+  - id: step3
+    type: key_concept
+    duration: 12
+    title: "Step 3 — Confirm Installs Exist"
+    bullets:
+      - "Navigate: All > Software Asset Management > Installations"
+      - "Filter: software_model = your model"
+      - "Confirm install count > 1 (if zero, pick different model)"
+      - "Note the install count = your demand numerator"
+      - "✓ PASS: Install count > 1 (real discovery data required)"
+
+  - id: step4
+    type: key_concept
+    duration: 15
+    title: "Step 4 — Run Reconciliation"
+    bullets:
+      - "Navigate: All > Software Asset Management > Reconciliation > Results"
+      - "Trigger reconciliation for single software model (or scheduled job)"
+      - "Wait for completion"
+      - "Open result for your model"
+      - "✓ PASS: Result record exists with:"
+      - "    entitlement_count = 1"
+      - "    install_count = <your noted count>"
+      - "    compliance_state = Under-licensed OR Unlicensed"
+
+  - id: step5
+    type: key_concept
+    duration: 15
+    title: "Step 5 — Prove the Fix (True-Up)"
+    bullets:
+      - "Update entitlement quantity to exceed install count (e.g., install_count + 5)"
+      - "Re-run reconciliation"
+      - "✓ PASS: Compliance state flips to Compliant (or Over-licensed)"
+      - "✓ PASS: State change is TIMESTAMPED"
+      - "✓ PASS: Previous result RETAINED (reconciliation results = history, not mutable)"
+
+  - id: step6
+    type: key_concept
+    duration: 15
+    title: "Step 6 — Prove Normalization Matters"
+    bullets:
+      - "Navigate: All > Software Asset Management > Discovery Models"
+      - "Find unmatched discovery model in same publisher family"
+      - "Note: If counted separately → separate compliance position"
+      - "Normalize it to your software model (Normalize action)"
+      - "Re-run reconciliation"
+      - "✓ PASS: Install count INCREASED, compliance position MOVED"
+      - "This is the SINGLE BEST DEMONSTRATION of why normalization precedes reconciliation"
+
+  - id: step7
+    type: key_concept
+    duration: 15
+    title: "Step 7 — Teach Back (Write It Down)"
+    bullets:
+      - "Write 5 sentences covering:"
+      - "1. What a software model is"
+      - "2. What an entitlement is"
+      - "3. What an installation is"
+      - "4. What reconciliation computes"
+      - "5. What a compliance position means"
+      - "If you can't explain it simply, you don't understand it well enough."
+      - "This is the Feynman Technique — the ultimate mastery test."
+
+  - id: lab_summary
+    type: statement
+    duration: 10
+    text: |
+      LAB PROVES THE CHAIN:
+      Software Model (canonical) → Discovery Model (raw) → Installation (concrete)
+      → Entitlement (rights) → Reconciliation (arithmetic) → Compliance Position (verdict)
+      
+      Every step is auditable, timestamped, and reversible.
+      This is what a seasoned SAM expert demonstrates in an interview.
+
+  - id: interview_tips
+    type: key_concept
+    duration: 15
+    title: "Interview Talking Points from This Lab"
+    bullets:
+      - "I've run the full reconciliation cycle end-to-end in a live instance"
+      - "I know the exact tables: cmdb_software_product_model, cmdb_sam_sw_discovery_model, cmdb_sam_sw_install, alm_license, samp_*_result"
+      - "I understand metric mismatch silently breaks reconciliation"
+      - "I know normalization precedes entitlement — unnormalized = unlicensed"
+      - "I can explain the 6 compliance positions and why Unknown ≠ Compliant"
+      - "I know the 8 traps and how to fix each"
+      - "I've done reclamation with 60-90 day windows and business owner sign-off"
+      - "I align renewal quantities to reconciled demand, not vendor proposals"
+
+  - id: final_cta
+    type: next_video
+    duration: 5
+    text: |
+      Congratulations! You've completed the SAM Expert Series.
+      
+      Next Steps:
+      • Run the lab in your PDI
+      • Take the CIS-SAM prep course
+      • Schedule your exam
+      • Join the ServiceNow Community SAM group
+      
+      You now have the knowledge of a seasoned SAM expert.
+      Go prove it.
+    next_video: 0

@@ -1,0 +1,96 @@
+meta:
+  title: "SaaS License Management"
+  number: 8
+  target_duration_sec: 180
+  phase: 1
+  description: "SaaS vs on-prem, assigned seats vs usage, reclamation pattern, connector health"
+
+slides:
+  - id: title
+    type: title
+    duration: 3
+    text: "SaaS License Management (SAM Pro)"
+    subtitle: "Assigned Seats vs Usage, Reclamation, Connector Health"
+    show_number: true
+
+  - id: hook
+    type: statement
+    duration: 5
+    text: |
+      Classic SaaS waste: 1,000 M365 E5 seats assigned,
+      260 never signed in 90+ days.
+      That's 26% of spend recoverable —
+      IF your connector data is trustworthy.
+    emphasis: "26% recoverable, connector data trustworthy"
+
+  - id: saas_vs_onprem
+    type: comparison_table
+    duration: 15
+    title: "On-Premise SAM vs SaaS License Management"
+    headers: ["Aspect", "On-Premise SAM", "SaaS License Management"]
+    rows:
+      - ["Discovery", "Finds installs on devices", "Connector pulls subscriptions + assigned seats"]
+      - ["Metric", "Per device / core", "Almost always PER USER / named user"]
+      - ["Usage", "Launch metering (SCCM, BigFix)", "Last activity / sign-in (often stale)"]
+      - ["Reconciliation", "Against installs", "Against ASSIGNED but INACTIVE seats"]
+      - ["Optimization", "Uninstall software", "RECLAIM dormant seats"]
+      - ["Data Source", "Agent-based inventory", "Vendor API (Graph, REST, CSV)"]
+
+  - id: classic_pattern
+    type: key_concept
+    duration: 15
+    title: "Classic SaaS Waste Pattern"
+    bullets:
+      - "1,000 assigned M365 E5 seats"
+      - "260 never signed in for 90+ days"
+      - "26% of spend recoverable with ZERO user impact"
+      - "IF connector data is trustworthy"
+      - "IF reclaim process has an owner"
+      - "Dead connector = 'no waste' illusion"
+
+  - id: connector_essentials
+    type: key_concept
+    duration: 15
+    title: "Connector Configuration Essentials"
+    bullets:
+      - "API credentials: least-privilege scope"
+      - "Refresh cadence matched to vendor API limits"
+      - "OWNER for each connector (accountability)"
+      - "ALERTING when connector silently stops syncing"
+      - "Dead connector looks exactly like 'no waste'"
+
+  - id: typical_targets
+    type: comparison_table
+    duration: 10
+    title: "Typical SaaS Targets"
+    headers: ["Publisher", "Product", "Key Metric"]
+    rows:
+      - ["Microsoft", "Microsoft 365 (E3/E5/F3)", "Named user + service plans"]
+      - ["Salesforce", "Sales/Service/Platform Cloud", "Named user + permission sets"]
+      - ["Adobe", "Creative Cloud / Document Cloud", "Named user (VIP/ETLA)"]
+      - ["Zoom", "Meetings / Webinars", "Host licenses"]
+      - ["Slack", "Pro / Business+ / Enterprise Grid", "Active users"]
+      - ["Workday", "HCM / Financials", "Named user"]
+      - ["ServiceNow", "ITSM / CSM / HRSD / SAM Pro", "Fulfilled user / approved requester"]
+
+  - id: saas_reconciliation
+    type: diagram_placeholder
+    duration: 12
+    title: "SaaS Reconciliation Flow"
+    text: |
+      M365 / Salesforce / Adobe / Zoom
+           ↓ (API: subscriptions + assigned seats)
+      USAGE DATA (last activity, sign-in)
+           ↓
+      SaaS RECONCILIATION
+           ↓
+      Under-licensed → TRUE-UP seats
+      Over-licensed  → RECLAIM unused seats
+      Compliant      → OPTIMIZE allocation
+    mnemonic: "Assigned ≠ Active. Reclaim the gap."
+
+  - id: cta
+    type: next_video
+    duration: 3
+    text: "Next: Optimization & Reclamation — Priority Order, 60-90 Day Rule"
+    next_video: 9

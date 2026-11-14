@@ -1,0 +1,90 @@
+meta:
+  title: "The Chain: Install → Discovery → Model → Entitlement → Result"
+  number: 2
+  target_duration_sec: 180
+  phase: 1
+  description: "Six record types, the I-D-S-E-R mnemonic, never confuse them"
+
+slides:
+  - id: title
+    type: title
+    duration: 3
+    text: "The SAM Chain"
+    subtitle: "Install → Discovery Model → Software Model → Entitlement → Reconciliation → Compliance"
+    show_number: true
+
+  - id: hook
+    type: statement
+    duration: 5
+    text: |
+      If you confuse these six record types,
+      your compliance reports are fiction.
+      Memorize the chain: I-D-S-E-R.
+    emphasis: "six record types, I-D-S-E-R"
+
+  - id: chain_overview
+    type: diagram_placeholder
+    duration: 15
+    title: "The Complete Chain (Memorize This Order)"
+    text: |
+      CI (CMDB/IRE)
+        └─ cmdb_sam_sw_install              # Install
+             └─ cmdb_sam_sw_discovery_model  # Discovery Model
+                  └─ cmdb_software_product_model  # Software Model
+                       └─ alm_license                # Entitlement
+                            └─ reconciliation        # Result
+    mnemonic: "I-D-S-E-R = Install → Discovery → Software Model → Entitlement → Reconciliation"
+
+  - id: record_types
+    type: comparison_table
+    duration: 20
+    title: "Six Record Types — Never Confuse These"
+    headers: ["Record", "Table", "Plain English", "Created By"]
+    rows:
+      - ["Software Model", "cmdb_software_product_model", "Canonical product definition", "Content Library / Admin"]
+      - ["Discovery Model", "cmdb_sam_sw_discovery_model", "Raw fingerprint from field", "Discovery / SCCM / Intune"]
+      - ["Installation", "cmdb_sam_sw_install", "One install on one device", "Discovery import"]
+      - ["Usage", "samp_sw_usage", "Evidence it was actually run", "Usage connectors"]
+      - ["Entitlement", "alm_license", "Right to use N units (metric)", "SAM Admin"]
+      - ["Reconciliation Result", "samp_*_result", "Computed compliance verdict", "Reconciliation job"]
+    highlight_row: 5
+    highlight_text: "Rule: Model = What it IS | Entitlement = What you MAY USE | Install = What EXISTS | Reconciliation = THE DIFFERENCE"
+
+  - id: three_records_deep
+    type: key_concept
+    duration: 15
+    title: "The Three Most Confused Records"
+    bullets:
+      - "Software Model = Normalized, canonical definition (e.g., 'Microsoft Office Professional Plus 2019')"
+      - "Discovery Model = Raw observed string (e.g., 'Office16 ProPlus', 'O365ProPlus', 'MSOffice2019')"
+      - "Installation = Concrete instance on a specific CI (device), links to both above"
+      - "Without normalization: 40 Office variants → reconciliation chaos"
+    rule: "Normalization converts Discovery Models → Software Models. Then Installs link to Software Models."
+
+  - id: usage_note
+    type: statement
+    duration: 8
+    text: |
+      Critical: samp_sw_usage is PRODUCT-LEVEL
+      (publisher + product + CI + user)
+      It does NOT reference the install row directly.
+      It feeds reconciliation for reclamation decisions.
+    emphasis: "product-level, not install-level"
+
+  - id: reconciliation_tiers
+    type: comparison_table
+    duration: 15
+    title: "Three Reconciliation Tiers"
+    headers: ["Tier", "Table", "Answers"]
+    rows:
+      - ["Product", "samp_product_result", "Is the product compliant? Cost/savings?"]
+      - ["Software Model", "Software Model Results", "Which model is the problem?"]
+      - ["License Metric", "samp_license_metric_result", "Rights owned vs used vs available"]
+    highlight_row: 3
+    highlight_text: "Run record: samp_reconciliation_result — NO single sam_sw_reconciliation_result table"
+
+  - id: cta
+    type: next_video
+    duration: 3
+    text: "Next: Normalization (SUMN) Deep Dive — Content Library, 6 Statuses, Publisher Packs"
+    next_video: 3

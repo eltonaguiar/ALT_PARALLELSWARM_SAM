@@ -1,0 +1,104 @@
+meta:
+  title: "Optimization & Reclamation — Where SAM Pays for Itself"
+  number: 9
+  target_duration_sec: 180
+  phase: 1
+  description: "Priority order, reclamation workflow, 60-90 day rule, SaaS first"
+
+slides:
+  - id: title
+    type: title
+    duration: 3
+    text: "Optimization & Reclamation"
+    subtitle: "Where SAM Pays for Itself — Priority Order, 60-90 Day Rule"
+    show_number: true
+
+  - id: hook
+    type: statement
+    duration: 5
+    text: |
+      Optimization is where SAM pays for itself.
+      Typical return: 5-15% of software spend in year one.
+      Priority order matters — start with SaaS, biggest fastest wins.
+    emphasis: "5-15% year one, SaaS first, biggest fastest wins"
+
+  - id: priority_order
+    type: key_concept
+    duration: 15
+    title: "Optimization Priority Order (Memorize)"
+    bullets:
+      - "1. RECLAIM DORMANT SEATS — SaaS & named-user models — largest, fastest, lowest-risk"
+      - "2. UNINSTALL UNUSED INSTALLS — Especially servers (Oracle, SQL Server per-core $$)"
+      - "3. RIGHT-SIZE EDITIONS — Enterprise → Standard, E5 → E3 where features justify"
+      - "4. CONSOLIDATE OVERLAPPING TOOLS — Duplicate PDF/archiving/monitoring post-merger"
+      - "5. ALIGN RENEWAL QUANTITIES — Negotiate with reconciled number, not vendor proposal"
+      - "6. ENFORCE PROCESS — New requests gated by approval checking existing entitlement first"
+
+  - id: reclamation_workflow
+    type: diagram_placeholder
+    duration: 12
+    title: "Reclamation Workflow"
+    text: |
+      Identify (recon + usage)
+           ↓
+      Validate with business owner
+           ↓
+      Notify user (grace period starts)
+           ↓
+      60–90 day inactivity window
+           ↓
+      Reclaim / remove
+           ↓
+      Re-run reconciliation
+           ↓
+      Confirm savings recorded
+    mnemonic: "Identify → Validate → Notify → Wait → Reclaim → Verify → Record"
+
+  - id: sixty_ninety_rule
+    type: statement
+    duration: 8
+    text: |
+      NEVER reclaim based on a single night's data.
+      Usage feeds have gaps. Absence of evidence ≠ evidence of absence.
+      Require SUSTAINED inactivity (60–90 days) + BUSINESS OWNER SIGN-OFF.
+      Reclaiming on thin data = removing licenses people actually need.
+    emphasis: "NEVER single night, 60-90 days, business owner sign-off"
+
+  - id: saas_first
+    type: key_concept
+    duration: 12
+    title: "Why SaaS First?"
+    bullets:
+      - "Largest waste %: 20-30% typical dormant seats"
+      - "Fastest cycle: API recon daily, reclaim in days not weeks"
+      - "Lowest risk: Reclaiming a seat ≠ uninstalling production software"
+      - "Measurable ROI: Unit cost × reclaimed seats = immediate savings"
+      - "Vendor leverage: Renewal negotiation with actual usage data"
+
+  - id: server_optimization
+    type: key_concept
+    duration: 12
+    title: "Server Optimization (High $ per Core)"
+    bullets:
+      - "Oracle DB EE: $47,500/processor + $11,500/core factor — HUGE $"
+      - "SQL Server Enterprise: $15,000/core (2-core packs) — adds up fast"
+      - "Right-size: Enterprise → Standard where features allow"
+      - "Consolidate: Multiple DBs on fewer licensed cores"
+      - "Virtualization: Hard partitioning for Oracle, mobility for SQL"
+
+  - id: renewal_discipline
+    type: statement
+    duration: 8
+    text: |
+      RENEWAL DISCIPLINE:
+      60 days before expiry → Review reconciled demand
+      Negotiate with ACTUAL usage number, not vendor proposal
+      Reduce quantity = direct savings
+      Eliminate shelf-ware = audit defense
+      CFO conversation: "We're renewing 850 seats, not 1,000 — here's the data"
+
+  - id: cta
+    type: next_video
+    duration: 3
+    text: "Next: Top 8 SAM Traps — Metric Mismatch, Duplicate Installs, Dead Connectors"
+    next_video: 10
