@@ -37,7 +37,8 @@ jobs:
             libsm6 \
             libxext6 \
             libxrender-dev \
-            libgomp1
+            libgomp1 \
+            poppler-utils
 
       - name: Install Python dependencies
         run: |
@@ -58,7 +59,10 @@ jobs:
           for pptx in video_*.pptx; do
             echo "Converting $pptx..."
             mkdir -p "frames_${pptx%.pptx}"
-            libreoffice --headless --convert-to png:"writer_png_Export" --outdir "frames_${pptx%.pptx}" "$pptx" 2>&1 | tail -20
+            # Convert PPTX to PDF first (exports all slides), then PDF to PNG
+            libreoffice --headless --convert-to pdf --outdir "frames_${pptx%.pptx}" "$pptx"
+            # Convert PDF to PNG (one per page/slide)
+            pdftoppm -png -r 150 "frames_${pptx%.pptx}/${pptx%.pptx}.pdf" "frames_${pptx%.pptx}/slide"
           done
 
       - name: Render MP4 from frames
@@ -81,7 +85,7 @@ jobs:
                   print(f"No frames dir for {base}")
                   continue
               
-              # Get sorted frame files
+              # Get sorted frame files (pdftoppm names them slide-1.png, slide-2.png, etc.)
               frames = sorted([os.path.join(frames_dir, f) for f in os.listdir(frames_dir) 
                              if f.endswith('.png')])
               if not frames:
@@ -100,18 +104,20 @@ jobs:
               else:
                   durations = [5] * len(frames)
               
-              # Create clip with durations
-              clip = ImageSequenceClip(frames, fps=30)
+              # Create clips for each slide with proper duration
+              clips = []
+              for i, (frame, duration) in enumerate(zip(frames, durations)):
+                  clip = ImageSequenceClip([frame], fps=30)
+                  clip = clip.set_duration(duration)
+                  clips.append(clip)
               
-              # Set duration per frame based on slide durations
-              # Each slide duration / number of frames per slide
-              # For simplicity, use average fps approach
-              total_duration = sum(durations)
-              clip = clip.set_duration(total_duration)
-              clip = clip.set_fps(30)
+              # Concatenate all clips
+              from moviepy.editor import concatenate_videoclips
+              final_clip = concatenate_videoclips(clips, method="compose")
+              final_clip = final_clip.set_fps(30)
               
-              clip.write_videofile(output_mp4, codec='libx264', preset='medium', 
-                                   bitrate='8000k', threads=4, logger='bar')
+              final_clip.write_videofile(output_mp4, codec='libx264', preset='medium', 
+                                       bitrate='8000k', threads=4, logger='bar')
               print(f"Created {output_mp4}")
           EOF
 
