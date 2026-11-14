@@ -1,0 +1,47 @@
+1
+00:00:00,000 --> 00:00:05,759
+Top 8 SAM Traps. Exam & Real World — Memorize These
+
+2
+00:00:05,759 --> 00:00:16,536
+These 8 traps cause 90% of SAM failures. 4 are technical, 4 are process. Know them cold for the exam and for real life.
+
+3
+00:00:16,536 --> 00:00:38,615
+Trap 1: Metric Mismatch (Silent Killer). Model metric: Per Device | Entitlement metric: Per User Reconciliation runs, produces plausible number Result: MEANINGLESS — comparing different counting bases Fix: Enforce metric match at entitlement creation (client script) Exam: 1 silent reconciliation failure.
+
+4
+00:00:38,615 --> 00:01:01,128
+Trap 2: Duplicate Installs (Inflated Demand). SCCM + Intune + Discovery = 3x same install Demand inflated → false under-licensed → unnecessary true-up Fix: Configure dedup rules (samswdeduprule) — Exact / Major / Any match Tiebreak: Most recent, most complete, or priority source.
+
+5
+00:01:01,128 --> 00:01:22,751
+Trap 3: Unnormalized Titles (Hidden Unlicensed). Discovery model 'Office16 ProPlus' unmatched Auto-creates separate software model → separate reconciliation Result: False unlicensed / unknown positions Fix: Normalize BEFORE auto-create (property: com.snc.samp.automaticsmrcreation).
+
+6
+00:01:22,751 --> 00:01:40,799
+Trap 4: Maintenance Treated as License. Maintenance-only PO line → entitlement created Reconciliation counts it as usage rights Result: FALSE compliance — audit finding guaranteed Fix: Separate maintenance from license entitlements. License type field!.
+
+7
+00:01:40,799 --> 00:02:02,879
+Trap 5: Phantom Demand from Retired CIs. Installs on retired/stolen CIs still counted Retired CI (installstatus=7) should auto-exclude installs Leased/ignored devices need exclude-CI job Fix: Business rule on install — check CI status, set uexcludefromreconciliation.
+
+8
+00:02:02,879 --> 00:02:22,943
+Trap 6: First Reconciliation = Invoice. First run shows massive under-licensed Panic → emergency true-up at full retail Reality: First run = DATA QUALITY LOOP Normalize → dedup → exclude retired → re-run → THEN true-up Exam: First reconciliation is for data quality, not purchasing.
+
+9
+00:02:22,943 --> 00:02:41,063
+Trap 7: Dead SaaS Connector (No Waste Illusion). M365 connector stops syncing silently No new usage data → 'no inactive seats found' Reality: Connector dead, waste invisible Fix: Connector health monitoring + owner + alerting on sync failure.
+
+10
+00:02:41,063 --> 00:03:08,471
+Trap 8: Vendor/Publisher/PPN/Model Confusion. Vendor (corecompany) → Publisher (sampswpublisher) → PPN (sampswproductdefinition) → Software Model (cmdbsoftwareproductmodel) → Discovery Model (cmdbsamswdiscoverymodel) → Catalog Item (sccatitem) → Entitlement (almlicense) Wrong link at any step = broken reconciliation chain Exam: Disambiguate these 7 entities.
+
+11
+00:03:08,471 --> 00:03:40,823
+8 Traps Summary. 1 Metric Mismatch Technical Enforce match at creation 2 Duplicate Installs Technical Dedup rules (Exact/Major/Any) 3 Unnormalized Titles Technical Normalize before auto-create 4 Maintenance = License Technical Separate license types 5 Phantom Demand Technical Exclude retired CIs 6 First Recon = Invoice Process Data quality loop first 7 Dead SaaS Connector Process Health monitoring + owner 8 Entity Confusion Process Disambiguate 7 entities
+
+12
+00:03:40,823 --> 00:03:46,751
+Next: CIS-SAM Exam Map — 5 Domains, Weights, What to Memorize.
