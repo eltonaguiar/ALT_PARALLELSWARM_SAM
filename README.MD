@@ -221,3 +221,59 @@ All reverts go to **Match Not Found**. Pattern-normalized models cannot be rever
 ---
 
 *End of SAM Cheat sheet. Full reference: [`finalv2/README.md`](finalv2/README.md).*
+
+---
+
+## 🎥 SAM Video Series (Phase 1 - Visual Only)
+
+**Embedded ServiceNow SAM tutorials for job interviews and CIS-SAM preparation.**
+
+### Video 1: SAM in 60 Seconds
+
+<video src="https://github.com/eltonaguiar/ALT_PARALLELSWARM_SAM/blob/main/videos/video_01_silent.mp4" controls width="720"></video>
+
+**Duration:** ~58 seconds  
+**Topics:** One-sentence definition, SAM vs HAM vs ITAM comparison, The SAM Chain (I-D-S-E-R), Interview soundbite
+
+---
+
+### Video 2: The Chain - Install to Result
+
+<video src="https://github.com/eltonaguiar/ALT_PARALLELSWARM_SAM/blob/main/videos/video_02_silent.mp4" controls width="720"></video>
+
+**Duration:** ~5 seconds (pilot)  
+**Topics:** Installation → Discovery Model → Software Model → Entitlement → Reconciliation → Compliance Position
+
+---
+
+### Full Series (12 Videos Planned)
+
+| # | Title | Duration | Status |
+|---|-------|----------|--------|
+| 1 | SAM in 60 Seconds | 58s | ✅ Rendered |
+| 2 | The Chain | 95s | ✅ Rendered |
+| 3 | Normalization (SUMN) Deep Dive | ~4min | ⏳ Phase 1 planned |
+| 4 | Entitlements: Contracts, Metrics, Hygiene | ~4min | ⏳ Phase 1 planned |
+| 5 | Reconciliation Engine Explained | ~4min | ⏳ Phase 1 planned |
+| 6 | Compliance Positions | ~3min | ⏳ Phase 1 planned |
+| 7 | Publisher Traps: Microsoft, Oracle, IBM, SAP, Adobe | ~5min | ⏳ Phase 1 planned |
+| 8 | SaaS License Management | ~3min | ⏳ Phase 1 planned |
+| 9 | Optimization & Reclamation Workflow | ~3min | ⏳ Phase 1 planned |
+| 10 | Top 8 SAM Traps | ~3min | ⏳ Phase 1 planned |
+| 11 | CIS-SAM Exam Map & Study Strategy | ~3min | ⏳ Phase 1 planned |
+| 12 | Lab Walkthrough: Entitlement → Compliance | ~4min | ⏳ Phase 1 planned |
+
+**Total Phase 1 Runtime:** ~42 minutes (visual only)  
+**Phase 2 Target:** +20 minutes with natural voice narration
+
+---
+
+### Source & Credits
+
+- **Content Source:** [SAM_KEY_CONCEPTS.md](videos/SAM_KEY_CONCEPTS.md) (consolidated from alt_parallelswarm_SAM multi-agent work)
+- **Guide Reference:** https://eltonaguiar.github.io/ServiceNow_Learning_TSOM-_CSM_FSM_SalesCRM_HAM_ITSM/docs/modules/sam/sam-guide/
+- **Repository:** https://github.com/eltonaguiar/alt_parallelswarm_SAM
+- **Tech Stack:** Pillow → FFmpeg (libx264), 1920×1080, 30fps, H.264
+
+**Phase 2 (Audio):** Natural TTS (XTTS v2 / Edge TTS) + SRT subtitles + final muxing scheduled.
+
