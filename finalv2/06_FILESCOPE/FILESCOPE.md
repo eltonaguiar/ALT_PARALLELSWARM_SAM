@@ -72,5 +72,5 @@ The addition is additive: a horizontal rule, the `# SAM Cheat sheet` heading, co
 
 Update this file with the commit SHA and the branch actually used. If `main` rejects the push, the branch fallback is used and a PR is opened.
 
-**Commit SHA:** _pending at write time_
-**Published branch:** _pending at write time_
+**Commit SHA:** `64456bf` (docs commit); this filescope update is a follow-up commit.
+**Published branch:** `main` (the remote now resolves to `eltonaguiar/ALT_PARALLELSWARM_SAM`).
