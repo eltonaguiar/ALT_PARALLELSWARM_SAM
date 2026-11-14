@@ -1,0 +1,140 @@
+name: Render SAM Videos
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'videos/content/**'
+      - 'videos/scripts/**'
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libreoffice \
+            ffmpeg \
+            python3-dev \
+            libgl1-mesa-glx \
+            libglib2.0-0 \
+            libsm6 \
+            libxext6 \
+            libxrender-dev \
+            libgomp1
+
+      - name: Install Python dependencies
+        run: |
+          pip install --upgrade pip
+          pip install python-pptx pyyaml moviepy pillow
+
+      - name: Generate PPTX slides from YAML content
+        run: |
+          cd videos
+          for yaml in content/video_*.yaml; do
+            num=$(basename "$yaml" .yaml | sed 's/video_//' | sed 's/_.*//')
+            python3 scripts/generate_slides.py "$yaml" "output/video_${num}.pptx"
+          done
+
+      - name: Convert PPTX to PNG frames
+        run: |
+          cd videos/output
+          for pptx in video_*.pptx; do
+            echo "Converting $pptx..."
+            mkdir -p "frames_${pptx%.pptx}"
+            libreoffice --headless --convert-to png:"writer_png_Export" --outdir "frames_${pptx%.pptx}" "$pptx" 2>&1 | tail -20
+          done
+
+      - name: Render MP4 from frames
+        run: |
+          cd videos/output
+          python3 << 'EOF'
+          import os
+          import subprocess
+          from moviepy.editor import ImageSequenceClip
+
+          for pptx in sorted(os.listdir('.')):
+              if not pptx.startswith('video_') or not pptx.endswith('.pptx'):
+                  continue
+              
+              base = pptx[:-5]
+              frames_dir = f'frames_{base}'
+              output_mp4 = f'{base}.mp4'
+              
+              if not os.path.isdir(frames_dir):
+                  print(f"No frames dir for {base}")
+                  continue
+              
+              # Get sorted frame files
+              frames = sorted([os.path.join(frames_dir, f) for f in os.listdir(frames_dir) 
+                             if f.endswith('.png')])
+              if not frames:
+                  print(f"No frames in {frames_dir}")
+                  continue
+              
+              print(f"Rendering {base} with {len(frames)} frames...")
+              
+              # Load content YAML to get slide durations
+              import yaml
+              content_file = f'../content/{base}.yaml'
+              if os.path.exists(content_file):
+                  with open(content_file) as f:
+                      content = yaml.safe_load(f)
+                  durations = [slide.get('duration', 5) for slide in content.get('slides', [])]
+              else:
+                  durations = [5] * len(frames)
+              
+              # Create clip with durations
+              clip = ImageSequenceClip(frames, fps=30)
+              
+              # Set duration per frame based on slide durations
+              # Each slide duration / number of frames per slide
+              # For simplicity, use average fps approach
+              total_duration = sum(durations)
+              clip = clip.set_duration(total_duration)
+              clip = clip.set_fps(30)
+              
+              clip.write_videofile(output_mp4, codec='libx264', preset='medium', 
+                                   bitrate='8000k', threads=4, logger='bar')
+              print(f"Created {output_mp4}")
+          EOF
+
+      - name: Upload MP4 artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: sam-videos-mp4
+          path: videos/output/*.mp4
+          retention-days: 30
+
+      - name: Commit MP4s to repository
+        run: |
+          cd videos/output
+          for mp4 in *.mp4; do
+            git add "$mp4"
+          done
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: add rendered SAM videos [skip ci]"
+            git push
+          else
+            echo "No new MP4s to commit"
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
