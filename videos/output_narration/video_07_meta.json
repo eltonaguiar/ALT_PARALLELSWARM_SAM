@@ -1,0 +1,81 @@
+{
+  "video_num": 7,
+  "title": "Publisher Traps \u2014 Microsoft, Oracle, IBM, SAP, Adobe",
+  "narrations": [
+    {
+      "slide_id": "title",
+      "slide_type": "title",
+      "duration": 3,
+      "text": "Publisher-Specific Traps. Where SAM Projects Fail Audits \u2014 Exam Favorites"
+    },
+    {
+      "slide_id": "hook",
+      "slide_type": "statement",
+      "duration": 5,
+      "text": "Publisher rules are where SAM projects fail audits. Exam questions are conceptual: \"Which metric applies?\" \"Why is Oracle count higher than installs?\" Not menu-path trivia."
+    },
+    {
+      "slide_id": "microsoft",
+      "slide_type": "key_concept",
+      "duration": 20,
+      "text": "Microsoft Traps. SQL Server: Per-CORE licensing \u2014 physical cores \u00d7 core factor, MIN 4 cores/socket Virtualization: License the HOST, not the VM (unless SA + mobility) M365 Suite Overlap: E3 + E5 + F3 + Apps = double-counting risk Downgrade Rights: EXIST but must be documented on entitlement Core Factor Table: Must be current for SQL Server reconciliation True-Up: Annual true-up window \u2014 missing it = full retail pricing."
+    },
+    {
+      "slide_id": "oracle",
+      "slide_type": "key_concept",
+      "duration": 20,
+      "text": "Oracle Traps (Highest Audit Risk). Core Factor Table: Per processor family \u2014 outdated table = wrong count Server-Level Licensing: License the PHYSICAL SERVER, not the VM Hard Partitioning: Only certified tech (OVM, LPAR) limits scope 10% Rule: NOT a rule \u2014 soft partitioning = full server licensing Named User Plus: Minimums per processor (usually 25 NUP/processor) LMS Scripts: Oracle's audit instrument \u2014 your reconciliation must match Java: Now subscription-based \u2014 separate from DB licensing."
+    },
+    {
+      "slide_id": "ibm",
+      "slide_type": "key_concept",
+      "duration": 15,
+      "text": "IBM Traps. PVU (Processor Value Unit): Table per CPU model \u2014 must match exactly Sub-Capacity Licensing: Requires ILMT (IBM License Metric Tool) evidence ILMT: Must be deployed, configured, reporting \u2014 no ILMT = full capacity RVU (Resource Value Unit): For some middleware \u2014 different metric Bundles: Multiple products in one license \u2014 component tracking critical."
+    },
+    {
+      "slide_id": "sap",
+      "slide_type": "key_concept",
+      "duration": 15,
+      "text": "SAP Traps. Named User Types: Developer, Professional, Limited Professional, ESS \u2014 each priced differently Indirect / Digital Access: LIVE audit battleground \u2014 non-SAP apps accessing SAP data Engine Metrics: By revenue, employees, orders \u2014 not user count Classification: User type must match actual usage \u2014 misclassification = audit finding LAW (License Administration Workbench): SAP's audit tool."
+    },
+    {
+      "slide_id": "adobe",
+      "slide_type": "key_concept",
+      "duration": 15,
+      "text": "Adobe Traps. VIP / ETLA: Named-user subscription model Shared Device License: Different from named user \u2014 labs, classrooms Creative Cloud Suite Roll-Up: Components roll up to CC suite Document Cloud: Per-document pricing (not per user) True-Up: Annual \u2014 unused licenses don't roll over."
+    },
+    {
+      "slide_id": "servicenow",
+      "slide_type": "key_concept",
+      "duration": 10,
+      "text": "ServiceNow (Self-Licensing). Subscription by product line + fulfilled user / approved requester Over-consumption = BILLED, not audited \u2014 treat as cost-control Plugin entitlements: com.snc.sams, com.snc.itsm, com.snc.hrsd, etc. Instance-level vs user-level metrics \u2014 know which applies."
+    },
+    {
+      "slide_id": "exam_guidance",
+      "slide_type": "statement",
+      "duration": 8,
+      "text": "EXAM GUIDANCE: Expect conceptual questions: \u2022 \"Which metric applies to SQL Server?\" \u2192 Per-core \u2022 \"Why is Oracle count higher than install count?\" \u2192 Core factor + server licensing \u2022 \"What evidence does IBM sub-capacity require?\" \u2192 ILMT \u2022 \"What is SAP indirect access?\" \u2192 Non-SAP apps reading SAP data NOT: \"Which menu path creates an entitlement?\""
+    },
+    {
+      "slide_id": "cta",
+      "slide_type": "next_video",
+      "duration": 3,
+      "text": "Next: SaaS License Management \u2014 Assigned Seats vs Usage, Reclamation Pattern."
+    }
+  ],
+  "audio_durations": [
+    6.576,
+    13.584,
+    33.456,
+    36.672,
+    27.72,
+    29.832,
+    21.12,
+    25.56,
+    25.536,
+    6.072
+  ],
+  "total_duration": 226.128,
+  "combined_audio": "output_narration/video_07_narration.wav",
+  "srt": "subtitles/video_07.srt"
+}

@@ -1,0 +1,74 @@
+{
+  "video_num": 9,
+  "title": "Optimization & Reclamation \u2014 Where SAM Pays for Itself",
+  "narrations": [
+    {
+      "slide_id": "title",
+      "slide_type": "title",
+      "duration": 3,
+      "text": "Optimization & Reclamation. Where SAM Pays for Itself \u2014 Priority Order, 60-90 Day Rule"
+    },
+    {
+      "slide_id": "hook",
+      "slide_type": "statement",
+      "duration": 5,
+      "text": "Optimization is where SAM pays for itself. Typical return: 5-15% of software spend in year one. Priority order matters \u2014 start with SaaS, biggest fastest wins."
+    },
+    {
+      "slide_id": "priority_order",
+      "slide_type": "key_concept",
+      "duration": 15,
+      "text": "Optimization Priority Order (Memorize). 1. RECLAIM DORMANT SEATS \u2014 SaaS & named-user models \u2014 largest, fastest, lowest-risk 2. UNINSTALL UNUSED INSTALLS \u2014 Especially servers (Oracle, SQL Server per-core $$) 3. RIGHT-SIZE EDITIONS \u2014 Enterprise \u2192 Standard, E5 \u2192 E3 where features justify 4. CONSOLIDATE OVERLAPPING TOOLS \u2014 Duplicate PDF/archiving/monitoring post-merger 5. ALIGN RENEWAL QUANTITIES \u2014 Negotiate with reconciled number, not vendor proposal 6. ENFORCE PROCESS \u2014 New requests gated by approval checking existing entitlement first."
+    },
+    {
+      "slide_id": "reclamation_workflow",
+      "slide_type": "diagram_placeholder",
+      "duration": 12,
+      "text": "Reclamation Workflow. Identify (recon + usage) \u2193 Validate with business owner \u2193 Notify user (grace period starts) \u2193 60\u201390 day inactivity window \u2193 Reclaim / remove \u2193 Re-run reconciliation \u2193 Confirm savings recorded Mnemonic: Identify \u2192 Validate \u2192 Notify \u2192 Wait \u2192 Reclaim \u2192 Verify \u2192 Record"
+    },
+    {
+      "slide_id": "sixty_ninety_rule",
+      "slide_type": "statement",
+      "duration": 8,
+      "text": "NEVER reclaim based on a single night's data. Usage feeds have gaps. Absence of evidence \u2260 evidence of absence. Require SUSTAINED inactivity (60\u201390 days) + BUSINESS OWNER SIGN-OFF. Reclaiming on thin data = removing licenses people actually need."
+    },
+    {
+      "slide_id": "saas_first",
+      "slide_type": "key_concept",
+      "duration": 12,
+      "text": "Why SaaS First?. Largest waste %: 20-30% typical dormant seats Fastest cycle: API recon daily, reclaim in days not weeks Lowest risk: Reclaiming a seat \u2260 uninstalling production software Measurable ROI: Unit cost \u00d7 reclaimed seats = immediate savings Vendor leverage: Renewal negotiation with actual usage data."
+    },
+    {
+      "slide_id": "server_optimization",
+      "slide_type": "key_concept",
+      "duration": 12,
+      "text": "Server Optimization (High $ per Core). Oracle DB EE: $47,500/processor + $11,500/core factor \u2014 HUGE $ SQL Server Enterprise: $15,000/core (2-core packs) \u2014 adds up fast Right-size: Enterprise \u2192 Standard where features allow Consolidate: Multiple DBs on fewer licensed cores Virtualization: Hard partitioning for Oracle, mobility for SQL."
+    },
+    {
+      "slide_id": "renewal_discipline",
+      "slide_type": "statement",
+      "duration": 8,
+      "text": "RENEWAL DISCIPLINE: 60 days before expiry \u2192 Review reconciled demand Negotiate with ACTUAL usage number, not vendor proposal Reduce quantity = direct savings Eliminate shelf-ware = audit defense CFO conversation: \"We're renewing 850 seats, not 1,000 \u2014 here's the data\""
+    },
+    {
+      "slide_id": "cta",
+      "slide_type": "next_video",
+      "duration": 3,
+      "text": "Next: Top 8 SAM Traps \u2014 Metric Mismatch, Duplicate Installs, Dead Connectors."
+    }
+  ],
+  "audio_durations": [
+    8.352,
+    13.488,
+    43.944,
+    20.4,
+    21.48,
+    24.384,
+    29.904,
+    19.344,
+    6.456
+  ],
+  "total_duration": 187.752,
+  "combined_audio": "output_narration/video_09_narration.wav",
+  "srt": "subtitles/video_09.srt"
+}

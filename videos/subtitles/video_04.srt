@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:07,056
+Entitlements — The Contract Side. License Metrics, True-Up, and the Maintenance Trap
+
+2
+00:00:07,056 --> 00:00:17,519
+An entitlement with the wrong metric silently breaks reconciliation. Per-device entitlement vs per-user usage = a plausible but meaningless number.
+
+3
+00:00:17,519 --> 00:01:01,128
+Entitlement Must-Have Attributes. Software model Must match normalized model exactly Publisher Drives publisher-specific counting rules License metric Per user/device/core/processor/subscription — MUST match model Purchased quantity Reconciliation numerator License type Perpetual vs subscription vs maintenance (maintenance ≠ license!) Contract + PO reference Audit evidence chain Start / end date Expiry impacts compliance & renewals Unit cost Enables cost/optimization reporting Owned by / cost center Chargeback and showback Downgrade/upgrade rights Microsoft/Adobe allow; Oracle/IBM do not
+
+4
+00:01:01,128 --> 00:01:33,503
+Entitlement Hygiene Rules (Exam Critical). One entitlement per CONTRACT LINE — not per PO. Auditors trace: entitlement → contract → PO Never overwrite quantity to 'fix' a report — create adjustment/true-up record MAINTENANCE ≠ LICENSE — maintenance-only records must not count as usage rights Metric mismatch is SILENT — per-device entitlement vs per-user usage = meaningless number Expired entitlements still counted = false compliance. Track enddate!.
+
+5
+00:01:33,503 --> 00:02:04,511
+Common License Metrics. Per User / Named User Assigned users Microsoft 365, Salesforce, Adobe CC, ServiceNow Per Device Devices with install Windows, some Adobe Per Core Physical cores × core factor Microsoft SQL Server, Oracle Per Processor Physical sockets Legacy Oracle, some IBM PVU (Processor Value Unit) PVU table per CPU model IBM Subscription Time-based entitlement SaaS, term licenses
+
+6
+00:02:04,511 --> 00:02:26,495
+TRUE-UP PROCESS: 1. Reconciliation shows under-licensed 2. Create NEW entitlement record (true-up) — NEVER overwrite original 3. Link to same contract, new PO 4. Re-run reconciliation → compliant 5. Audit trail preserved: original + true-up = complete history
+
+7
+00:02:26,495 --> 00:02:44,471
+Downgrade/Upgrade Rights. Microsoft: Version downgrades permitted (document!) Adobe: Version downgrades permitted Oracle: NO downgrade rights IBM: NO downgrade rights Must be documented on entitlement (udowngraderights custom field).
+
+8
+00:02:44,471 --> 00:02:50,927
+Next: Reconciliation Engine Explained — 3 Tiers, Step-by-Step, What Breaks It.

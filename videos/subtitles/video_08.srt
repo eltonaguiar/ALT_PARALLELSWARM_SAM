@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:07,895
+SaaS License Management (SAM Pro). Assigned Seats vs Usage, Reclamation, Connector Health
+
+2
+00:00:07,895 --> 00:00:22,416
+Classic SaaS waste: 1,000 M365 E5 seats assigned, 260 never signed in 90+ days. That's 26% of spend recoverable — IF your connector data is trustworthy.
+
+3
+00:00:22,416 --> 00:00:55,103
+On-Premise SAM vs SaaS License Management. Discovery Finds installs on devices Connector pulls subscriptions + assigned seats Metric Per device / core Almost always PER USER / named user Usage Launch metering (SCCM, BigFix) Last activity / sign-in (often stale) Reconciliation Against installs Against ASSIGNED but INACTIVE seats Optimization Uninstall software RECLAIM dormant seats Data Source Agent-based inventory Vendor API (Graph, REST, CSV)
+
+4
+00:00:55,103 --> 00:01:14,591
+Classic SaaS Waste Pattern. 1,000 assigned M365 E5 seats 260 never signed in for 90+ days 26% of spend recoverable with ZERO user impact IF connector data is trustworthy IF reclaim process has an owner Dead connector = 'no waste' illusion.
+
+5
+00:01:14,591 --> 00:01:31,103
+Connector Configuration Essentials. API credentials: least-privilege scope Refresh cadence matched to vendor API limits OWNER for each connector (accountability) ALERTING when connector silently stops syncing Dead connector looks exactly like 'no waste'.
+
+6
+00:01:31,103 --> 00:02:07,391
+Typical SaaS Targets. Microsoft Microsoft 365 (E3/E5/F3) Named user + service plans Salesforce Sales/Service/Platform Cloud Named user + permission sets Adobe Creative Cloud / Document Cloud Named user (VIP/ETLA) Zoom Meetings / Webinars Host licenses Slack Pro / Business+ / Enterprise Grid Active users Workday HCM / Financials Named user ServiceNow ITSM / CSM / HRSD / SAM Pro Fulfilled user / approved requester
+
+7
+00:02:07,391 --> 00:02:32,135
+SaaS Reconciliation Flow. M365 / Salesforce / Adobe / Zoom ↓ (API: subscriptions + assigned seats) USAGE DATA (last activity, sign-in) ↓ SaaS RECONCILIATION ↓ Under-licensed → TRUE-UP seats Over-licensed → RECLAIM unused seats Compliant → OPTIMIZE allocation Mnemonic: Assigned ≠ Active. Reclaim the gap.
+
+8
+00:02:32,135 --> 00:02:38,543
+Next: Optimization & Reclamation — Priority Order, 60-90 Day Rule.

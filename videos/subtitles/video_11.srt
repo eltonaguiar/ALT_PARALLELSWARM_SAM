@@ -1,0 +1,35 @@
+1
+00:00:00,000 --> 00:00:08,592
+CIS-SAM Exam Map & Study Strategy. 5 Domains, Weights, Official Courses, What to Memorize
+
+2
+00:00:08,592 --> 00:00:21,480
+CIS-SAM questions drawn from: Official training + Product Docs + Developer Site. Publisher questions = conceptual (which metric, which rule) NOT tool-click memorization.
+
+3
+00:00:21,480 --> 00:01:16,415
+5 CIS-SAM Domains & Weights. 1: SAM Overview & Fundamentals ~15% ITAM/SAM positioning, lifecycle, roles, value case Video 1, 2 2: Data Integrity — Models, Normalization, Content Library ~25% Software models, SUMN, publisher packs, suites, discovery models Video 2, 3 3: Entitlements, Licenses, Reconciliation ~30% License metrics, entitlement records, reconciliation logic, compliance states Video 4, 5, 6 4: Optimization, Reclamation, Audit Defence ~20% Reclamation, true-up, publisher rules, audit workflow Video 7, 9 5: Reporting, Dashboards, Operational Integration ~10% SAM Workspace, dashboards, KPIs, integrations Video 8, 9
+
+4
+00:01:16,415 --> 00:01:33,743
+Official Preparation Courses (Verify Current Catalog). Welcome to ServiceNow ServiceNow Administration Fundamentals Software Asset Management (SAM) Fundamentals Software Asset Management Professional / Implementation CIS-SAM Exam Preparation.
+
+5
+00:01:33,743 --> 00:02:14,927
+What to MEMORIZE (Cold). I-D-S-E-R chain (6 record types + tables) 6 Normalization statuses + manual/revert rules 6 Compliance positions + financial meaning + actions 3 Reconciliation tiers + table names Publisher traps: Microsoft (per-core), Oracle (core factor/server), IBM (PVU/ILMT), SAP (indirect access), Adobe (VIP/ETLA) Rights algebra: Owned, Used, Available, Allocated-not-in-use, Not-allocated-in-use SaaS vs On-prem differences table 8 SAM Traps Optimization priority order (6 steps).
+
+6
+00:02:14,927 --> 00:02:41,207
+What to UNDERSTAND (Conceptual). Why normalization precedes entitlement How suite roll-up affects component counting Why metric mismatch silently breaks reconciliation Why Unknown ≠ Compliant (data quality vs compliance) How publisher rules modify base reconciliation Reclamation workflow + 60-90 day rule rationale Connector health = data quality = compliance accuracy.
+
+7
+00:02:41,207 --> 00:03:14,543
+Study Strategy (Recommended Order). 1. Watch this full series (12 videos) — builds mental model 2. Do the Lab (Video 12) in sub-prod instance — hands-on proof 3. Read official SAM Fundamentals + Pro course materials 4. Practice with Product Documentation search (exam is open-book-ish) 5. Take CIS-SAM prep course practice exams 6. Teach back: Explain each concept to a peer (Video 12 Step 7).
+
+8
+00:03:14,543 --> 00:04:09,575
+All Mnemonics in One Place. SAM Chain I-D-S-E-R (Install, Discovery, Software, Entitlement, Reconciliation) Compliance Positions CUOUU (Compliant, Under, Over, Unlicensed, Unknown) Normalization Statuses New → Match Not Found → Pub Norm → Partial → Norm → Manual Business Rules BAA (Before, After, Async) Client Scripts LOCS (onLoad, onChange, onSubmit, onCellEdit) UI Policy vs Data Policy vs Client Script UDC (UI=client, Data=server, Client=both) Update Set Conflicts ARM (Accept, Reject, Merge) CMDB Retire Before Delete Order vs Priority Lower = First Transform Script Coalesce = Match Debugging Log First, Then Debug Reconciliation Rights Owned − Rights Used = Rights Available
+
+9
+00:04:09,575 --> 00:04:15,623
+Next: Lab Walkthrough — Entitlement → Reconciliation → Compliance (7 Steps).

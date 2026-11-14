@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:07,559
+The SAM Chain. Install → Discovery Model → Software Model → Entitlement → Reconciliation → Compliance
+
+2
+00:00:07,559 --> 00:00:15,911
+If you confuse these six record types, your compliance reports are fiction. Memorize the chain: I-D-S-E-R.
+
+3
+00:00:15,911 --> 00:00:37,463
+The Complete Chain (Memorize This Order). CI (CMDB/IRE) └─ cmdbsamswinstall Install └─ cmdbsamswdiscoverymodel Discovery Model └─ cmdbsoftwareproductmodel Software Model └─ almlicense Entitlement └─ reconciliation Result Mnemonic: I-D-S-E-R = Install → Discovery → Software Model → Entitlement → Reconciliation
+
+4
+00:00:37,463 --> 00:01:11,615
+Six Record Types — Never Confuse These. Software Model cmdbsoftwareproductmodel Canonical product definition Content Library / Admin Discovery Model cmdbsamswdiscoverymodel Raw fingerprint from field Discovery / SCCM / Intune Installation cmdbsamswinstall One install on one device Discovery import Usage sampswusage Evidence it was actually run Usage connectors Entitlement almlicense Right to use N units (metric) SAM Admin Reconciliation Result sampresult Computed compliance verdict Reconciliation job
+
+5
+00:01:11,615 --> 00:01:49,367
+The Three Most Confused Records. Software Model = Normalized, canonical definition (e.g., 'Microsoft Office Professional Plus 2019') Discovery Model = Raw observed string (e.g., 'Office16 ProPlus', 'O365ProPlus', 'MSOffice2019') Installation = Concrete instance on a specific CI (device), links to both above Without normalization: 40 Office variants → reconciliation chaos. Normalization converts Discovery Models → Software Models. Then Installs link to Software Models.
+
+6
+00:01:49,367 --> 00:02:02,304
+Critical: sampswusage is PRODUCT-LEVEL (publisher + product + CI + user) It does NOT reference the install row directly. It feeds reconciliation for reclamation decisions.
+
+7
+00:02:02,304 --> 00:02:20,711
+Three Reconciliation Tiers. Product sampproductresult Is the product compliant? Cost/savings? Software Model Software Model Results Which model is the problem? License Metric samplicensemetricresult Rights owned vs used vs available
+
+8
+00:02:20,711 --> 00:02:28,703
+Next: Normalization (SUMN) Deep Dive — Content Library, 6 Statuses, Publisher Packs.

@@ -1,0 +1,35 @@
+1
+00:00:00,000 --> 00:00:08,352
+Optimization & Reclamation. Where SAM Pays for Itself — Priority Order, 60-90 Day Rule
+
+2
+00:00:08,352 --> 00:00:21,839
+Optimization is where SAM pays for itself. Typical return: 5-15% of software spend in year one. Priority order matters — start with SaaS, biggest fastest wins.
+
+3
+00:00:21,839 --> 00:01:05,784
+Optimization Priority Order (Memorize). 1. RECLAIM DORMANT SEATS — SaaS & named-user models — largest, fastest, lowest-risk 2. UNINSTALL UNUSED INSTALLS — Especially servers (Oracle, SQL Server per-core $$) 3. RIGHT-SIZE EDITIONS — Enterprise → Standard, E5 → E3 where features justify 4. CONSOLIDATE OVERLAPPING TOOLS — Duplicate PDF/archiving/monitoring post-merger 5. ALIGN RENEWAL QUANTITIES — Negotiate with reconciled number, not vendor proposal 6. ENFORCE PROCESS — New requests gated by approval checking existing entitlement first.
+
+4
+00:01:05,784 --> 00:01:26,183
+Reclamation Workflow. Identify (recon + usage) ↓ Validate with business owner ↓ Notify user (grace period starts) ↓ 60–90 day inactivity window ↓ Reclaim / remove ↓ Re-run reconciliation ↓ Confirm savings recorded Mnemonic: Identify → Validate → Notify → Wait → Reclaim → Verify → Record
+
+5
+00:01:26,183 --> 00:01:47,664
+NEVER reclaim based on a single night's data. Usage feeds have gaps. Absence of evidence ≠ evidence of absence. Require SUSTAINED inactivity (60–90 days) + BUSINESS OWNER SIGN-OFF. Reclaiming on thin data = removing licenses people actually need.
+
+6
+00:01:47,664 --> 00:02:12,048
+Why SaaS First?. Largest waste %: 20-30% typical dormant seats Fastest cycle: API recon daily, reclaim in days not weeks Lowest risk: Reclaiming a seat ≠ uninstalling production software Measurable ROI: Unit cost × reclaimed seats = immediate savings Vendor leverage: Renewal negotiation with actual usage data.
+
+7
+00:02:12,048 --> 00:02:41,951
+Server Optimization (High $ per Core). Oracle DB EE: $47,500/processor + $11,500/core factor — HUGE $ SQL Server Enterprise: $15,000/core (2-core packs) — adds up fast Right-size: Enterprise → Standard where features allow Consolidate: Multiple DBs on fewer licensed cores Virtualization: Hard partitioning for Oracle, mobility for SQL.
+
+8
+00:02:41,951 --> 00:03:01,295
+RENEWAL DISCIPLINE: 60 days before expiry → Review reconciled demand Negotiate with ACTUAL usage number, not vendor proposal Reduce quantity = direct savings Eliminate shelf-ware = audit defense CFO conversation: "We're renewing 850 seats, not 1,000 — here's the data"
+
+9
+00:03:01,295 --> 00:03:07,751
+Next: Top 8 SAM Traps — Metric Mismatch, Duplicate Installs, Dead Connectors.

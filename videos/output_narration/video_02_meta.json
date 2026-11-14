@@ -1,0 +1,67 @@
+{
+  "video_num": 2,
+  "title": "The Chain: Install \u2192 Discovery \u2192 Model \u2192 Entitlement \u2192 Result",
+  "narrations": [
+    {
+      "slide_id": "title",
+      "slide_type": "title",
+      "duration": 3,
+      "text": "The SAM Chain. Install \u2192 Discovery Model \u2192 Software Model \u2192 Entitlement \u2192 Reconciliation \u2192 Compliance"
+    },
+    {
+      "slide_id": "hook",
+      "slide_type": "statement",
+      "duration": 5,
+      "text": "If you confuse these six record types, your compliance reports are fiction. Memorize the chain: I-D-S-E-R."
+    },
+    {
+      "slide_id": "chain_overview",
+      "slide_type": "diagram_placeholder",
+      "duration": 15,
+      "text": "The Complete Chain (Memorize This Order). CI (CMDB/IRE) \u2514\u2500 cmdbsamswinstall Install \u2514\u2500 cmdbsamswdiscoverymodel Discovery Model \u2514\u2500 cmdbsoftwareproductmodel Software Model \u2514\u2500 almlicense Entitlement \u2514\u2500 reconciliation Result Mnemonic: I-D-S-E-R = Install \u2192 Discovery \u2192 Software Model \u2192 Entitlement \u2192 Reconciliation"
+    },
+    {
+      "slide_id": "record_types",
+      "slide_type": "comparison_table",
+      "duration": 20,
+      "text": "Six Record Types \u2014 Never Confuse These. Software Model cmdbsoftwareproductmodel Canonical product definition Content Library / Admin Discovery Model cmdbsamswdiscoverymodel Raw fingerprint from field Discovery / SCCM / Intune Installation cmdbsamswinstall One install on one device Discovery import Usage sampswusage Evidence it was actually run Usage connectors Entitlement almlicense Right to use N units (metric) SAM Admin Reconciliation Result sampresult Computed compliance verdict Reconciliation job"
+    },
+    {
+      "slide_id": "three_records_deep",
+      "slide_type": "key_concept",
+      "duration": 15,
+      "text": "The Three Most Confused Records. Software Model = Normalized, canonical definition (e.g., 'Microsoft Office Professional Plus 2019') Discovery Model = Raw observed string (e.g., 'Office16 ProPlus', 'O365ProPlus', 'MSOffice2019') Installation = Concrete instance on a specific CI (device), links to both above Without normalization: 40 Office variants \u2192 reconciliation chaos. Normalization converts Discovery Models \u2192 Software Models. Then Installs link to Software Models."
+    },
+    {
+      "slide_id": "usage_note",
+      "slide_type": "statement",
+      "duration": 8,
+      "text": "Critical: sampswusage is PRODUCT-LEVEL (publisher + product + CI + user) It does NOT reference the install row directly. It feeds reconciliation for reclamation decisions."
+    },
+    {
+      "slide_id": "reconciliation_tiers",
+      "slide_type": "comparison_table",
+      "duration": 15,
+      "text": "Three Reconciliation Tiers. Product sampproductresult Is the product compliant? Cost/savings? Software Model Software Model Results Which model is the problem? License Metric samplicensemetricresult Rights owned vs used vs available"
+    },
+    {
+      "slide_id": "cta",
+      "slide_type": "next_video",
+      "duration": 3,
+      "text": "Next: Normalization (SUMN) Deep Dive \u2014 Content Library, 6 Statuses, Publisher Packs."
+    }
+  ],
+  "audio_durations": [
+    7.56,
+    8.352,
+    21.552,
+    34.152,
+    37.752,
+    12.936,
+    18.408,
+    7.992
+  ],
+  "total_duration": 148.704,
+  "combined_audio": "output_narration/video_02_narration.wav",
+  "srt": "subtitles/video_02.srt"
+}

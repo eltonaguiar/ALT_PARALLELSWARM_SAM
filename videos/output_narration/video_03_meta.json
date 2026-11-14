@@ -1,0 +1,67 @@
+{
+  "video_num": 3,
+  "title": "Normalization (SUMN) Deep Dive",
+  "narrations": [
+    {
+      "slide_id": "title",
+      "slide_type": "title",
+      "duration": 3,
+      "text": "Software Model Normalization (SUMN). From Raw Fingerprints to Canonical Models"
+    },
+    {
+      "slide_id": "problem",
+      "slide_type": "statement",
+      "duration": 8,
+      "text": "Discovery finds 40 variants of \"Microsoft Office\": Office16, Office15, O365ProPlus, MSOffice2019... Without normalization: catastrophic under-licensing on some variants, untracked installs on others."
+    },
+    {
+      "slide_id": "workflow",
+      "slide_type": "key_concept",
+      "duration": 15,
+      "text": "Normalization Workflow. 1. Discovery/SUMN collects raw fingerprints \u2192 creates Discovery Model 2. SUMN matches to Content Library publisher packs \u2192 Software Model 3. Unmatched \u2192 Normalization Queue for manual review 4. Admin maps: Normalize action or Ignore 5. Normalized installs \u2192 Reconciliation. Normalize FIRST, then entitle. Unnormalized = unlicensed = audit risk."
+    },
+    {
+      "slide_id": "statuses",
+      "slide_type": "comparison_table",
+      "duration": 15,
+      "text": "Six Normalization Statuses. New No No Match Not Found Yes No Publisher Normalized Yes Yes Partially Normalized Yes Yes Normalized No Yes Manually Normalized No No"
+    },
+    {
+      "slide_id": "content_library",
+      "slide_type": "key_concept",
+      "duration": 12,
+      "text": "Content Library & Publisher Packs. ServiceNow-maintained publisher packs: Microsoft, Oracle, Adobe, IBM, SAP, 100+ Contains: Software models, normalization rules, suite definitions, license metrics Auto-updated via plugin com.snc.samp.content.library Verify plugin active: com.snc.sams (SAM Pro) + com.snc.iam (ITAM)."
+    },
+    {
+      "slide_id": "suites_critical",
+      "slide_type": "statement",
+      "duration": 10,
+      "text": "SUITE ROLL-UP IS CRITICAL Oracle DB EE, Microsoft Office, Adobe CC = SUITES Components must roll up to suite for correct counting Without suite membership: 500 Word + 500 Excel + 500 PPT = 1,500 licenses!"
+    },
+    {
+      "slide_id": "normalization_jobs",
+      "slide_type": "comparison_table",
+      "duration": 12,
+      "text": "Key Normalization Jobs. Normalize using Content Library rules Daily Auto-match discovery models Discovery Model Normalization job Daily Process normalization queue Discovery Model \u2192 Software Model matching Not documented Model matching ML Normalization (opt-in) Daily AI-assisted matching Wide-net Normalization (opt-in) Daily Broader pattern matching"
+    },
+    {
+      "slide_id": "cta",
+      "slide_type": "next_video",
+      "duration": 3,
+      "text": "Next: Entitlements \u2014 Contracts, Metrics, and the Maintenance Trap."
+    }
+  ],
+  "audio_durations": [
+    6.912,
+    16.92,
+    32.424,
+    12.456,
+    29.664,
+    18.168,
+    23.688,
+    5.424
+  ],
+  "total_duration": 145.656,
+  "combined_audio": "output_narration/video_03_narration.wav",
+  "srt": "subtitles/video_03.srt"
+}

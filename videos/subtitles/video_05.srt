@@ -1,0 +1,35 @@
+1
+00:00:00,000 --> 00:00:06,839
+Reconciliation Engine — The Core. Three Tiers, Step-by-Step, What Breaks It
+
+2
+00:00:06,839 --> 00:00:18,576
+Reconciliation is just arithmetic: Entitlements − Installs − Usage = Compliance Position But the complexity is in normalization pipeline and publisher-specific rules.
+
+3
+00:00:18,576 --> 00:00:28,416
+Compliance Position = f( entitlement quantity, normalized installs (de-duped), usage evidence, license metric, publisher rules )
+
+4
+00:00:28,416 --> 00:01:08,471
+Reconciliation Step-by-Step. 1. Gather ENTITLEMENTS for software model (filter by date validity) 2. Gather NORMALIZED INSTALLS (de-duplicated per device/user per metric) 3. Apply USAGE EVIDENCE — for reclamation & 'not in use' classification 4. Apply PUBLISHER RULES — ignore lists, VM rules, suite roll-ups, downgrade rights 5. CALCULATE position per model and per metric 6. PERSIST reconciliation result record (timestamped, with inputs) 7. ROLL UP to publisher and portfolio dashboards.
+
+5
+00:01:08,471 --> 00:01:28,512
+Three Reconciliation Tiers (Exam: Know These Tables). Product sampproductresult Is product compliant? Cost/savings? Software Model Software Model Results Which model is the problem? License Metric samplicensemetricresult Rights owned vs used vs available
+
+6
+00:01:28,512 --> 00:01:57,695
+What Breaks Reconciliation (Symptom → Root Cause). Everything shows 'unlicensed' No entitlements loaded, or metric mismatch Huge duplicate install count Two discovery sources without dedup rule Installs appear then vanish Discovery source rotation or normalization remap Compliance fluctuates nightly Usage data feed is intermittent Specific publisher wildly over-licensed Suite/bundle roll-up missing Oracle shows impossible numbers Core-factor table not configured
+
+7
+00:01:57,695 --> 00:02:15,192
+JOB: "SAM - Software License Reconciliation" Default: WEEKLY (configurable) Run record: sampreconciliationresult Reconciliation is a REPORT, not a correction. Fix underlying model/entitlement/normalization — NEVER edit the result.
+
+8
+00:02:15,192 --> 00:02:39,312
+Rights Algebra (License Metric Result). Rights OWNED = active entitlements sharing the metric Rights USED = allocated in use + not allocated in use + installed Rights AVAILABLE = owned − used Allocated NOT in use = WASTED rights → remove allocations Not allocated IN use = UNALLOCATED consumption → create allocations or remove installs.
+
+9
+00:02:39,312 --> 00:02:45,096
+Next: Compliance Positions — 6 States, Unknown ≠ Compliant.

@@ -1,0 +1,67 @@
+{
+  "video_num": 4,
+  "title": "Entitlements: Contracts, Metrics, and Hygiene",
+  "narrations": [
+    {
+      "slide_id": "title",
+      "slide_type": "title",
+      "duration": 3,
+      "text": "Entitlements \u2014 The Contract Side. License Metrics, True-Up, and the Maintenance Trap"
+    },
+    {
+      "slide_id": "hook",
+      "slide_type": "statement",
+      "duration": 5,
+      "text": "An entitlement with the wrong metric silently breaks reconciliation. Per-device entitlement vs per-user usage = a plausible but meaningless number."
+    },
+    {
+      "slide_id": "must_have",
+      "slide_type": "comparison_table",
+      "duration": 15,
+      "text": "Entitlement Must-Have Attributes. Software model Must match normalized model exactly Publisher Drives publisher-specific counting rules License metric Per user/device/core/processor/subscription \u2014 MUST match model Purchased quantity Reconciliation numerator License type Perpetual vs subscription vs maintenance (maintenance \u2260 license!) Contract + PO reference Audit evidence chain Start / end date Expiry impacts compliance & renewals Unit cost Enables cost/optimization reporting Owned by / cost center Chargeback and showback Downgrade/upgrade rights Microsoft/Adobe allow; Oracle/IBM do not"
+    },
+    {
+      "slide_id": "hygiene_rules",
+      "slide_type": "key_concept",
+      "duration": 15,
+      "text": "Entitlement Hygiene Rules (Exam Critical). One entitlement per CONTRACT LINE \u2014 not per PO. Auditors trace: entitlement \u2192 contract \u2192 PO Never overwrite quantity to 'fix' a report \u2014 create adjustment/true-up record MAINTENANCE \u2260 LICENSE \u2014 maintenance-only records must not count as usage rights Metric mismatch is SILENT \u2014 per-device entitlement vs per-user usage = meaningless number Expired entitlements still counted = false compliance. Track enddate!."
+    },
+    {
+      "slide_id": "license_metrics",
+      "slide_type": "comparison_table",
+      "duration": 15,
+      "text": "Common License Metrics. Per User / Named User Assigned users Microsoft 365, Salesforce, Adobe CC, ServiceNow Per Device Devices with install Windows, some Adobe Per Core Physical cores \u00d7 core factor Microsoft SQL Server, Oracle Per Processor Physical sockets Legacy Oracle, some IBM PVU (Processor Value Unit) PVU table per CPU model IBM Subscription Time-based entitlement SaaS, term licenses"
+    },
+    {
+      "slide_id": "true_up",
+      "slide_type": "statement",
+      "duration": 8,
+      "text": "TRUE-UP PROCESS: 1. Reconciliation shows under-licensed 2. Create NEW entitlement record (true-up) \u2014 NEVER overwrite original 3. Link to same contract, new PO 4. Re-run reconciliation \u2192 compliant 5. Audit trail preserved: original + true-up = complete history"
+    },
+    {
+      "slide_id": "downgrade_rights",
+      "slide_type": "key_concept",
+      "duration": 10,
+      "text": "Downgrade/Upgrade Rights. Microsoft: Version downgrades permitted (document!) Adobe: Version downgrades permitted Oracle: NO downgrade rights IBM: NO downgrade rights Must be documented on entitlement (udowngraderights custom field)."
+    },
+    {
+      "slide_id": "cta",
+      "slide_type": "next_video",
+      "duration": 3,
+      "text": "Next: Reconciliation Engine Explained \u2014 3 Tiers, Step-by-Step, What Breaks It."
+    }
+  ],
+  "audio_durations": [
+    7.056,
+    10.464,
+    43.608,
+    32.376,
+    31.008,
+    21.984,
+    17.976,
+    6.456
+  ],
+  "total_duration": 170.928,
+  "combined_audio": "output_narration/video_04_narration.wav",
+  "srt": "subtitles/video_04.srt"
+}

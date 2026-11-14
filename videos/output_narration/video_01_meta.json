@@ -1,0 +1,67 @@
+{
+  "video_num": 1,
+  "title": "SAM in 60 Seconds",
+  "narrations": [
+    {
+      "slide_id": "title",
+      "slide_type": "title",
+      "duration": 3,
+      "text": "ServiceNow SAM in 60 Seconds. Software Asset Management Essentials for CIS-SAM"
+    },
+    {
+      "slide_id": "hook",
+      "slide_type": "statement",
+      "duration": 5,
+      "text": "SAM is the ONLY IT practice that directly prevents seven-figure audit penalties while finding 5-15% waste in software spend \u2014 in year one."
+    },
+    {
+      "slide_id": "definition",
+      "slide_type": "definition",
+      "duration": 8,
+      "text": "What is SAM? (One Sentence). SAM reconciles what you OWN (entitlements) against what EXISTS and is USED (installs + usage) per software model and license metric, producing a compliance position."
+    },
+    {
+      "slide_id": "sam_vs_ham",
+      "slide_type": "comparison_table",
+      "duration": 12,
+      "text": "SAM vs HAM vs ITAM. Tracks Physical assets Entitlements, installs, usage Full portfolio Core Question What do we own, where, who? Are we compliant? Cost & risk Key Engine Asset lifecycle RECONCILIATION Both engines Primary Risk Lost/stolen assets Publisher audit fines Both Exam Focus Hardware normalization Metric + publisher rules Integration"
+    },
+    {
+      "slide_id": "chain",
+      "slide_type": "diagram_placeholder",
+      "duration": 10,
+      "text": "The SAM Chain (Memorize: I-D-S-E-R). Install \u2192 Discovery Model \u2192 Software Model \u2192 Entitlement \u2192 Reconciliation \u2192 Compliance Position I - Install (cmdbsamswinstall) D - Discovery Model (cmdbsamswdiscoverymodel) S - Software Model (cmdbsoftwareproductmodel) E - Entitlement (almlicense) R - Reconciliation (sampresult) Mnemonic: I-D-S-E-R = Install, Discovery, Software, Entitlement, Reconciliation"
+    },
+    {
+      "slide_id": "three_records",
+      "slide_type": "key_concept",
+      "duration": 10,
+      "text": "Three Records Never to Confuse. Software Model = What it IS (canonical definition from Content Library) Entitlement = What you MAY USE (contract rights, quantity, metric) Installation = What EXISTS (one install on one device) Reconciliation = THE DIFFERENCE (computed nightly/weekly). Model \u2260 Entitlement \u2260 Install. Confusing them = wrong compliance."
+    },
+    {
+      "slide_id": "value_prop",
+      "slide_type": "statement",
+      "duration": 7,
+      "text": "Business case in one line: SAM returns 5-15% of software spend in year one through reclamation and right-sizing, and removes catastrophic audit exposure on Microsoft, Oracle, IBM \u2014 the top three publishers."
+    },
+    {
+      "slide_id": "cta",
+      "slide_type": "next_video",
+      "duration": 3,
+      "text": "Next: The Chain \u2014 Install \u2192 Discovery Model \u2192 Software Model \u2192 Entitlement \u2192 Result."
+    }
+  ],
+  "audio_durations": [
+    7.08,
+    10.056,
+    15.24,
+    26.568,
+    28.8,
+    29.16,
+    14.64,
+    5.784
+  ],
+  "total_duration": 137.328,
+  "combined_audio": "output_narration/video_01_narration.wav",
+  "srt": "subtitles/video_01.srt"
+}

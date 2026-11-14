@@ -1,0 +1,102 @@
+{
+  "video_num": 12,
+  "title": "Lab Walkthrough: Entitlement \u2192 Reconciliation \u2192 Compliance",
+  "narrations": [
+    {
+      "slide_id": "title",
+      "slide_type": "title",
+      "duration": 3,
+      "text": "Lab: Entitlement \u2192 Reconciliation \u2192 Compliance. 7-Step Hands-On Proof of the Full SAM Chain"
+    },
+    {
+      "slide_id": "hook",
+      "slide_type": "statement",
+      "duration": 5,
+      "text": "This lab proves the entire SAM chain works. Run it in a sub-production instance. If you can explain each step, you MASTER SAM."
+    },
+    {
+      "slide_id": "prerequisites",
+      "slide_type": "key_concept",
+      "duration": 10,
+      "text": "Prerequisites. Sub-production ServiceNow instance (PDI or dev) SAM Pro plugin active (com.snc.sams) ITAM plugin active (com.snc.iam) Content Library populated (Microsoft/Adobe publisher packs) Discovery data present (SCCM/Intune/Discovery) samadmin or samuser role."
+    },
+    {
+      "slide_id": "step1",
+      "slide_type": "key_concept",
+      "duration": 15,
+      "text": "Step 1 \u2014 Choose and Verify a Software Model. Navigate: All > Software Asset Management > Software Models Pick common product with Content Library data (Microsoft/Adobe) VERIFY it has: publisher, version, licensemetrictype, suite membership Record the model's sysid \u2713 PASS: Model opens without errors, license metric populated \u2717 FAIL: Empty metric = reconciliation cannot compute."
+    },
+    {
+      "slide_id": "step2",
+      "slide_type": "key_concept",
+      "duration": 15,
+      "text": "Step 2 \u2014 Create Entitlement Far Below Demand. Navigate: All > Software Asset Management > Licenses > All > New Set: softwaremodel = Step 1 model, licensemetric = SAME as model Quantity = 1 (deliberately far below actual installs) Start date = today, End date = today + 1 year Attach contract record (optional for lab) Save, record entitlement number \u2713 PASS: Entitlement appears in model's related list, metric MATCHES model exactly."
+    },
+    {
+      "slide_id": "step3",
+      "slide_type": "key_concept",
+      "duration": 12,
+      "text": "Step 3 \u2014 Confirm Installs Exist. Navigate: All > Software Asset Management > Installations Filter: softwaremodel = your model Confirm install count > 1 (if zero, pick different model) Note the install count = your demand numerator \u2713 PASS: Install count > 1 (real discovery data required)."
+    },
+    {
+      "slide_id": "step4",
+      "slide_type": "key_concept",
+      "duration": 15,
+      "text": "Step 4 \u2014 Run Reconciliation. Navigate: All > Software Asset Management > Reconciliation > Results Trigger reconciliation for single software model (or scheduled job) Wait for completion Open result for your model \u2713 PASS: Result record exists with: entitlementcount = 1 installcount = <your noted count> compliancestate = Under-licensed OR Unlicensed."
+    },
+    {
+      "slide_id": "step5",
+      "slide_type": "key_concept",
+      "duration": 15,
+      "text": "Step 5 \u2014 Prove the Fix (True-Up). Update entitlement quantity to exceed install count (e.g., installcount + 5) Re-run reconciliation \u2713 PASS: Compliance state flips to Compliant (or Over-licensed) \u2713 PASS: State change is TIMESTAMPED \u2713 PASS: Previous result RETAINED (reconciliation results = history, not mutable)."
+    },
+    {
+      "slide_id": "step6",
+      "slide_type": "key_concept",
+      "duration": 15,
+      "text": "Step 6 \u2014 Prove Normalization Matters. Navigate: All > Software Asset Management > Discovery Models Find unmatched discovery model in same publisher family Note: If counted separately \u2192 separate compliance position Normalize it to your software model (Normalize action) Re-run reconciliation \u2713 PASS: Install count INCREASED, compliance position MOVED This is the SINGLE BEST DEMONSTRATION of why normalization precedes reconciliation."
+    },
+    {
+      "slide_id": "step7",
+      "slide_type": "key_concept",
+      "duration": 15,
+      "text": "Step 7 \u2014 Teach Back (Write It Down). Write 5 sentences covering: 1. What a software model is 2. What an entitlement is 3. What an installation is 4. What reconciliation computes 5. What a compliance position means If you can't explain it simply, you don't understand it well enough. This is the Feynman Technique \u2014 the ultimate mastery test.."
+    },
+    {
+      "slide_id": "lab_summary",
+      "slide_type": "statement",
+      "duration": 10,
+      "text": "LAB PROVES THE CHAIN: Software Model (canonical) \u2192 Discovery Model (raw) \u2192 Installation (concrete) \u2192 Entitlement (rights) \u2192 Reconciliation (arithmetic) \u2192 Compliance Position (verdict) Every step is auditable, timestamped, and reversible. This is what a seasoned SAM expert demonstrates in an interview."
+    },
+    {
+      "slide_id": "interview_tips",
+      "slide_type": "key_concept",
+      "duration": 15,
+      "text": "Interview Talking Points from This Lab. I've run the full reconciliation cycle end-to-end in a live instance I know the exact tables: cmdbsoftwareproductmodel, cmdbsamswdiscoverymodel, cmdbsamswinstall, almlicense, sampresult I understand metric mismatch silently breaks reconciliation I know normalization precedes entitlement \u2014 unnormalized = unlicensed I can explain the 6 compliance positions and why Unknown \u2260 Compliant I know the 8 traps and how to fix each I've done reclamation with 60-90 day windows and business owner sign-off I align renewal quantities to reconciled demand, not vendor proposals."
+    },
+    {
+      "slide_id": "final_cta",
+      "slide_type": "next_video",
+      "duration": 5,
+      "text": "Congratulations! You've completed the SAM Expert Series. Next Steps: \u2022 Run the lab in your PDI \u2022 Take the CIS-SAM prep course \u2022 Schedule your exam \u2022 Join the ServiceNow Community SAM group You now have the knowledge of a seasoned SAM expert. Go prove it. ."
+    }
+  ],
+  "audio_durations": [
+    7.752,
+    10.2,
+    24.384,
+    27.12,
+    31.56,
+    20.616,
+    24.288,
+    23.352,
+    27.744,
+    26.664,
+    20.568,
+    40.704,
+    17.832
+  ],
+  "total_duration": 302.784,
+  "combined_audio": "output_narration/video_12_narration.wav",
+  "srt": "subtitles/video_12.srt"
+}

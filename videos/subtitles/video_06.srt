@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:07,008
+Compliance Positions Explained. 6 States, Financial Meaning, and the Unknown Trap
+
+2
+00:00:07,008 --> 00:00:20,135
+"Unknown" is NOT "Compliant". A SAM program reporting Unknown as Compliant is why audit penalties appear out of nowhere. Unknown = data quality failure = hidden audit exposure.
+
+3
+00:00:20,135 --> 00:01:00,048
+Six Compliance Positions. Compliant Entitlements ≥ demand Neutral Monitor; harvest reclaimed licenses Over-licensed Entitlements > demand Money wasted Reclaim, reduce renewal, renegotiate Under-licensed Entitlements < demand Audit exposure True-up purchase, or reclaim installs Unlicensed Installs exist, no entitlement HIGHEST audit risk Remove, purchase, or reclassify Not counted Excluded by rule Excluded from risk Review annually — exclusions creep Unknown / Unallocated Insufficient data UNKNOWN risk Fix normalization/feed — do NOT report as compliant
+
+4
+00:01:00,048 --> 00:01:25,871
+Compliance Position State Machine. Unlicensed → Under-licensed → Compliant → Over-licensed ↑ ↓ ←────────────────────────────← (demand increases, no new entitlement) Note: Loop is continuous, not one-pass. Reclamation feeds back into reconciliation. Renewal decisions driven by compliance position. Mnemonic: CUOUU = Compliant, Under, Over, Unlicensed, Unknown
+
+5
+00:01:25,871 --> 00:01:52,103
+Financial Impact by Position. Compliant: Baseline — no action cost Over-licensed: Direct waste — unitcost × excessqty Under-licensed: Audit risk — true-up cost + potential penalties (3-5x) Unlicensed: MAXIMUM risk — full retail + penalties Unknown: Hidden exposure — cannot budget, cannot defend Not counted: Governance gap — review annually.
+
+6
+00:01:52,103 --> 00:02:11,135
+COMMON MISTAKE: Reporting "Unknown" as "Compliant" Why it happens: Dashboard shows green for "no violations found" Reality: "No violations" ≠ "Compliant" — it means "No data" Fix: Separate "Unknown" column in every dashboard/report. Assign owner to every Unknown position.
+
+7
+00:02:11,135 --> 00:02:23,304
+CIS-SAM Exam: Expect questions distinguishing "Unlicensed" (installs exist, no entitlement) from "Unknown" (insufficient data to determine). They are NOT the same.
+
+8
+00:02:23,304 --> 00:02:29,664
+Next: Publisher Traps — Microsoft, Oracle, IBM, SAP, Adobe.

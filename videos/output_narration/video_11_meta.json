@@ -1,0 +1,74 @@
+{
+  "video_num": 11,
+  "title": "CIS-SAM Exam Map & Study Strategy",
+  "narrations": [
+    {
+      "slide_id": "title",
+      "slide_type": "title",
+      "duration": 3,
+      "text": "CIS-SAM Exam Map & Study Strategy. 5 Domains, Weights, Official Courses, What to Memorize"
+    },
+    {
+      "slide_id": "hook",
+      "slide_type": "statement",
+      "duration": 5,
+      "text": "CIS-SAM questions drawn from: Official training + Product Docs + Developer Site. Publisher questions = conceptual (which metric, which rule) NOT tool-click memorization."
+    },
+    {
+      "slide_id": "domains",
+      "slide_type": "comparison_table",
+      "duration": 20,
+      "text": "5 CIS-SAM Domains & Weights. 1: SAM Overview & Fundamentals ~15% ITAM/SAM positioning, lifecycle, roles, value case Video 1, 2 2: Data Integrity \u2014 Models, Normalization, Content Library ~25% Software models, SUMN, publisher packs, suites, discovery models Video 2, 3 3: Entitlements, Licenses, Reconciliation ~30% License metrics, entitlement records, reconciliation logic, compliance states Video 4, 5, 6 4: Optimization, Reclamation, Audit Defence ~20% Reclamation, true-up, publisher rules, audit workflow Video 7, 9 5: Reporting, Dashboards, Operational Integration ~10% SAM Workspace, dashboards, KPIs, integrations Video 8, 9"
+    },
+    {
+      "slide_id": "official_courses",
+      "slide_type": "key_concept",
+      "duration": 12,
+      "text": "Official Preparation Courses (Verify Current Catalog). Welcome to ServiceNow ServiceNow Administration Fundamentals Software Asset Management (SAM) Fundamentals Software Asset Management Professional / Implementation CIS-SAM Exam Preparation."
+    },
+    {
+      "slide_id": "what_to_memorize",
+      "slide_type": "key_concept",
+      "duration": 15,
+      "text": "What to MEMORIZE (Cold). I-D-S-E-R chain (6 record types + tables) 6 Normalization statuses + manual/revert rules 6 Compliance positions + financial meaning + actions 3 Reconciliation tiers + table names Publisher traps: Microsoft (per-core), Oracle (core factor/server), IBM (PVU/ILMT), SAP (indirect access), Adobe (VIP/ETLA) Rights algebra: Owned, Used, Available, Allocated-not-in-use, Not-allocated-in-use SaaS vs On-prem differences table 8 SAM Traps Optimization priority order (6 steps)."
+    },
+    {
+      "slide_id": "what_to_understand",
+      "slide_type": "key_concept",
+      "duration": 12,
+      "text": "What to UNDERSTAND (Conceptual). Why normalization precedes entitlement How suite roll-up affects component counting Why metric mismatch silently breaks reconciliation Why Unknown \u2260 Compliant (data quality vs compliance) How publisher rules modify base reconciliation Reclamation workflow + 60-90 day rule rationale Connector health = data quality = compliance accuracy."
+    },
+    {
+      "slide_id": "study_strategy",
+      "slide_type": "key_concept",
+      "duration": 15,
+      "text": "Study Strategy (Recommended Order). 1. Watch this full series (12 videos) \u2014 builds mental model 2. Do the Lab (Video 12) in sub-prod instance \u2014 hands-on proof 3. Read official SAM Fundamentals + Pro course materials 4. Practice with Product Documentation search (exam is open-book-ish) 5. Take CIS-SAM prep course practice exams 6. Teach back: Explain each concept to a peer (Video 12 Step 7)."
+    },
+    {
+      "slide_id": "mnemonics_recap",
+      "slide_type": "comparison_table",
+      "duration": 15,
+      "text": "All Mnemonics in One Place. SAM Chain I-D-S-E-R (Install, Discovery, Software, Entitlement, Reconciliation) Compliance Positions CUOUU (Compliant, Under, Over, Unlicensed, Unknown) Normalization Statuses New \u2192 Match Not Found \u2192 Pub Norm \u2192 Partial \u2192 Norm \u2192 Manual Business Rules BAA (Before, After, Async) Client Scripts LOCS (onLoad, onChange, onSubmit, onCellEdit) UI Policy vs Data Policy vs Client Script UDC (UI=client, Data=server, Client=both) Update Set Conflicts ARM (Accept, Reject, Merge) CMDB Retire Before Delete Order vs Priority Lower = First Transform Script Coalesce = Match Debugging Log First, Then Debug Reconciliation Rights Owned \u2212 Rights Used = Rights Available"
+    },
+    {
+      "slide_id": "cta",
+      "slide_type": "next_video",
+      "duration": 3,
+      "text": "Next: Lab Walkthrough \u2014 Entitlement \u2192 Reconciliation \u2192 Compliance (7 Steps)."
+    }
+  ],
+  "audio_durations": [
+    8.592,
+    12.888,
+    54.936,
+    17.328,
+    41.184,
+    26.28,
+    33.336,
+    55.032,
+    6.048
+  ],
+  "total_duration": 255.624,
+  "combined_audio": "output_narration/video_11_narration.wav",
+  "srt": "subtitles/video_11.srt"
+}

@@ -1,0 +1,74 @@
+{
+  "video_num": 5,
+  "title": "Reconciliation Engine Explained",
+  "narrations": [
+    {
+      "slide_id": "title",
+      "slide_type": "title",
+      "duration": 3,
+      "text": "Reconciliation Engine \u2014 The Core. Three Tiers, Step-by-Step, What Breaks It"
+    },
+    {
+      "slide_id": "hook",
+      "slide_type": "statement",
+      "duration": 5,
+      "text": "Reconciliation is just arithmetic: Entitlements \u2212 Installs \u2212 Usage = Compliance Position But the complexity is in normalization pipeline and publisher-specific rules."
+    },
+    {
+      "slide_id": "formula",
+      "slide_type": "statement",
+      "duration": 8,
+      "text": "Compliance Position = f( entitlement quantity, normalized installs (de-duped), usage evidence, license metric, publisher rules )"
+    },
+    {
+      "slide_id": "step_by_step",
+      "slide_type": "key_concept",
+      "duration": 20,
+      "text": "Reconciliation Step-by-Step. 1. Gather ENTITLEMENTS for software model (filter by date validity) 2. Gather NORMALIZED INSTALLS (de-duplicated per device/user per metric) 3. Apply USAGE EVIDENCE \u2014 for reclamation & 'not in use' classification 4. Apply PUBLISHER RULES \u2014 ignore lists, VM rules, suite roll-ups, downgrade rights 5. CALCULATE position per model and per metric 6. PERSIST reconciliation result record (timestamped, with inputs) 7. ROLL UP to publisher and portfolio dashboards."
+    },
+    {
+      "slide_id": "three_tiers",
+      "slide_type": "comparison_table",
+      "duration": 15,
+      "text": "Three Reconciliation Tiers (Exam: Know These Tables). Product sampproductresult Is product compliant? Cost/savings? Software Model Software Model Results Which model is the problem? License Metric samplicensemetricresult Rights owned vs used vs available"
+    },
+    {
+      "slide_id": "what_breaks",
+      "slide_type": "comparison_table",
+      "duration": 15,
+      "text": "What Breaks Reconciliation (Symptom \u2192 Root Cause). Everything shows 'unlicensed' No entitlements loaded, or metric mismatch Huge duplicate install count Two discovery sources without dedup rule Installs appear then vanish Discovery source rotation or normalization remap Compliance fluctuates nightly Usage data feed is intermittent Specific publisher wildly over-licensed Suite/bundle roll-up missing Oracle shows impossible numbers Core-factor table not configured"
+    },
+    {
+      "slide_id": "reconciliation_job",
+      "slide_type": "statement",
+      "duration": 8,
+      "text": "JOB: \"SAM - Software License Reconciliation\" Default: WEEKLY (configurable) Run record: sampreconciliationresult Reconciliation is a REPORT, not a correction. Fix underlying model/entitlement/normalization \u2014 NEVER edit the result."
+    },
+    {
+      "slide_id": "rights_algebra",
+      "slide_type": "key_concept",
+      "duration": 15,
+      "text": "Rights Algebra (License Metric Result). Rights OWNED = active entitlements sharing the metric Rights USED = allocated in use + not allocated in use + installed Rights AVAILABLE = owned \u2212 used Allocated NOT in use = WASTED rights \u2192 remove allocations Not allocated IN use = UNALLOCATED consumption \u2192 create allocations or remove installs."
+    },
+    {
+      "slide_id": "cta",
+      "slide_type": "next_video",
+      "duration": 3,
+      "text": "Next: Compliance Positions \u2014 6 States, Unknown \u2260 Compliant."
+    }
+  ],
+  "audio_durations": [
+    6.84,
+    11.736,
+    9.84,
+    40.056,
+    20.04,
+    29.184,
+    17.496,
+    24.12,
+    5.784
+  ],
+  "total_duration": 165.096,
+  "combined_audio": "output_narration/video_05_narration.wav",
+  "srt": "subtitles/video_05.srt"
+}
