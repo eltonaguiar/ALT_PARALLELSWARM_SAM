@@ -72,7 +72,7 @@
 | `samp_sw_reclamation_candidate` | Removal Candidate | Reclamation candidates and savings | **V** |
 | `sam_sw_product_lifecycle` | Product Lifecycle | EOL/EOS data | **V** |
 | `samp_sw_product_definition` | Software Product Definition | PPN / product definition | **V** |
-| `samp_normalization_suggestion` | Normalization Suggestions | Suggested normalized values; overview labels the list `samp_normalization_suggestions` | **V/C** |
+| `samp_normalization_suggestion` | Normalization Suggestions | Suggested normalized values; overview labels the list `samp_normalization_suggestions`; verify exact table | **V/C/U** |
 | `samp_entitlement_import` | Entitlement Import Error | Import errors | **V** |
 | `samp_job_log` | Software Asset Job Result | Job run results | **V** |
 | `sam_sw_dedup_rule` | Custom Deduplication Rules | Product-level dedup rules | **V** |
@@ -178,7 +178,7 @@ Official cadence is stated only where the Brazil page states it. "Not documented
 | `SAM - Central Data Service Download Status` | Daily | Update CDS download status | **V** |
 | `SAM - Trigger Full Scan` | Weekly | Health-check KPIs | **V** |
 | `SAM — Adjust Installs for excluded CIs` | Not documented | Apply exclude-CI flag | **V** |
-| `SAM - Software License Reconciliation` | Weekly default (schedule configurable) | Main compliance calculation | **C** |
+| `SAM - Software License Reconciliation` | Weekly default (schedule configurable) | Main compliance calculation | **V** (cadence); **C** (job-name attribution) |
 | `SAM – Discovery Model to Software Model matching` | Not documented | Map discovery models to software models | **V** (job name) / **U** (cadence) |
 | `SAM - Deduplicate Install Table` | Not documented | Dedup installs | **C** |
 | `SAM - Subscription Maintenance` | Not documented | Subscription lifecycle | **C** |

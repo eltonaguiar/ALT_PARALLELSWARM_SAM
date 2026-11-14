@@ -85,6 +85,7 @@ Titles are the page titles in the Brazil map. Slugs are the retained extract nam
 | Reconciliation rules | Static vs dynamic, precedence, child override, domain separation |
 | Create a CI reconciliation rule | Rule fields, priorities, null handling, filter conditions |
 | Create an IRE data source rule | Insert gate, partial payload behavior, `INSERT_NOT_ALLOWED_FOR_SOURCE` |
+| Properties for Identification and Reconciliation | IRE property defaults (`ire_properties.txt`) used in `02 §9` and matrix C13 |
 
 **V** for the page content. The IRE pages are Australia; the SAM pages are Brazil. A release mismatch is possible and is called out in the text where it matters.
 

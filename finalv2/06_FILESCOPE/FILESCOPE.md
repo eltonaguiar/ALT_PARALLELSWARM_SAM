@@ -7,7 +7,7 @@
 
 ---
 
-## Files added (24)
+## Files added (25)
 
 ```
 finalv2/README.md
@@ -60,7 +60,7 @@ The addition is additive: a horizontal rule, the `# SAM Cheat sheet` heading, co
 
 ## Verification before publish
 
-- [x] 24 Markdown files present.
+- [x] 25 Markdown files present.
 - [x] Relative links resolve in the published repo layout (v2 sits beside `final/`).
 - [x] No TODO/TBD placeholders.
 - [x] No secrets, credentials, or private data.
