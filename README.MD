@@ -53,3 +53,171 @@ No live instance was available, so business-rule/UI-policy/ACL names, sys_ids, a
 - [`LEARNING_PROTOCOL_ADDITIONS.md`](agents/deepseek-flash__deepseek__kilo/05_FINAL/LEARNING_PROTOCOL_ADDITIONS.md) — ten reusable artefacts for `ServiceNow_Learning`, mapped to its ORIENT → MODEL → PRACTISE → PROVE → TEACH loop.
 
 The guide is the better teacher; this repo is the better reference. Neither should absorb the other wholesale — the guide keeps its voice and links here for depth.
+
+---
+
+# SAM Cheat sheet
+
+> Core concepts, one screen. Links point to the deep docs or source notes where available. Marks follow **V/C/U/P**; where a cheat-sheet table has no per-row mark, the deep doc is authoritative.
+
+## 1. One sentence
+
+**SAM reconciles what you own (entitlements) against what exists and is used (normalized installs + usage) per software model and license metric, and turns the difference into a compliance position.** **V**
+
+## 2. The chain (memorize this order)
+
+```text
+CI (CMDB/IRE)
+  └─ cmdb_sam_sw_install            # one install on one device
+       └─ cmdb_sam_sw_discovery_model  # raw fingerprint, normalized
+            └─ cmdb_software_product_model  # purchased product profile
+                 └─ alm_license             # rights + metric + dates
+                      └─ reconciliation     # rights vs demand
+                           ├─ samp_product_result
+                           ├─ Software Model Results
+                           └─ samp_license_metric_result
+```
+
+**Install → discovery model → software model → entitlement → result.** **V**
+
+**Usage note:** `samp_sw_usage` is **product-level** and references publisher/product + CI + user; it feeds reconciliation and does **not** reference the install row. **V**
+
+## 3. The four gates
+
+| Gate | Pass condition |
+|---|---|
+| Schema + edition | Correct plugin; SAM tables present |
+| CMDB + CI identity | One CI per device; IRE rules reviewed |
+| Discovery feed | One trusted source populating installs |
+| Normalization + entitlements | Models normalize; every entitlement has model + metric |
+
+## 4. IRE rule families (CMDB only)
+
+| Rule family | Insert? | Update? | One-line |
+|---|---|---|---|
+| **Identification** | Yes | Yes | Same CI or new CI? |
+| **Reconciliation** (static/dynamic) | No | Yes | Which source may write this field? |
+| **Data refresh** | No | Yes | Is the value stale enough to hand off? |
+| **IRE data source** | Yes (blocks) | No | May this source create this class? |
+
+**Order:** identify first. Match → reconcile + data refresh. No match → data source rule gates the insert. **V**
+
+## 5. Normalization statuses (six)
+
+| Status | Manual normalize? | Revert? |
+|---|---|---|
+| New | No | No |
+| Match Not Found | Yes | No |
+| Publisher Normalized | Yes | Yes |
+| Partially Normalized | Yes | Yes |
+| Normalized | No | Yes |
+| Manually Normalized | No | No |
+
+All reverts go to **Match Not Found**. Pattern-normalized models cannot be reverted. **V**
+
+## 6. Reconciliation results (three tiers)
+
+| Tier | Table | Answers |
+|---|---|---|
+| Product | `samp_product_result` | Is the product compliant? What is the cost/savings? |
+| Software model | Software Model Results | Which model is the problem? |
+| License metric | `samp_license_metric_result` | Rights owned vs used vs available, by metric |
+
+**Run record:** `samp_reconciliation_result` **V**. There is no documented single `sam_sw_reconciliation_result` analysis table **C**.
+
+## 7. Rights algebra
+
+**Rights owned** = active entitlements sharing the metric.
+**Rights used** = allocated in use + not allocated in use + installed.
+**Rights available** = owned − used.
+**Allocated not in use** = wasted rights → remove allocations.
+**Not allocated in use** = unallocated consumption → create allocations or remove unallocated installs.
+
+**V**
+
+## 8. Insert vs update (the short version)
+
+| Layer | Insert gate | Update gate |
+|---|---|---|
+| CI | IRE identification + data source rule | IRE reconciliation + data refresh |
+| Install | Discovery writes | Same discovery-model reference |
+| Discovery model | Business rule creates | Normalization / manual normalize |
+| Software model | Auto-create property or admin | Model matching / admin |
+| Entitlement | Create/import | New true-up record, never overwrite history |
+| Result | New run | Re-run; do not edit |
+
+## 9. Key tables
+
+| Table | What it is |
+|---|---|
+| `cmdb_sam_sw_install` | Installs (source of truth for current software) |
+| `cmdb_sam_sw_discovery_model` | Raw fingerprints + normalized fields + status |
+| `cmdb_software_product_model` | Purchased product profile |
+| `alm_license` | Entitlement |
+| `samp_sw_usage` | Usage evidence |
+| `samp_product_result` | Product compliance/cost |
+| `samp_license_metric_result` | Rights per metric |
+| `samp_reconciliation_result` | Reconciliation run |
+| `samp_sw_reclamation_candidate` | Reclamation candidates |
+| `sam_sw_dedup_rule` | Custom dedup rules |
+
+## 10. Key properties
+
+| Property | What it does |
+|---|---|
+| `com.snc.samp.recon.group` / `.subgroup` | Weekly reconciliation grouping |
+| `com.snc.samp.automaticsmrcreation` | Auto-create models for licensable products |
+| `com.snc.samp.exclude_device_flag` | Exclude CIs from SAM |
+| `com.snc.samp.manage.published.products` | Phase-wise scope |
+| `com.snc.samp.oracle.reconlevel` | Oracle VMware aggregation |
+| `com.snc.samp.enable.ml_normalization` | ML normalization |
+| `com.snc.samp.wide_net_normalization.enabled` | Wide-net normalization |
+| `sn_sam_workspace.sam_license_operations_list_count` | Workspace list count threshold |
+
+## 11. Key jobs
+
+| Job | Cadence |
+|---|---|
+| `SAM - Normalize discovery models using content library rules` | Daily |
+| `SAM - Discovery Model Normalization job` | Daily |
+| `SAM - Daily Job` | Daily |
+| `SAM - Trigger Full Scan` | Weekly |
+| `SAM — Adjust Installs for excluded CIs` | Not documented |
+| `SAM - Software License Reconciliation` | Weekly default (schedule configurable) |
+| `SAM – Discovery Model to Software Model matching` | Not documented |
+
+## 12. Top traps
+
+1. **Metric mismatch** between model and entitlement → silently meaningless result.
+2. **Duplicate installs** from multiple sources → inflated demand; configure dedup.
+3. **Unnormalized titles** → unlicensed/unknown; normalize before auto-create.
+4. **Maintenance treated as a license** → false compliance.
+5. **Leftover installs on out-of-scope devices** → phantom demand; Retired/Stolen CI status deletes installs, but leased/ignored devices need the exclude-CI job.
+6. **First reconciliation treated as an invoice** → wrong true-up; use it as a data-quality loop.
+7. **Dead SaaS connector** → "no waste" illusion; monitor health.
+8. **Confusing vendor / publisher / PPN / model / discovery model / catalog item** → wrong links.
+
+## 13. Where to go next
+
+| Need | Go to |
+|---|---|
+| Full architecture | [`05_FINAL/01_SAM_MODULE_GUIDE.md`](finalv2/05_FINAL/01_SAM_MODULE_GUIDE.md) |
+| IRE rules | [`05_FINAL/02_CMDB_IRE_GOVERNANCE.md`](finalv2/05_FINAL/02_CMDB_IRE_GOVERNANCE.md) |
+| Pipeline + dedup | [`05_FINAL/03_DISCOVERY_TO_SAM_PIPELINE.md`](finalv2/05_FINAL/03_DISCOVERY_TO_SAM_PIPELINE.md) |
+| Normalization | [`05_FINAL/04_NORMALIZATION_AND_DEDUP.md`](finalv2/05_FINAL/04_NORMALIZATION_AND_DEDUP.md) |
+| Reconciliation | [`05_FINAL/05_ENTITLEMENTS_METRICS_RECONCILIATION.md`](finalv2/05_FINAL/05_ENTITLEMENTS_METRICS_RECONCILIATION.md) |
+| Config inventory | [`05_FINAL/06_CONFIGURATION_REFERENCE.md`](finalv2/05_FINAL/06_CONFIGURATION_REFERENCE.md) |
+| Runbook | [`05_FINAL/07_OPERATIONS_RUNBOOK.md`](finalv2/05_FINAL/07_OPERATIONS_RUNBOOK.md) |
+| Sources | [`05_FINAL/08_SOURCE_NOTES.md`](finalv2/05_FINAL/08_SOURCE_NOTES.md) |
+| Guide delta | [`GUIDE_CROSS_REFERENCE.md`](finalv2/GUIDE_CROSS_REFERENCE.md) |
+
+**External links:**
+
+- Official docs: <https://www.servicenow.com/docs/>
+- Public SAM guide: <https://eltonaguiar.github.io/ServiceNow_Learning_TSOM-_CSM_FSM_SalesCRM_HAM_ITSM/docs/modules/sam/sam-guide/>
+- v1 merged reference: [`final/FINAL_SAM_MODULE_REFERENCE.md`](final/FINAL_SAM_MODULE_REFERENCE.md)
+- v1 config reference: [`final/FINAL_SAM_CONFIG_REFERENCE.md`](final/FINAL_SAM_CONFIG_REFERENCE.md)
+
+---
+
+*End of SAM Cheat sheet. Full reference: [`finalv2/README.md`](finalv2/README.md).*
