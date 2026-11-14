@@ -42,7 +42,7 @@ jobs:
       - name: Install Python dependencies
         run: |
           pip install --upgrade pip
-          pip install python-pptx pyyaml moviepy pillow
+          pip install python-pptx pyyaml "moviepy<2.0" pillow
 
       - name: Generate PPTX slides from YAML content
         run: |
