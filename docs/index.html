@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ServiceNow SAM Video Series — CIS-SAM Prep</title>
+<style>
+  :root {
+    --bg: #1e2a3a;
+    --card: #27364a;
+    --accent: #006b3f;
+    --text: #f0f4f8;
+    --muted: #a7b6c8;
+    --yellow: #ffd700;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+  header { background: linear-gradient(135deg, var(--accent), #004b2c); padding: 40px 24px; text-align: center; }
+  header h1 { font-size: 2.2rem; margin-bottom: 6px; }
+  header p { color: #d4e8dd; font-size: 1.05rem; }
+  main { max-width: 1100px; margin: 0 auto; padding: 24px; }
+  section { margin-bottom: 40px; }
+  h2 { font-size: 1.5rem; color: var(--yellow); border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin-bottom: 16px; }
+  h3 { font-size: 1.15rem; color: #9fd8bd; margin: 14px 0 8px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+  .card { background: var(--card); border-radius: 10px; padding: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
+  .card video { width: 100%; border-radius: 6px; background: #000; }
+  .card h4 { font-size: .95rem; margin-bottom: 4px; color: #fff; }
+  .card .meta { color: var(--muted); font-size: .8rem; }
+  .summary { background: #0f1a26; border: 1px solid var(--accent); border-radius: 12px; padding: 20px; }
+  .summary blockquote { border-left: 4px solid var(--accent); padding: 8px 14px; margin: 10px 0; background: #16263a; border-radius: 0 6px 6px 0; font-style: italic; }
+  .summary pre { background: #0b1420; padding: 14px; border-radius: 8px; overflow-x: auto; font-size: .85rem; margin: 10px 0; white-space: pre; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: .9rem; }
+  th, td { border: 1px solid #3a4c63; padding: 8px 10px; text-align: left; }
+  th { background: var(--accent); }
+  .toc { background: var(--card); border-radius: 10px; padding: 16px 20px; }
+  .toc a { color: #9fd8bd; text-decoration: none; display: block; padding: 3px 0; }
+  .toc a:hover { color: var(--yellow); }
+  footer { text-align: center; padding: 24px; color: var(--muted); font-size: .85rem; }
+  .badge { display: inline-block; background: var(--accent); color: #fff; border-radius: 20px; padding: 2px 12px; font-size: .75rem; margin-left: 6px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ServiceNow SAM Video Series</h1>
+  <p>CIS-SAM Interview Preparation &amp; Technical Mastery · org. from multi-agent fleet work</p>
+</header>
+
+<main>
+
+  <nav class="toc">
+    <h3>Contents</h3>
+    <a href="#s1">Section 1 — SAM Foundations (Videos 1–2)</a>
+    <a href="#s2">Section 2 — Data Integrity &amp; Normalization (Videos 3–4)</a>
+    <a href="#s3">Section 3 — Reconciliation &amp; Compliance (Videos 5–6)</a>
+    <a href="#s4">Section 4 — Publisher-Specific &amp; SaaS (Videos 7–8)</a>
+    <a href="#s5">Section 5 — Optimization, Exam &amp; Lab (Videos 9–12)</a>
+    <a href="#summary">📖 Summary — Master Class (Longer-Form Companion)</a>
+  </nav>
+
+  <section id="s1">
+    <h2>Section 1 — SAM Foundations <span class="badge">Videos 1–2</span></h2>
+    <div class="grid">
+      <div class="card">
+        <h4>Video 1 · SAM in 60 Seconds</h4>
+        <video controls preload="metadata"><source src="sam-videos/videos/video_01.mp4" type="video/mp4"></video>
+        <p class="meta">40s · Definition, SAM vs HAM vs ITAM, chain overview</p>
+      </div>
+      <div class="card">
+        <h4>Video 1f · SAM in 60 Seconds (Full)</h4>
+        <video controls preload="metadata"><source src="sam-videos/videos/video_01_sam_60s.mp4" type="video/mp4"></video>
+        <p class="meta">65s · Extended intro with the chain</p>
+      </div>
+      <div class="card">
+        <h4>Video 2 · The Chain</h4>
+        <video controls preload="metadata"><source src="sam-videos/videos/video_02.mp4" type="video/mp4"></video>
+        <p class="meta">40s · Install → Discovery → Model → Entitlement → Result</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="s2">
+    <h2>Section 2 — Data Integrity &amp; Normalization <span class="badge">Videos 3–4</span></h2>
+    <div class="grid">
+      <div class="card">
+        <h4>Video 3 · Normalization (SUMN) Deep Dive</h4>
+        <video controls preload="metadata"><source src="sam-videos/videos/video_03.mp4" type="video/mp4"></video>
+        <p class="meta">40s · SUMN pipeline, 6 statuses, Content Library</p>
+      </div>
+      <div class="card">
+        <h4>Video 4 · Entitlements</h4>
+        <video controls preload="metadata"><source src="sam-videos/videos/video_04.mp4" type="video/mp4"></video>
+        <p class="meta">40s · Contracts, metrics, hygiene rules</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="s3">
+    <h2>Section 3 — Reconciliation &amp; Compliance <span class="badge">Videos 5–6</span></h2>
+    <div class="grid">
+      <div class="card">
+        <h4>Video 5 · Reconciliation Engine Explained</h4>
+        <video controls preload="metadata"><source src="sam-videos/videos/video_05.mp4" type="video/mp4"></video>
+        <p class="meta">45s · 3 tiers, step-by-step, what breaks it</p>
+      </div>
+      <div class="card">
+        <h4>Video 6 · Compliance Positions</h4>
+        <video controls preload="metadata"><source src="sam-videos/videos/video_06.mp4" type="video/mp4"></video>
+        <p class="meta">40s · 6 states, Unknown ≠ Compliant</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="s4">
+    <h2>Section 4 — Publisher-Specific &amp; SaaS <span class="badge">Videos 7–8</span></h2>
+    <div class="grid">
+      <div class="card">
+        <h4>Video 7 · Publisher Traps</h4>
+        <video controls preload="metadata"><source src="sam-videos/videos/video_07.mp4" type="video/mp4"></video>
+        <p class="meta">50s · Microsoft, Oracle, IBM, SAP, Adobe</p>
+      </div>
+      <div class="card">
+        <h4>Video 8 · SaaS License Management</h4>
+        <video controls preload="metadata"><source src="sam-videos/videos/video_08.mp4" type="video/mp4"></video>
+        <p class="meta">40s · Assigned seats vs usage, reclamation</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="s5">
+    <h2>Section 5 — Optimization, Exam &amp; Lab <span class="badge">Videos 9–12</span></h2>
+    <div class="grid">
+      <div class="card">
+        <h4>Video 9 · Optimization &amp; Reclamation</h4>
+        <video controls preload="metadata"><source src="sam-videos/videos/video_09.mp4" type="video/mp4"></video>
+        <p class="meta">45s · Priority order, 60–90 day rule</p>
+      </div>
+      <div class="card">
+        <h4>Video 10 · Top 8 SAM Traps</h4>
+        <video controls preload="metadata"><source src="sam-videos/videos/video_10.mp4" type="video/mp4"></video>
+        <p class="meta">60s · Exam &amp; real-world pitfalls</p>
+      </div>
+      <div class="card">
+        <h4>Video 11 · CIS-SAM Exam Map</h4>
+        <video controls preload="metadata"><source src="sam-videos/videos/video_11.mp4" type="video/mp4"></video>
+        <p class="meta">45s · 5 domains &amp; weights, study strategy</p>
+      </div>
+      <div class="card">
+        <h4>Video 12 · Lab Walkthrough</h4>
+        <video controls preload="metadata"><source src="sam-videos/videos/video_12.mp4" type="video/mp4"></video>
+        <p class="meta">65s · Entitlement → Compliance proof</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="summary" class="summary">
+    <h2>📖 Summary — Master Class (Longer-Form Companion)</h2>
+    <p>The consolidated study companion synthesizing the core concepts across <strong>all 12 videos</strong>. Read after watching, or as a rapid interview refresher.</p>
+
+    <blockquote>
+      <strong>One-Sentence Thesis:</strong> SAM reconciles what you own (entitlements) against what exists and is used (normalized installs + usage) per software model and license metric, and turns the difference into a compliance position.
+    </blockquote>
+
+    <h3>The Master Chain (I-D-S-E-R)</h3>
+    <pre>CI (CMDB/IRE)
+  └─ cmdb_sam_sw_install            # one install on one device
+       └─ cmdb_sam_sw_discovery_model  # raw fingerprint → normalized
+            └─ cmdb_software_product_model  # purchased product profile
+                 └─ alm_license             # rights + metric + dates
+                      └─ reconciliation     # rights vs demand
+                           ├─ samp_product_result
+                           ├─ Software Model Results
+                           └─ samp_license_metric_result</pre>
+    <blockquote>Software model = what it IS. Entitlement = what you MAY USE. Installation = what EXISTS. Usage = what is USED. Reconciliation = the DIFFERENCE.</blockquote>
+
+    <h3>The Four Gates</h3>
+    <table>
+      <tr><th>Gate</th><th>Pass Condition</th></tr>
+      <tr><td>Schema + edition</td><td>Correct plugin; SAM tables present</td></tr>
+      <tr><td>CMDB + CI identity</td><td>One CI per device; IRE rules reviewed</td></tr>
+      <tr><td>Discovery feed</td><td>One trusted source populating installs</td></tr>
+      <tr><td>Normalization + entitlements</td><td>Models normalize; every entitlement has model + metric</td></tr>
+    </table>
+
+    <h3>Compliance Positions</h3>
+    <table>
+      <tr><th>Position</th><th>Meaning</th><th>Action</th></tr>
+      <tr><td>Compliant</td><td>Owned ≥ demand</td><td>Monitor</td></tr>
+      <tr><td>Over-licensed</td><td>Owned > demand</td><td>Reclaim / renegotiate</td></tr>
+      <tr><td>Under-licensed</td><td>Owned < demand</td><td>True-up or reclaim</td></tr>
+      <tr><td>Unlicensed</td><td>No entitlement</td><td>Remove / purchase</td></tr>
+      <tr><td>Not counted</td><td>Excluded by rule</td><td>Review annually</td></tr>
+      <tr><td>Unknown</td><td>Insufficient data</td><td>Fix data — NOT compliant</td></tr>
+    </table>
+    <blockquote>"Unknown" is NOT "Compliant" — reporting unknown as compliant hides audit exposure.</blockquote>
+
+    <h3>Publisher Traps</h3>
+    <table>
+      <tr><th>Publisher</th><th>Key Trap</th></tr>
+      <tr><td>Microsoft</td><td>SQL Server per-core (cores × factor, min 4/socket); M365 bundle overlap</td></tr>
+      <tr><td>Oracle</td><td>Core factor; license server not VM; LMS scripts; NUP minimums</td></tr>
+      <tr><td>IBM</td><td>PVU tables; sub-capacity needs ILMT</td></tr>
+      <tr><td>SAP</td><td>Named-user by usage type; indirect/digital access</td></tr>
+      <tr><td>Adobe</td><td>VIP/ETLA named-user; suite roll-up</td></tr>
+    </table>
+
+    <h3>Top 8 Traps</h3>
+    <ol>
+      <li>Metric mismatch — silently meaningless result</li>
+      <li>Duplicate installs — inflated demand</li>
+      <li>Unnormalized titles — unlicensed/unknown</li>
+      <li>Maintenance treated as license — false compliance</li>
+      <li>Leftover installs on out-of-scope devices — phantom demand</li>
+      <li>First reconciliation as invoice — wrong true-up</li>
+      <li>Dead SaaS connector — "no waste" illusion</li>
+      <li>Confusing vendor/publisher/PPN/model/catalog — wrong links</li>
+    </ol>
+
+    <h3>CIS-SAM Domains &amp; Weights</h3>
+    <table>
+      <tr><th>Domain</th><th>Weight</th></tr>
+      <tr><td>1: Overview &amp; Fundamentals</td><td>~15%</td></tr>
+      <tr><td>2: Data Integrity (Models, Normalization)</td><td>~25%</td></tr>
+      <tr><td>3: Entitlements, Licenses, Reconciliation</td><td>~30%</td></tr>
+      <tr><td>4: Optimization, Reclamation, Audit Defence</td><td>~20%</td></tr>
+      <tr><td>5: Reporting, Dashboards, Integration</td><td>~10%</td></tr>
+    </table>
+
+    <h3>Interview Soundbites</h3>
+    <blockquote>"SAM is the only IT practice that directly prevents seven-figure audit penalties while simultaneously finding 5-15% waste in software spend."</blockquote>
+    <blockquote>"The reconciliation engine is just arithmetic: entitlements minus installs minus usage, but the complexity is in the normalization pipeline and publisher rules."</blockquote>
+    <blockquote>"Reclamation without a 60-90 day inactivity window is not SAM — it's guessing."</blockquote>
+    <blockquote>"Suite roll-up is the difference between counting 500 Office installs vs 500 Word + 500 Excel + 500 PowerPoint as 1,500 separate licenses."</blockquote>
+  </section>
+
+</main>
+
+<footer>
+  Consolidated from alt_parallelswarm_SAM multi-agent fleet (deepseek-flash, grok-4.6, beam, kilo) ·
+  Worktrees: samvideos, samvideos-v2, samvideos-v3, samvideos-v4 · Generated 2026-11-14/15
+</footer>
+
+</body>
+</html>
