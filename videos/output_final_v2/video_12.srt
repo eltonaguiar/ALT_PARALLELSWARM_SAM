@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:07,751
+Lab: Entitlement → Reconciliation → Compliance. 7-Step Hands-On Proof of the Full SAM Chain
+
+2
+00:00:07,751 --> 00:00:17,951
+This lab proves the entire SAM chain works. Run it in a sub-production instance. If you can explain each step, you MASTER SAM.
+
+3
+00:00:17,951 --> 00:00:42,335
+Prerequisites. Sub-production ServiceNow instance (PDI or dev) SAM Pro plugin active (com.snc.sams) ITAM plugin active (com.snc.iam) Content Library populated (Microsoft/Adobe publisher packs) Discovery data present (SCCM/Intune/Discovery) samadmin or samuser role.
+
+4
+00:00:42,335 --> 00:01:09,456
+Step 1 — Choose and Verify a Software Model. Navigate: All > Software Asset Management > Software Models Pick common product with Content Library data (Microsoft/Adobe) VERIFY it has: publisher, version, licensemetrictype, suite membership Record the model's sysid ✓ PASS: Model opens without errors, license metric populated ✗ FAIL: Empty metric = reconciliation cannot compute.
+
+5
+00:01:09,456 --> 00:01:41,016
+Step 2 — Create Entitlement Far Below Demand. Navigate: All > Software Asset Management > Licenses > All > New Set: softwaremodel = Step 1 model, licensemetric = SAME as model Quantity = 1 (deliberately far below actual installs) Start date = today, End date = today + 1 year Attach contract record (optional for lab) Save, record entitlement number ✓ PASS: Entitlement appears in model's related list, metric MATCHES model exactly.
+
+6
+00:01:41,016 --> 00:02:01,632
+Step 3 — Confirm Installs Exist. Navigate: All > Software Asset Management > Installations Filter: softwaremodel = your model Confirm install count > 1 (if zero, pick different model) Note the install count = your demand numerator ✓ PASS: Install count > 1 (real discovery data required).
+
+7
+00:02:01,632 --> 00:02:25,920
+Step 4 — Run Reconciliation. Navigate: All > Software Asset Management > Reconciliation > Results Trigger reconciliation for single software model (or scheduled job) Wait for completion Open result for your model ✓ PASS: Result record exists with: entitlementcount = 1 installcount = <your noted count> compliancestate = Under-licensed OR Unlicensed.
+
+8
+00:02:25,920 --> 00:02:49,272
+Step 5 — Prove the Fix (True-Up). Update entitlement quantity to exceed install count (e.g., installcount + 5) Re-run reconciliation ✓ PASS: Compliance state flips to Compliant (or Over-licensed) ✓ PASS: State change is TIMESTAMPED ✓ PASS: Previous result RETAINED (reconciliation results = history, not mutable).
+
+9
+00:02:49,272 --> 00:03:17,016
+Step 6 — Prove Normalization Matters. Navigate: All > Software Asset Management > Discovery Models Find unmatched discovery model in same publisher family Note: If counted separately → separate compliance position Normalize it to your software model (Normalize action) Re-run reconciliation ✓ PASS: Install count INCREASED, compliance position MOVED This is the SINGLE BEST DEMONSTRATION of why normalization precedes reconciliation.
+
+10
+00:03:17,016 --> 00:03:43,680
+Step 7 — Teach Back (Write It Down). Write 5 sentences covering: 1. What a software model is 2. What an entitlement is 3. What an installation is 4. What reconciliation computes 5. What a compliance position means If you can't explain it simply, you don't understand it well enough. This is the Feynman Technique — the ultimate mastery test..
+
+11
+00:03:43,680 --> 00:04:04,248
+LAB PROVES THE CHAIN: Software Model (canonical) → Discovery Model (raw) → Installation (concrete) → Entitlement (rights) → Reconciliation (arithmetic) → Compliance Position (verdict) Every step is auditable, timestamped, and reversible. This is what a seasoned SAM expert demonstrates in an interview.
+
+12
+00:04:04,248 --> 00:04:44,951
+Interview Talking Points from This Lab. I've run the full reconciliation cycle end-to-end in a live instance I know the exact tables: cmdbsoftwareproductmodel, cmdbsamswdiscoverymodel, cmdbsamswinstall, almlicense, sampresult I understand metric mismatch silently breaks reconciliation I know normalization precedes entitlement — unnormalized = unlicensed I can explain the 6 compliance positions and why Unknown ≠ Compliant I know the 8 traps and how to fix each I've done reclamation with 60-90 day windows and business owner sign-off I align renewal quantities to reconciled demand, not vendor proposals.
+
+13
+00:04:44,951 --> 00:05:02,783
+Congratulations! You've completed the SAM Expert Series. Next Steps: • Run the lab in your PDI • Take the CIS-SAM prep course • Schedule your exam • Join the ServiceNow Community SAM group You now have the knowledge of a seasoned SAM expert. Go prove it. .
