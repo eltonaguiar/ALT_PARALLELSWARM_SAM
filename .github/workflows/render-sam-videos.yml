@@ -128,16 +128,18 @@ jobs:
           path: videos/output/*.mp4
           retention-days: 30
 
-      - name: Commit MP4s to repository
+      - name: Commit MP4s to GitHub Pages docs folder
         run: |
-          cd videos/output
+          mkdir -p docs/sam-videos
+          cp videos/output/*.mp4 docs/sam-videos/
+          cd docs/sam-videos
           for mp4 in *.mp4; do
             git add "$mp4"
           done
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           if ! git diff --cached --quiet; then
-            git commit -m "chore: add rendered SAM videos [skip ci]"
+            git commit -m "chore: add rendered SAM videos to GitHub Pages [skip ci]"
             git push
           else
             echo "No new MP4s to commit"

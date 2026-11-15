@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:07,080
+ServiceNow SAM in 60 Seconds. Software Asset Management Essentials for CIS-SAM
+
+2
+00:00:07,080 --> 00:00:17,135
+SAM is the ONLY IT practice that directly prevents seven-figure audit penalties while finding 5-15% waste in software spend — in year one.
+
+3
+00:00:17,135 --> 00:00:32,375
+What is SAM? (One Sentence). SAM reconciles what you OWN (entitlements) against what EXISTS and is USED (installs + usage) per software model and license metric, producing a compliance position.
+
+4
+00:00:32,375 --> 00:00:58,944
+SAM vs HAM vs ITAM. Tracks Physical assets Entitlements, installs, usage Full portfolio Core Question What do we own, where, who? Are we compliant? Cost & risk Key Engine Asset lifecycle RECONCILIATION Both engines Primary Risk Lost/stolen assets Publisher audit fines Both Exam Focus Hardware normalization Metric + publisher rules Integration
+
+5
+00:00:58,944 --> 00:01:27,743
+The SAM Chain (Memorize: I-D-S-E-R). Install → Discovery Model → Software Model → Entitlement → Reconciliation → Compliance Position I - Install (cmdbsamswinstall) D - Discovery Model (cmdbsamswdiscoverymodel) S - Software Model (cmdbsoftwareproductmodel) E - Entitlement (almlicense) R - Reconciliation (sampresult) Mnemonic: I-D-S-E-R = Install, Discovery, Software, Entitlement, Reconciliation
+
+6
+00:01:27,743 --> 00:01:56,903
+Three Records Never to Confuse. Software Model = What it IS (canonical definition from Content Library) Entitlement = What you MAY USE (contract rights, quantity, metric) Installation = What EXISTS (one install on one device) Reconciliation = THE DIFFERENCE (computed nightly/weekly). Model ≠ Entitlement ≠ Install. Confusing them = wrong compliance.
+
+7
+00:01:56,903 --> 00:02:11,543
+Business case in one line: SAM returns 5-15% of software spend in year one through reclamation and right-sizing, and removes catastrophic audit exposure on Microsoft, Oracle, IBM — the top three publishers.
+
+8
+00:02:11,543 --> 00:02:17,327
+Next: The Chain — Install → Discovery Model → Software Model → Entitlement → Result.
