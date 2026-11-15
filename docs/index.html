@@ -27,6 +27,8 @@
   .card video { width: 100%; border-radius: 6px; background: #000; }
   .card h4 { font-size: .95rem; margin-bottom: 4px; color: #fff; }
   .card .meta { color: var(--muted); font-size: .8rem; }
+  .card .download { display: inline-block; margin-top: 8px; background: var(--accent); color: #fff; text-decoration: none; padding: 6px 14px; border-radius: 6px; font-size: .85rem; font-weight: 600; }
+  .card .download:hover { background: #0a8a52; }
   .summary { background: #0f1a26; border: 1px solid var(--accent); border-radius: 12px; padding: 20px; }
   .summary blockquote { border-left: 4px solid var(--accent); padding: 8px 14px; margin: 10px 0; background: #16263a; border-radius: 0 6px 6px 0; font-style: italic; }
   .summary pre { background: #0b1420; padding: 14px; border-radius: 8px; overflow-x: auto; font-size: .85rem; margin: 10px 0; white-space: pre; }
@@ -65,16 +67,19 @@
       <div class="card">
         <h4>Video 1 · SAM in 60 Seconds</h4>
         <video controls preload="metadata"><source src="sam-videos/videos/video_01_audio.mp4" type="video/mp4"></video>
+        <a class="download" href="sam-videos/videos/video_01_audio.mp4" download>⬇ Download MP4</a>
         <p class="meta">40s · Definition, SAM vs HAM vs ITAM, chain overview</p>
       </div>
       <div class="card">
         <h4>Video 1f · SAM in 60 Seconds (Full)</h4>
-        <video controls preload="metadata"><source src="sam-videos/videos/video_01_audio.mp4" type="video/mp4"></video>
-        <p class="meta">65s · Extended intro with the chain</p>
+        <video controls preload="metadata" poster=""><source src="sam-videos/videos/video_01_full_audio.mp4" type="video/mp4"></video>
+        <a class="download" href="sam-videos/videos/video_01_full_audio.mp4" download>⬇ Download MP4 (58s, full)</a>
+        <p class="meta">58s · Extended intro with narration</p>
       </div>
       <div class="card">
         <h4>Video 2 · The Chain</h4>
         <video controls preload="metadata"><source src="sam-videos/videos/video_02_audio.mp4" type="video/mp4"></video>
+        <a class="download" href="sam-videos/videos/video_02_audio.mp4" download>⬇ Download MP4</a>
         <p class="meta">40s · Install → Discovery → Model → Entitlement → Result</p>
       </div>
     </div>
@@ -86,11 +91,13 @@
       <div class="card">
         <h4>Video 3 · Normalization (SUMN) Deep Dive</h4>
         <video controls preload="metadata"><source src="sam-videos/videos/video_03_audio.mp4" type="video/mp4"></video>
+        <a class="download" href="sam-videos/videos/video_03_audio.mp4" download>⬇ Download MP4</a>
         <p class="meta">40s · SUMN pipeline, 6 statuses, Content Library</p>
       </div>
       <div class="card">
         <h4>Video 4 · Entitlements</h4>
         <video controls preload="metadata"><source src="sam-videos/videos/video_04_audio.mp4" type="video/mp4"></video>
+        <a class="download" href="sam-videos/videos/video_04_audio.mp4" download>⬇ Download MP4</a>
         <p class="meta">40s · Contracts, metrics, hygiene rules</p>
       </div>
     </div>
@@ -102,11 +109,13 @@
       <div class="card">
         <h4>Video 5 · Reconciliation Engine Explained</h4>
         <video controls preload="metadata"><source src="sam-videos/videos/video_05_audio.mp4" type="video/mp4"></video>
+        <a class="download" href="sam-videos/videos/video_05_audio.mp4" download>⬇ Download MP4</a>
         <p class="meta">45s · 3 tiers, step-by-step, what breaks it</p>
       </div>
       <div class="card">
         <h4>Video 6 · Compliance Positions</h4>
         <video controls preload="metadata"><source src="sam-videos/videos/video_06_audio.mp4" type="video/mp4"></video>
+        <a class="download" href="sam-videos/videos/video_06_audio.mp4" download>⬇ Download MP4</a>
         <p class="meta">40s · 6 states, Unknown ≠ Compliant</p>
       </div>
     </div>
@@ -118,11 +127,13 @@
       <div class="card">
         <h4>Video 7 · Publisher Traps</h4>
         <video controls preload="metadata"><source src="sam-videos/videos/video_07_audio.mp4" type="video/mp4"></video>
+        <a class="download" href="sam-videos/videos/video_07_audio.mp4" download>⬇ Download MP4</a>
         <p class="meta">50s · Microsoft, Oracle, IBM, SAP, Adobe</p>
       </div>
       <div class="card">
         <h4>Video 8 · SaaS License Management</h4>
         <video controls preload="metadata"><source src="sam-videos/videos/video_08_audio.mp4" type="video/mp4"></video>
+        <a class="download" href="sam-videos/videos/video_08_audio.mp4" download>⬇ Download MP4</a>
         <p class="meta">40s · Assigned seats vs usage, reclamation</p>
       </div>
     </div>
@@ -134,21 +145,25 @@
       <div class="card">
         <h4>Video 9 · Optimization &amp; Reclamation</h4>
         <video controls preload="metadata"><source src="sam-videos/videos/video_09_audio.mp4" type="video/mp4"></video>
+        <a class="download" href="sam-videos/videos/video_09_audio.mp4" download>⬇ Download MP4</a>
         <p class="meta">45s · Priority order, 60–90 day rule</p>
       </div>
       <div class="card">
         <h4>Video 10 · Top 8 SAM Traps</h4>
         <video controls preload="metadata"><source src="sam-videos/videos/video_10_audio.mp4" type="video/mp4"></video>
+        <a class="download" href="sam-videos/videos/video_10_audio.mp4" download>⬇ Download MP4</a>
         <p class="meta">60s · Exam &amp; real-world pitfalls</p>
       </div>
       <div class="card">
         <h4>Video 11 · CIS-SAM Exam Map</h4>
         <video controls preload="metadata"><source src="sam-videos/videos/video_11_audio.mp4" type="video/mp4"></video>
+        <a class="download" href="sam-videos/videos/video_11_audio.mp4" download>⬇ Download MP4</a>
         <p class="meta">45s · 5 domains &amp; weights, study strategy</p>
       </div>
       <div class="card">
         <h4>Video 12 · Lab Walkthrough</h4>
         <video controls preload="metadata"><source src="sam-videos/videos/video_12_audio.mp4" type="video/mp4"></video>
+        <a class="download" href="sam-videos/videos/video_12_audio.mp4" download>⬇ Download MP4</a>
         <p class="meta">65s · Entitlement → Compliance proof</p>
       </div>
     </div>
