@@ -13,19 +13,19 @@ All videos are served from this page. The full playlist files are in the `videos
 
 | # | Video File | Title | Duration |
 |---|------------|-------|----------|
-| 1 | [video_01.mp4](./videos/video_01.mp4) | SAM in 60 Seconds (Intro) | 40s |
-| 1f | [video_01_sam_60s.mp4](./videos/video_01_sam_60s.mp4) | SAM in 60 Seconds (Full) | 65s |
-| 2 | [video_02.mp4](./videos/video_02.mp4) | The Chain: Install → Discovery → Model → Entitlement → Result | 40s |
-| 3 | [video_03.mp4](./videos/video_03.mp4) | Normalization (SUMN) Deep Dive | 40s |
-| 4 | [video_04.mp4](./videos/video_04.mp4) | Entitlements: Contracts, Metrics, Hygiene | 40s |
-| 5 | [video_05.mp4](./videos/video_05.mp4) | Reconciliation Engine Explained | 45s |
-| 6 | [video_06.mp4](./videos/video_06.mp4) | Compliance Positions — 6 States, Unknown ≠ Compliant | 40s |
-| 7 | [video_07.mp4](./videos/video_07.mp4) | Publisher Traps — Microsoft, Oracle, IBM, SAP, Adobe | 50s |
-| 8 | [video_08.mp4](./videos/video_08.mp4) | SaaS License Management | 40s |
-| 9 | [video_09.mp4](./videos/video_09.mp4) | Optimization & Reclamation — Where SAM Pays for Itself | 45s |
-| 10 | [video_10.mp4](./videos/video_10.mp4) | Top 8 SAM Traps — Exam & Real World | 60s |
-| 11 | [video_11.mp4](./videos/video_11.mp4) | CIS-SAM Exam Map & Study Strategy | 45s |
-| 12 | [video_12.mp4](./videos/video_12.mp4) | Lab Walkthrough: Entitlement → Reconciliation → Compliance | 65s |
+| 1 | [video_01.mp4](./videos/video_01_audio.mp4) | SAM in 60 Seconds (Intro) | 40s |
+| 1f | [video_01_sam_60s.mp4](./videos/video_01_audio.mp4) | SAM in 60 Seconds (Full) | 65s |
+| 2 | [video_02.mp4](./videos/video_02_audio.mp4) | The Chain: Install → Discovery → Model → Entitlement → Result | 40s |
+| 3 | [video_03.mp4](./videos/video_03_audio.mp4) | Normalization (SUMN) Deep Dive | 40s |
+| 4 | [video_04.mp4](./videos/video_04_audio.mp4) | Entitlements: Contracts, Metrics, Hygiene | 40s |
+| 5 | [video_05.mp4](./videos/video_05_audio.mp4) | Reconciliation Engine Explained | 45s |
+| 6 | [video_06.mp4](./videos/video_06_audio.mp4) | Compliance Positions — 6 States, Unknown ≠ Compliant | 40s |
+| 7 | [video_07.mp4](./videos/video_07_audio.mp4) | Publisher Traps — Microsoft, Oracle, IBM, SAP, Adobe | 50s |
+| 8 | [video_08.mp4](./videos/video_08_audio.mp4) | SaaS License Management | 40s |
+| 9 | [video_09.mp4](./videos/video_09_audio.mp4) | Optimization & Reclamation — Where SAM Pays for Itself | 45s |
+| 10 | [video_10.mp4](./videos/video_10_audio.mp4) | Top 8 SAM Traps — Exam & Real World | 60s |
+| 11 | [video_11.mp4](./videos/video_11_audio.mp4) | CIS-SAM Exam Map & Study Strategy | 45s |
+| 12 | [video_12.mp4](./videos/video_12_audio.mp4) | Lab Walkthrough: Entitlement → Reconciliation → Compliance | 65s |
 
 > **Phase 2 versions (narration + burned-in subtitles):** `video_01_final.mp4` and `video_02_final.mp4` are also available in the parent folder with aligned SRT subtitles (`subtitles/video_01.srt`, `subtitles/video_02.srt`).
 
