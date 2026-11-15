@@ -290,3 +290,26 @@ Priority order:
 | Pipeline | YAML → PPTX → PNG → FFmpeg (libx264), 1920×1080, 30fps |
 | Narration | edge-tts (en-US-AriaNeural) |
 | Subtitles | Slide-aligned SRT (no overlapping captions) |
+
+---
+
+## 💬 Interview Q&A — How ServiceNow Measures Software Entitlements
+
+**Q:** How does ServiceNow measure software entitlement — by contract start/end date, by quantity, or both?
+
+**A:** ServiceNow measures and evaluates software entitlements using **both quantity and start/end dates**, depending on whether it is measuring compliance (license exhaustion) or temporal validity (active/expired status).
+
+**1. By Quantity (License Counts & Rights)**
+- **Purchased / Active Rights:** tracks how many licenses, packs, or concurrent user limits you bought (e.g., 100 installed/purchased rights).
+- **Reconciliation & Consumption:** during SAM reconciliation, ServiceNow compares discovered/installed quantity against the available purchased-rights quantity.
+- If installations exceed purchased quantity → flags **non-compliance** or triggers an **overallocation / true-up alert**.
+
+**2. By Start Date and End Date (Time & Duration)**
+- **License Duration:** either **Perpetual** (continuous, no expiration) or **Subscription** (valid for a specific time frame).
+- **Validity Dates:** start and end dates dictate when the entitlement is active.
+- **Automated State Changes:**
+  - **In Use** when current date falls between start and end dates.
+  - **Retired/expired** when the date passes the end date (and active rights hit zero).
+  - **On Order** if the start date is in the future.
+
+**Summary:** ServiceNow uses **quantity** to determine how many installations are covered vs how many you own, and **start/end dates** to determine when those rights are valid/active. Both work together during SAM compliance calculations.

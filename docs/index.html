@@ -247,6 +247,32 @@
     <blockquote>"The reconciliation engine is just arithmetic: entitlements minus installs minus usage, but the complexity is in the normalization pipeline and publisher rules."</blockquote>
     <blockquote>"Reclamation without a 60-90 day inactivity window is not SAM — it's guessing."</blockquote>
     <blockquote>"Suite roll-up is the difference between counting 500 Office installs vs 500 Word + 500 Excel + 500 PowerPoint as 1,500 separate licenses."</blockquote>
+
+    <h3>Interview Q&amp;A — How ServiceNow Measures Software Entitlements</h3>
+    <p><strong>Q:</strong> How does ServiceNow measure software entitlement — by contract start/end date, by quantity, or both?</p>
+    <p><strong>A:</strong> ServiceNow measures and evaluates software entitlements using <strong>both quantity and start/end dates</strong>, depending on whether it is measuring compliance (license exhaustion) or temporal validity (active/expired status).</p>
+
+    <h3>1. By Quantity (License Counts &amp; Rights)</h3>
+    <ul>
+      <li><strong>Purchased / Active Rights:</strong> ServiceNow tracks how many licenses, packs, or concurrent user limits you bought (e.g., 100 installed/purchased rights).</li>
+      <li><strong>Reconciliation &amp; Consumption:</strong> During SAM reconciliation, ServiceNow compares the quantity of discovered or installed software across your infrastructure against the available purchased-rights quantity.</li>
+      <li>If installations exceed the purchased quantity, it flags <strong>non-compliance</strong> or triggers an <strong>overallocation / true-up alert</strong>.</li>
+    </ul>
+
+    <h3>2. By Start Date and End Date (Time &amp; Duration)</h3>
+    <ul>
+      <li><strong>License Duration:</strong> Entitlements have a duration type — either <strong>Perpetual</strong> (continuous, no expiration) or <strong>Subscription</strong> (valid for a specific time frame).</li>
+      <li><strong>Validity Dates:</strong> For subscriptions or time-bound licenses, start and end dates dictate when the entitlement is active.</li>
+      <li><strong>Automated State Changes:</strong>
+        <ul>
+          <li>ServiceNow automatically sets the state to <strong>In Use</strong> when the current date falls between the start and end dates.</li>
+          <li>It sets the state to <strong>Retired/expired</strong> when the date passes the end date (and active rights hit zero).</li>
+          <li>It marks it as <strong>On Order</strong> if the start date is set in the future.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <blockquote><strong>Summary:</strong> ServiceNow uses <strong>quantity</strong> to figure out how many installations are covered versus how many you own, and <strong>start/end dates</strong> to figure out when those rights are valid and active. Both work together during SAM compliance calculations.</blockquote>
   </section>
 
 </main>
